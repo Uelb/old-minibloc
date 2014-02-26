@@ -1,0 +1,27 @@
+{
+  "apiVersion": "0.1",
+  "swaggerVersion": "1.2",
+  "basePath": "http://0.0.0.0:3000/",
+  "resourcePath": "phones",
+  "apis": [
+    {
+      "path": "phones",
+      "operations": [
+        {
+          "summary": "Connect a phone to the system",
+          "parameters": [
+            {
+              "paramType": "form",
+              "name": "number",
+              "type": "string",
+              "description": "The phone number",
+              "required": true
+            }
+          ],
+          "method": "post",
+          "nickname": "Phones#create"
+        }
+      ]
+    }
+  ]
+}

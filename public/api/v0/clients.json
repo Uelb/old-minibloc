@@ -1,0 +1,74 @@
+{
+  "apiVersion": "0.1",
+  "swaggerVersion": "1.2",
+  "basePath": "http://0.0.0.0:3000/",
+  "resourcePath": "clients",
+  "apis": [
+    {
+      "path": "clients/{id}",
+      "operations": [
+        {
+          "summary": "Update the callback url of a client",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "The id of the client",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "client[event_base_url]",
+              "type": "string",
+              "description": "The new url",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "api_key",
+              "type": "string",
+              "description": "The api key of the client doing the request",
+              "required": true
+            }
+          ],
+          "method": "patch",
+          "nickname": "Clients#update"
+        }
+      ]
+    },
+    {
+      "path": "clients/{id}",
+      "operations": [
+        {
+          "summary": "Update the callback url of a client",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "The id of the client",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "client[event_base_url]",
+              "type": "string",
+              "description": "The new url",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "api_key",
+              "type": "string",
+              "description": "The api key of the client doing the request",
+              "required": true
+            }
+          ],
+          "method": "put",
+          "nickname": "Clients#update"
+        }
+      ]
+    }
+  ]
+}

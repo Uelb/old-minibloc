@@ -2,6 +2,7 @@ class PhonesController < ApplicationController
 	swagger_controller :phones, "Add a new phone"
 
 	swagger_api :create do 
+		summary "Connect a phone to the system"
 		param :form, :number, :string, :required, "The phone number"
 	end
 

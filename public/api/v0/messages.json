@@ -1,0 +1,199 @@
+{
+  "apiVersion": "0.1",
+  "swaggerVersion": "1.2",
+  "basePath": "http://0.0.0.0:3000/",
+  "resourcePath": "messages",
+  "apis": [
+    {
+      "path": "messages",
+      "operations": [
+        {
+          "summary": "A phone can retrieve messages to send and a client can see the messages he has sent",
+          "parameters": [
+            {
+              "paramType": "form",
+              "name": "api_key",
+              "type": "string",
+              "description": "The api key of the client doing the request",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "token",
+              "type": "string",
+              "description": "The token of the phone doing the request",
+              "required": false
+            }
+          ],
+          "method": "get",
+          "nickname": "Messages#index"
+        }
+      ]
+    },
+    {
+      "path": "messages",
+      "operations": [
+        {
+          "summary": "Send a new message, do not forget to save the returned id to be able to retrieve the message later",
+          "parameters": [
+            {
+              "paramType": "form",
+              "name": "recipient",
+              "type": "string",
+              "description": "The recipient number of the message (0612345678)",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "body",
+              "type": "string",
+              "description": "The body of the message",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "api_key",
+              "type": "string",
+              "description": "The api key of the client doing the request",
+              "required": true
+            }
+          ],
+          "method": "post",
+          "nickname": "Messages#create"
+        }
+      ]
+    },
+    {
+      "path": "messages/{id}",
+      "operations": [
+        {
+          "summary": "Retrieve the information of a message",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "The id of the message",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "api_key",
+              "type": "string",
+              "description": "The api key of the client doing the request",
+              "required": true
+            }
+          ],
+          "method": "get",
+          "nickname": "Messages#show"
+        }
+      ]
+    },
+    {
+      "path": "messages/{id}",
+      "operations": [
+        {
+          "summary": "Change the status code of a message",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "the id of the message",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "message[:status_id]",
+              "type": "integer",
+              "description": "The new status code of the message",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "token",
+              "type": "string",
+              "description": "The token of the phone doing the request",
+              "required": true
+            }
+          ],
+          "method": "patch",
+          "nickname": "Messages#update"
+        }
+      ]
+    },
+    {
+      "path": "messages/{id}",
+      "operations": [
+        {
+          "summary": "Change the status code of a message",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "the id of the message",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "message[:status_id]",
+              "type": "integer",
+              "description": "The new status code of the message",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "token",
+              "type": "string",
+              "description": "The token of the phone doing the request",
+              "required": true
+            }
+          ],
+          "method": "put",
+          "nickname": "Messages#update"
+        }
+      ]
+    },
+    {
+      "path": "messages/answers",
+      "operations": [
+        {
+          "summary": "Inform that a message has been answered",
+          "parameters": [
+            {
+              "paramType": "form",
+              "name": "message[:sender]",
+              "type": "string",
+              "description": "The sender number of the message",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "message[:recipient]",
+              "type": "string",
+              "description": "The receiver number of the message",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "message[:body]",
+              "type": "string",
+              "description": "The body of the message",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "token",
+              "type": "string",
+              "description": "The token of the phone doing the request",
+              "required": true
+            }
+          ],
+          "method": "post",
+          "nickname": "Messages#answer"
+        }
+      ]
+    }
+  ]
+}
