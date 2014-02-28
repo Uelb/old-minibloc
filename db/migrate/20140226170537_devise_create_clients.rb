@@ -20,7 +20,7 @@ class DeviseCreateClients < ActiveRecord::Migration
       t.string   :last_sign_in_ip
 
       #custom
-      t.string :api_key, :null => false
+      t.string :api_key
       t.string :name, :null => false
       t.string :event_base_url
 

@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20140226171647) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.string   "api_key",                             null: false
+    t.string   "api_key"
     t.string   "name",                                null: false
     t.string   "event_base_url"
     t.datetime "created_at"

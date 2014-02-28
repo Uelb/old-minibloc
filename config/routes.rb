@@ -3,8 +3,12 @@ ApiTactic::Application.routes.draw do
   get '/api/*path', to: 'api#get', defaults: { format: 'json' }
   match '/*path' => 'application#cors_preflight_check', :via => :options
   resources :clients, only: :update
-  resources :messages, only: [:create, :show, :update, :index]
+  resources :messages, only: [:create, :show, :update, :index] do
+  	collection do
+  		post 'answers'
+  	end
+  end
   resources :phones, only: :create
   resources :statuses, only: :show
-  post '/messages/answers', to: 'messages#answer'
+  root 'messages#index'
 end
