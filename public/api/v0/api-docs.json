@@ -1,22 +1,22 @@
 {
   "apiVersion": "0.1",
   "swaggerVersion": "1.2",
-  "basePath": "http://0.0.0.0:3000/",
+  "basePath": "http://vitasms.oxynum.fr/",
   "apis": [
     {
-      "path": "http://0.0.0.0:3000/api/clients.{format}",
+      "path": "http://vitasms.oxynum.fr/api/clients.{format}",
       "description": "Management of a client account"
     },
     {
-      "path": "http://0.0.0.0:3000/api/messages.{format}",
+      "path": "http://vitasms.oxynum.fr/api/messages.{format}",
       "description": "Messages management"
     },
     {
-      "path": "http://0.0.0.0:3000/api/phones.{format}",
+      "path": "http://vitasms.oxynum.fr/api/phones.{format}",
       "description": "Add a new phone"
     },
     {
-      "path": "http://0.0.0.0:3000/api/statuses.{format}",
+      "path": "http://vitasms.oxynum.fr/api/statuses.{format}",
       "description": "Statuses management"
     }
   ]

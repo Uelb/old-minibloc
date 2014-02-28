@@ -58,6 +58,7 @@ class MessagesController < ApplicationController
 	def answer
 		@phone = Phone.where(token: params[:token]).first
 		@main_message = Message.where(:recipient => answer_message_params[:sender]).first
+		return unless @main_message
 		@message = Message.new answer_message_params
 		@message.recipient = @phone.number
 		@message.sent_at = DateTime.now
@@ -75,6 +76,11 @@ class MessagesController < ApplicationController
 	def update
 		@message = Message.where(id: params[:id]).first
 		@message.update_attributes update_message_params
+		@message.send_status_to_server
+		respond_to do |format|
+      		format.html { redirect_to message_path(@m) and return}
+      		format.json { render :json => @message }
+    	end
 	end
 
 	def index
