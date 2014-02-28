@@ -21,9 +21,10 @@ class ApplicationController < ActionController::Base
 
   protected
   def authenticate!
-  	if params[:api_key]
+    p params
+  	if !params[:api_key].blank?
   		authenticate_client_with_token!
-  	elsif params[:token]
+  	elsif !params[:token].blank?
   		authenticate_phone!
   	else
   		authenticate_client!

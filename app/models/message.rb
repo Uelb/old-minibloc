@@ -7,13 +7,13 @@ class Message < ActiveRecord::Base
 	belongs_to :phone
 	has_many :answers, class_name: "Message", foreign_key: :main_message_id
 	validates_presence_of :recipient, :body
-	scope :not_sent, -> { where(status_id: 211) }
+	scope :not_sent, -> { where(status_id: Status.WAITING) }
 	before_save :format_tel_number
 	after_create :send_to_server_if_answer
 
 	def format_tel_number
-		sender = sender.gsub(/[ -]/,"").gsub("+33","0")
-		recipient = recipient.gsub(/[ -]/,"").gsub("+33","0")
+		sender &&= sender.gsub(/[ -]/,"").gsub("+33","0")
+		recipient &&= recipient.gsub(/[ -]/,"").gsub("+33","0")
 	end
 
 	def send_to_server_if_answer
@@ -25,6 +25,7 @@ class Message < ActiveRecord::Base
 	end
 
 	def send_status_to_server
+		return unless client.event_base_url
 		url = client.event_base_url.chomp("/") + "/status"
 		post url, message_id: id, status: status
 	end

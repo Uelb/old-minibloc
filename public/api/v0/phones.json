@@ -12,7 +12,7 @@
           "parameters": [
             {
               "paramType": "form",
-              "name": "number",
+              "name": "phone[number]",
               "type": "string",
               "description": "The phone number",
               "required": true

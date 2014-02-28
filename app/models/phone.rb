@@ -1,9 +1,8 @@
 class Phone < ActiveRecord::Base
-	validates_presence_of :token
 	has_many :messages
 	before_create :generate_token
 	before_create :ping
-
+	validates_uniqueness_of :token
 
 	def ping
 		last_ping_date = DateTime.now
