@@ -41,10 +41,8 @@ class MessagesController < ApplicationController
 		@m.status_id = Status.WAITING
 		@m.client = current_client
 		@m.save
-		respond_to do |format|
-      		format.html { redirect_to message_path(@m) and return}
-      		format.json { render :json => @m }
-    	end
+
+    render :json => @m
 	end
 
 	def show
@@ -86,10 +84,7 @@ class MessagesController < ApplicationController
 			@messages = Message.not_sent.first 25
 			Message.update_all({status_id: Status.RETRIEVED, phone_id: Phone.where(token: params[:token]).first.id}, {id: @messages.map(&:id)})
 		end
-		respond_to do |format|
-      		format.html { }
-      		format.json { render :json => @messages }
-    	end
+		render :json => @messages
 	end
 
 	private
