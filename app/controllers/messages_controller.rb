@@ -9,13 +9,11 @@ class MessagesController < ApplicationController
 		summary "Send a new message, do not forget to save the returned id to be able to retrieve the message later"
 		param :form, 'message[recipient]', :string, :required, "The recipient number of the message (0612345678)"
 		param :form, 'message[body]', :string, :required, "The body of the message"
-		param :form, :api_key, :string, :required, "The api key of the client doing the request"
 	end
 
 	swagger_api :show do 
 		summary "Retrieve the information of a message"
 		param :path, :id, :integer, :required, "The id of the message"
-		param :query, :api_key, :string, :required, "The api key of the client doing the request"
 	end
 
 	swagger_api :answer do 
@@ -35,7 +33,6 @@ class MessagesController < ApplicationController
 
 	swagger_api :index do
 		summary "A phone can retrieve messages to send and a client can see the messages he has sent"
-		param :query, :api_key, :string, :optional, "The api key of the client doing the request"
 		param :query, :token, :string, :optional, "The token of the phone doing the request" 
 	end
 
@@ -52,10 +49,9 @@ class MessagesController < ApplicationController
 
 	def show
 		@m = current_client.messages.where(id: params[:id]).first
-		respond_to do |format|
-      		format.html
-      		format.json { render :json => @m }
-    	end
+		if params[:api_key]
+			render json: @m and return
+		end
 	end
 
 	def answer

@@ -12,13 +12,6 @@
           "parameters": [
             {
               "paramType": "query",
-              "name": "api_key",
-              "type": "string",
-              "description": "The api key of the client doing the request",
-              "required": false
-            },
-            {
-              "paramType": "query",
               "name": "token",
               "type": "string",
               "description": "The token of the phone doing the request",
@@ -49,13 +42,6 @@
               "type": "string",
               "description": "The body of the message",
               "required": true
-            },
-            {
-              "paramType": "form",
-              "name": "api_key",
-              "type": "string",
-              "description": "The api key of the client doing the request",
-              "required": true
             }
           ],
           "method": "post",
@@ -74,13 +60,6 @@
               "name": "id",
               "type": "integer",
               "description": "The id of the message",
-              "required": true
-            },
-            {
-              "paramType": "query",
-              "name": "api_key",
-              "type": "string",
-              "description": "The api key of the client doing the request",
               "required": true
             }
           ],
@@ -161,13 +140,6 @@
         {
           "summary": "A phone can retrieve messages to send and a client can see the messages he has sent",
           "parameters": [
-            {
-              "paramType": "query",
-              "name": "api_key",
-              "type": "string",
-              "description": "The api key of the client doing the request",
-              "required": false
-            },
             {
               "paramType": "query",
               "name": "token",

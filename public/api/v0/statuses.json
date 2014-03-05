@@ -19,13 +19,6 @@
             },
             {
               "paramType": "query",
-              "name": "api_key",
-              "type": "string",
-              "description": "The api key of the client doing the request",
-              "required": false
-            },
-            {
-              "paramType": "query",
               "name": "token",
               "type": "string",
               "description": "The token of the phone doing the request",

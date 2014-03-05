@@ -5,7 +5,6 @@ class ClientsController < ApplicationController
 		summary "Update the callback url of a client"
 		param :path, :id, :integer, :required, "The id of the client"
 		param :form, 'client[event_base_url]', :string, :required, "The new url"
-		param :form, :api_key, :string, :required, "The api key of the client doing the request"
 	end
 
 	def update

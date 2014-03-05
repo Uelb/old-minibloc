@@ -14,15 +14,13 @@ class ApplicationController < ActionController::Base
     headers['Access-Control-Allow-Origin'] = '*' 
     headers['Access-Control-Allow-Methods'] = 'POST, PUT, DELETE, GET, OPTIONS'
     headers['Access-Control-Request-Method'] = '*' 
-    headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
+    headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization, X-CSRF-Token'
     headers['Access-Control-Max-Age'] = "1728000"
   end
-  
 
   protected
   def authenticate!
-    p params
-  	if !params[:api_key].blank?
+  	if !params['api_key'].blank?
   		authenticate_client_with_token!
   	elsif !params[:token].blank?
   		authenticate_phone!
@@ -39,15 +37,16 @@ class ApplicationController < ActionController::Base
   	end
   end
 
-  def authenticate_client_with_token!
-  	if Client.exists? api_key: params[:api_key]
-  		client = Client.find_by_api_key params[:api_key]
-	    if client && Devise.secure_compare(client.api_key, params[:api_key])
-	      sign_in client, store: false
-	      authenticate_client!
-	    end
+  def authenticate_client_with_token! 
+    # Notice how we use Devise.secure_compare to compare the token
+    # in the database with the token given in the params, mitigating
+    # timing attacks.
+    api_key = params['api_key']
+    client = Client.find_by_api_key api_key
+    if client && Devise.secure_compare(client.api_key, api_key)
+      sign_in client, store: false
     else
-  		render text: "Unauthorized", status: 401 and return 
+      render text: "Unauthorized", status: 401 and return 
     end
   end
 

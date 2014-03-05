@@ -23,13 +23,6 @@
               "type": "string",
               "description": "The new url",
               "required": true
-            },
-            {
-              "paramType": "form",
-              "name": "api_key",
-              "type": "string",
-              "description": "The api key of the client doing the request",
-              "required": true
             }
           ],
           "method": "patch",
@@ -55,13 +48,6 @@
               "name": "client[event_base_url]",
               "type": "string",
               "description": "The new url",
-              "required": true
-            },
-            {
-              "paramType": "form",
-              "name": "api_key",
-              "type": "string",
-              "description": "The api key of the client doing the request",
               "required": true
             }
           ],
