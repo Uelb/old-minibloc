@@ -8,10 +8,7 @@ class PhonesController < ApplicationController
 
 	def create
 		@p = Phone.where(phone_params).first_or_create
-		respond_to do |format|
-      		format.html { redirect_to phone_path(@p) and return }
-      		format.json { render :json => @p }
-    	end
+		render :json => @p
 	end
 
 	private

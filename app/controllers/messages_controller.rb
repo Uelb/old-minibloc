@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
 	before_filter :authenticate_client_with_token!, only: [:create, :show]
 	before_filter :authenticate!, only: :index
-	before_filter :authenticate_phone!, only: [:answer, :update]
+	before_filter :authenticate_phone!, only: [:answers, :update]
 
 	swagger_controller :messages, "Messages management"
 
@@ -16,7 +16,7 @@ class MessagesController < ApplicationController
 		param :path, :id, :integer, :required, "The id of the message"
 	end
 
-	swagger_api :answer do 
+	swagger_api :answers do 
 		summary "Inform that a message has been answered"
 		param :form, 'message[sender]', :string, :required, "The sender number of the message"
 		param :form, 'message[recipient]', :string, :optional, "The receiver number of the message"
@@ -54,7 +54,7 @@ class MessagesController < ApplicationController
 		end
 	end
 
-	def answer
+	def answers
 		@phone = Phone.where(token: params[:token]).first
 		@main_message = Message.where(:recipient => answer_message_params[:sender]).first
 		return unless @main_message
