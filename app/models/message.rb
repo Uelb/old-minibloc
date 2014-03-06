@@ -12,8 +12,12 @@ class Message < ActiveRecord::Base
 	after_create :send_to_server_if_answer
 
 	def format_tel_number
-		sender &&= sender.gsub(/[ -]/,"").gsub("+33","0")
-		recipient &&= recipient.gsub(/[ -]/,"").gsub("+33","0")
+		Message.format_tel_number sender
+		Message.format_tel_number recipient
+	end
+
+	def self.format_tel_number number
+		number &&= number.gsub(/[ -]/,"").gsub("+33","0")
 	end
 
 	def send_to_server_if_answer

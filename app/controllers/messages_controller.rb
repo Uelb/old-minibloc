@@ -54,7 +54,7 @@ class MessagesController < ApplicationController
 
 	def answers
 		@phone = Phone.where(token: params[:token]).first
-		@main_message = Message.where(:recipient => answer_message_params[:sender]).first
+		@main_message = Message.where(:recipient => Message.format_tel_number(answer_message_params[:sender])).first
 		return unless @main_message
 		@message = Message.new answer_message_params
 		@message.recipient = @phone.number
