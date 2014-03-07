@@ -30,9 +30,7 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate_phone!
-  	if Phone.exists? token: params[:token]
-      Phone.where(token: params[:token]).first.ping!
-    else
+  	if !Phone.exists? token: params[:token]
   		render text: "Unauthorized", status: 401 and return 
   	end
   end
