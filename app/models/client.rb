@@ -23,7 +23,7 @@ class Client < ActiveRecord::Base
   end
 
   private
-  def chek_if_user_phone(used_phone)
+  def check_if_user_phone(used_phone)
     raise "Not a user phone" if phones.exclude?(used_phone) && used_phone.client.id != 0
   end
 

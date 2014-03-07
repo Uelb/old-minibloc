@@ -1,6 +1,13 @@
 = render "partials/menu"
 = link_to t("phones.add"), new_phone_path
-- if @phones.empty?
+- if @all_phones.empty?
   .no_phone Vous n'avez pas de téléphone !
 - else
-  = render @phones
+  %br
+  Phones that are used
+  %br
+  = render partial: @used_phones, layout: 'used'
+  %br
+  Phones that are not used
+  %br
+  = render partial: @not_used_phones, layout: 'not_used'

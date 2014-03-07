@@ -7,7 +7,7 @@ class PhonesController < ApplicationController
 	# end
 
 	before_filter :authenticate!, only: :index
-	before_filter :authenticate_client!, only: :update
+	before_filter :authenticate_client!, only: [:update, :use, :unuse, :activate]
 
 	def create
 		@p = Phone.where(phone_params).first
@@ -22,7 +22,9 @@ class PhonesController < ApplicationController
 
 	def index
 		if current_client
-			@phones = current_client.phones
+			@all_phones = current_client.phones
+			@used_phones = current_client.used_phones
+			@not_used_phones = @all_phones - @used_phones
 		else
 			render nothing: :true, status: 401
 		end
@@ -38,10 +40,23 @@ class PhonesController < ApplicationController
 			@phone.client = current_client
 			@phone.save
 		end
+		redirect_to phones_path and return 
 	end
 
 	def resend_activation_code
 		@phone = Phone.where(number: phone_code_params).first
+	end
+
+	def use
+		@phone = Phone.where(id: params[:id]).first
+		current_client.used_phones << @phone
+		redirect_to phones_path and return 
+	end
+
+	def unuse
+		@phone = Phone.where(id: params[:id]).first
+		current_client.used_phones.delete(@phone)
+		redirect_to phones_path and return 
 	end
 
 	private

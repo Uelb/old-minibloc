@@ -1,6 +1,7 @@
 class Phone < ActiveRecord::Base
 	has_many :messages
 	belongs_to :client
+	has_many :clients_using_this_phone, through: :client_phones, source: :client
 	before_create :generate_token
 	before_create :generate_activation_code
 	before_create :ping

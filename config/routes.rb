@@ -15,6 +15,10 @@ ApiTactic::Application.routes.draw do
       post 'resend_activation_code'
       post 'activate'
     end
+    member do 
+      post 'use'
+      post 'unuse'
+    end
   end
   resources :statuses, only: :show
   root 'messages#index'
