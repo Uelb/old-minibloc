@@ -14,6 +14,6 @@ class PhonesController < ApplicationController
 
 	private
 	def phone_params
-		params.require(:phone).permit(:number)
+		params.require(:phone).permit(:number, :last_ping_date)
 	end
 end
