@@ -7,8 +7,13 @@ class PhonesController < ApplicationController
 	end
 
 	def create
-		@p = Phone.where(phone_params).first_or_create
-		@p.ping!
+		@p = Phone.where(phone_params).first
+		if @p
+			@p.last_ping_date = Time.now
+			@p.save
+		else
+			@p = Phone.create phone_params
+		end
 		render :json => @p
 	end
 

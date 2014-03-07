@@ -5,11 +5,7 @@ class Phone < ActiveRecord::Base
 	validates_uniqueness_of :token
 
 	def ping
-		last_ping_date = DateTime.now
-	end
-	def ping!
-		last_ping_date = DateTime.now
-		save!
+		last_ping_date = Time.now
 	end
 
 	protected
