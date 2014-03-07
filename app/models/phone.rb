@@ -1,5 +1,6 @@
 class Phone < ActiveRecord::Base
 	has_many :messages
+	belongs_to :client
 	before_create :generate_token
 	before_create :ping
 	validates_uniqueness_of :token

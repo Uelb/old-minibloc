@@ -1,39 +1,43 @@
 class MessagesController < ApplicationController
-	before_filter :authenticate_client_with_token!, only: [:create, :show]
-	before_filter :authenticate!, only: :index
+	before_filter :authenticate!, only: [:index, :show, :create]
+	before_filter :authenticate_client!, only: [:new, :create]
 	before_filter :authenticate_phone!, only: [:answers, :update]
 
-	swagger_controller :messages, "Messages management"
+	# swagger_controller :messages, "Messages management"
 
-	swagger_api :create do 
-		summary "Send a new message, do not forget to save the returned id to be able to retrieve the message later"
-		param :form, 'message[recipient]', :string, :required, "The recipient number of the message (0612345678)"
-		param :form, 'message[body]', :string, :required, "The body of the message"
-	end
+	# swagger_api :create do 
+	# 	summary "Send a new message, do not forget to save the returned id to be able to retrieve the message later"
+	# 	param :form, 'message[recipient]', :string, :required, "The recipient number of the message (0612345678)"
+	# 	param :form, 'message[body]', :string, :required, "The body of the message"
+	# end
 
-	swagger_api :show do 
-		summary "Retrieve the information of a message"
-		param :path, :id, :integer, :required, "The id of the message"
-	end
+	# swagger_api :show do 
+	# 	summary "Retrieve the information of a message"
+	# 	param :path, :id, :integer, :required, "The id of the message"
+	# end
 
-	swagger_api :answers do 
-		summary "Inform that a message has been answered"
-		param :form, 'message[sender]', :string, :required, "The sender number of the message"
-		param :form, 'message[recipient]', :string, :optional, "The receiver number of the message"
-		param :form, 'message[body]', :string, :required, "The body of the message"
-		param :form, :token, :string, :required, "The token of the phone doing the request" 
-	end
+	# swagger_api :answers do 
+	# 	summary "Inform that a message has been answered"
+	# 	param :form, 'message[sender]', :string, :required, "The sender number of the message"
+	# 	param :form, 'message[recipient]', :string, :optional, "The receiver number of the message"
+	# 	param :form, 'message[body]', :string, :required, "The body of the message"
+	# 	param :form, :token, :string, :required, "The token of the phone doing the request" 
+	# end
 
-	swagger_api :update do
-		summary "Change the status code of a message"
-		param :path, :id, :integer, :required, "the id of the message"
-		param :form, 'message[status_id]', :integer, :required, "The new status code of the message"
-		param :form, :token, :string, :required, "The token of the phone doing the request" 
-	end
+	# swagger_api :update do
+	# 	summary "Change the status code of a message"
+	# 	param :path, :id, :integer, :required, "the id of the message"
+	# 	param :form, 'message[status_id]', :integer, :required, "The new status code of the message"
+	# 	param :form, :token, :string, :required, "The token of the phone doing the request" 
+	# end
 
-	swagger_api :index do
-		summary "A phone can retrieve messages to send and a client can see the messages he has sent"
-		param :query, :token, :string, :optional, "The token of the phone doing the request" 
+	# swagger_api :index do
+	# 	summary "A phone can retrieve messages to send and a client can see the messages he has sent"
+	# 	param :query, :token, :string, :optional, "The token of the phone doing the request" 
+	# end
+
+	def new
+		@message = Message.new
 	end
 
 	def create
@@ -41,14 +45,17 @@ class MessagesController < ApplicationController
 		@m.status_id = Status.WAITING
 		@m.client = current_client
 		@m.save
-
-    render :json => @m
+		if params[:api_key] || params[:token]
+    	render :json => @m
+    else
+    	redirect_to message_path @m
+    end
 	end
 
 	def show
-		@m = current_client.messages.where(id: params[:id]).first
+		@message = current_client.messages.where(id: params[:id]).first
 		if params[:api_key]
-			render json: @m and return
+			render json: @message and return
 		end
 	end
 
@@ -64,10 +71,7 @@ class MessagesController < ApplicationController
 		@message.client = @main_message.client
 		@message.status_id = 0
 		@message.save
-		respond_to do |format|
-      		format.html { redirect_to message_path(@m) and return}
-      		format.json { render :json => @message }
-    	end
+  	render :json => @message
 	end	
 
 	def update
@@ -79,12 +83,15 @@ class MessagesController < ApplicationController
 
 	def index
 		if current_client
+			@client = current_client
 			@messages = current_client.messages.order('created_at DESC')
 		else #It's a phone asking
 			@messages = Message.not_sent.first 25
 			Message.update_all({status_id: Status.RETRIEVED, phone_id: Phone.where(token: params[:token]).first.id}, {id: @messages.map(&:id)})
 		end
-		render :json => @messages
+		if params[:token] || params[:api_key]
+			render :json => @messages
+		end			
 	end
 
 	private

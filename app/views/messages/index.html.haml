@@ -1,5 +1,6 @@
-- @messages.each do 
-	.message
-		.sender=message.sender
-		.recipient=message.recipient
-		.body=message.body
+= render "partials/menu"
+- if @messages.empty?
+  .no_message Pas de messages
+- else
+  = render partial: @messages, layout: 'index_layout'
+= link_to t('messages.new'), new_message_path

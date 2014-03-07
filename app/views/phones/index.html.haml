@@ -1,0 +1,5 @@
+= render "partials/menu"
+- if @phones.empty?
+  .no_phone Vous n'avez pas de téléphone !
+- else
+  = render @phones

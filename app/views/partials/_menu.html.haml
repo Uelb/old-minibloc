@@ -1,0 +1,4 @@
+= link_to(t(:logout), destroy_client_session_path, :method => :delete) 
+= link_to t('client.info'), client_path(current_client)
+= link_to t('client.phones'), phones_path
+= link_to t('client.messages'), messages_path
