@@ -5,5 +5,8 @@ en:
     edit: "Edit my account"
     update: "Update my account"
     phones: "My phone list"
+  phones:
+    activate: "Activate"
+    code: "Resend the activation code"
   messages:
     create: "Send"

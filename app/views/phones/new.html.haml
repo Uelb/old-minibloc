@@ -1,0 +1,15 @@
+= render "partials/menu"
+%br
+= t("phones.activate")
+= form_for @phone,method: :put, url: activate_phones_path do |f|
+  = f.label :number
+  = f.telephone_field :number
+  =f.label :activation_code
+  = f.text_field :activation_code
+  = f.submit t("phones.activate")
+
+= t(:resend_activation_code)
+= form_for @phone, url: resend_activation_code_phones_path do |f|
+  = f.label :number
+  = f.telephone_field :number
+  = f.submit t("phones.code")

@@ -10,7 +10,12 @@ ApiTactic::Application.routes.draw do
   		post 'answers'
   	end
   end
-  resources :phones, only: [:create, :index]
+  resources :phones, only: [:create, :index, :new, :update] do 
+    collection do 
+      post 'resend_activation_code'
+      post 'activate'
+    end
+  end
   resources :statuses, only: :show
   root 'messages#index'
 end

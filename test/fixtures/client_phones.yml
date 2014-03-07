@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  client_id: 
+  phone_id: 
+  available: false
+
+two:
+  client_id: 
+  phone_id: 
+  available: false

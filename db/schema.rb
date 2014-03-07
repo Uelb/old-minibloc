@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140307143440) do
+ActiveRecord::Schema.define(version: 20140307161242) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -45,6 +45,17 @@ ActiveRecord::Schema.define(version: 20140307143440) do
 
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+
+  create_table "client_phones", force: true do |t|
+    t.integer  "client_id"
+    t.integer  "phone_id"
+    t.boolean  "available",  default: true, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "client_phones", ["client_id"], name: "index_client_phones_on_client_id"
+  add_index "client_phones", ["phone_id"], name: "index_client_phones_on_phone_id"
 
   create_table "clients", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -85,11 +96,12 @@ ActiveRecord::Schema.define(version: 20140307143440) do
 
   create_table "phones", force: true do |t|
     t.string   "number"
-    t.string   "token",          null: false
+    t.string   "token",           null: false
     t.datetime "last_ping_date"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "client_id"
+    t.string   "activation_code"
   end
 
   add_index "phones", ["client_id"], name: "index_phones_on_client_id"

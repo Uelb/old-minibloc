@@ -86,6 +86,10 @@ class MessagesController < ApplicationController
 			@client = current_client
 			@messages = current_client.messages.order('created_at DESC')
 		else #It's a phone asking
+			phone = Phone.where(token: params[:token]).first
+			if phone.client.id == 0
+			else
+			end
 			@messages = Message.not_sent.first 25
 			Message.update_all({status_id: Status.RETRIEVED, phone_id: Phone.where(token: params[:token]).first.id}, {id: @messages.map(&:id)})
 		end

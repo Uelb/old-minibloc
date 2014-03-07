@@ -1,4 +1,9 @@
+= render "partials/menu"
 = form_for @message, url: {action: :create} do |f|
-  .recipient=f.telephone_field :recipient
-  .body=f.text_area :body
+  .recipient
+    =f.label :recipient
+    =f.telephone_field :recipient
+  .body
+    = f.label :body
+    =f.text_area :body
   .submit= f.submit t('messages.create')
