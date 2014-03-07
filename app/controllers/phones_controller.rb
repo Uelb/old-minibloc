@@ -8,6 +8,7 @@ class PhonesController < ApplicationController
 
 	def create
 		@p = Phone.where(phone_params).first_or_create
+		@p.ping!
 		render :json => @p
 	end
 
