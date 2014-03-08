@@ -1,5 +1,4 @@
 ActiveAdmin.register Phone do
-
   
   index do
     selectable_column
