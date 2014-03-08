@@ -92,7 +92,7 @@ class MessagesController < ApplicationController
 			elsif phone.client && phone.client.used_phones.include?(phone)
 				@messages = phone.client.messages.not_sent.first 25 
 			else
-				render status: 404 and return 
+				render nothing: true, status: 404 and return 
 			end
 			Message.update_all({status_id: Status.RETRIEVED, phone_id: Phone.where(token: params[:token]).first.id, retrieved_at: Time.now}, {id: @messages.map(&:id)})
 		end
