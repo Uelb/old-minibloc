@@ -87,9 +87,9 @@ class MessagesController < ApplicationController
 			@messages = current_client.messages.order('created_at DESC')
 		else #It's a phone asking
 			phone = Phone.includes(:client => :used_phones).where(token: params[:token]).first
-			if phone.client.try(:id) == 0
+			if phone.client && phone.client.id == 0
 				@messages = phone.clients_using_this_phone.map(&:messages).first 25
-			elsif phone.client.used_phones.include?(phone)
+			elsif phone.client && phone.client.used_phones.include?(phone)
 				@messages = phone.client.messages.not_sent.first 25 
 			else
 				render status: 404 and return 
