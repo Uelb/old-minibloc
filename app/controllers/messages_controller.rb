@@ -65,7 +65,7 @@ class MessagesController < ApplicationController
 		return unless @main_message
 		@message = Message.new answer_message_params
 		@message.recipient = @phone.number
-		@message.sent_at = DateTime.now
+		@message.sent_at = Time.now
 		@message.phone = @phone
 		@message.main_message = @main_message
 		@message.client = @main_message.client
