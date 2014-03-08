@@ -9,11 +9,20 @@ class Message < ActiveRecord::Base
 	validates_presence_of :recipient, :body
 	scope :not_sent, -> { where(status_id: Status.WAITING) }
 	before_save :format_tel_number
+	before_save :update_timestamps
 	after_create :send_to_server_if_answer
 
 	def format_tel_number
 		Message.format_tel_number sender
 		Message.format_tel_number recipient
+	end
+
+	def update_timestamps
+		if status_id == Status.SENT
+			sent_at = Time.now
+		elsif status_id == Status.RETRIEVED
+			retrieved_at = Time.now
+		end
 	end
 
 	def self.format_tel_number number
