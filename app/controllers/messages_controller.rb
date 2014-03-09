@@ -75,7 +75,7 @@ class MessagesController < ApplicationController
 
 	def update
 		@message = Message.where(id: params[:id]).first
-		@message.status_id update_message_params[:status_id]
+		@message.status_id = update_message_params[:status_id]
 		@message.save
 		@message.send_status_to_server
 		render :json => @message
