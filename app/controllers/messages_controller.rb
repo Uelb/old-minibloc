@@ -65,7 +65,6 @@ class MessagesController < ApplicationController
 		return unless @main_message
 		@message = Message.new answer_message_params
 		@message.recipient = @phone.number
-		@message.sent_at = Time.now
 		@message.phone = @phone
 		@message.main_message = @main_message
 		@message.client = @main_message.client
@@ -76,7 +75,8 @@ class MessagesController < ApplicationController
 
 	def update
 		@message = Message.where(id: params[:id]).first
-		@message.update_attributes update_message_params
+		@message.status_id update_message_params[:status_id]
+		@message.save
 		@message.send_status_to_server
 		render :json => @message
 	end

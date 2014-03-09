@@ -77,4 +77,5 @@ ApiTactic::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+  ActionController::Parameters.action_on_unpermitted_parameters = :log
 end

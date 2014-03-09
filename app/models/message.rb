@@ -8,13 +8,18 @@ class Message < ActiveRecord::Base
 	has_many :answers, class_name: "Message", foreign_key: :main_message_id
 	validates_presence_of :recipient, :body
 	scope :not_sent, -> { where(status_id: Status.WAITING) }
+	scope :answers, -> {where.not(main_message_id: nil)}
 	before_save :format_tel_number
 	before_save :update_timestamps
 	after_create :send_to_server_if_answer
 
+	def is_answer?
+		!main_message.nil?
+	end
+
 	def format_tel_number
-		Message.format_tel_number sender
-		Message.format_tel_number recipient
+		sender = Message.format_tel_number sender
+		recipient = Message.format_tel_number recipient
 	end
 
 	def update_timestamps
