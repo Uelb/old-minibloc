@@ -40,7 +40,7 @@ class Message < ActiveRecord::Base
 	def send_status_to_server
 		return unless client.event_base_url
 		url = client.event_base_url.chomp("/") + "/status"
-		post url, message_id: id, status: status
+		post url, message_id: id, status: status_id
 	end
 
 	def post url, options={}
