@@ -20,8 +20,10 @@ class Message < ActiveRecord::Base
 	def update_timestamps
 		if status_id == Status.SENT
 			sent_at = Time.now
-		elsif status_id == Status.RECEIVED
+		elsif status_id == Status.RETRIEVED
 			retrieved_at = Time.now
+		elsif status_id == Status.RECEIVED
+			received_at = Time.now
 		end
 	end
 

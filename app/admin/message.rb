@@ -11,6 +11,7 @@ ActiveAdmin.register Message do
     end
     column :client
     column :retrieved_at
+    column :received_at
     column :created_at
     default_actions
   end

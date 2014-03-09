@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140307161242) do
+ActiveRecord::Schema.define(version: 20140309130727) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -92,6 +92,7 @@ ActiveRecord::Schema.define(version: 20140307161242) do
     t.integer  "phone_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "received_at"
   end
 
   create_table "phones", force: true do |t|
