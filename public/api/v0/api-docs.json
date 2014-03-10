@@ -1,22 +1,22 @@
 {
   "apiVersion": "0.1",
   "swaggerVersion": "1.2",
-  "basePath": "http://vitasms.oxynum.fr/",
+  "basePath": "http://mocti.eu/",
   "apis": [
     {
-      "path": "http://vitasms.oxynum.fr/api/clients.{format}",
+      "path": "http://mocti.eu/api/clients.{format}",
       "description": "Management of a client account"
     },
     {
-      "path": "http://vitasms.oxynum.fr/api/messages.{format}",
+      "path": "http://mocti.eu/api/messages.{format}",
       "description": "Messages management"
     },
     {
-      "path": "http://vitasms.oxynum.fr/api/phones.{format}",
+      "path": "http://mocti.eu/api/phones.{format}",
       "description": "Add a new phone"
     },
     {
-      "path": "http://vitasms.oxynum.fr/api/statuses.{format}",
+      "path": "http://mocti.eu/api/statuses.{format}",
       "description": "Statuses management"
     }
   ]

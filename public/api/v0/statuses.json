@@ -1,7 +1,7 @@
 {
   "apiVersion": "0.1",
   "swaggerVersion": "1.2",
-  "basePath": "http://vitasms.oxynum.fr/",
+  "basePath": "http://mocti.eu/",
   "resourcePath": "statuses",
   "apis": [
     {
