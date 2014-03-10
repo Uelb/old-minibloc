@@ -49,7 +49,7 @@ class MessagesController < ApplicationController
 		if params[:api_key] || params[:token]
     	render :json => @m
     else
-    	redirect_to message_path @m
+    	redirect_to messages_path
     end
 	end
 

@@ -12,7 +12,7 @@
         %h5= t("phones.activate")
         %hr/
         / Form starts.
-        = form_for @phone , method: :put, url: activate_phones_path, html: {class: "form-horizontal"} do |f|
+        = form_for @phone , url: activate_phones_path, html: {class: "form-horizontal"} do |f|
           .form-group
             = f.label :number, class: ["col-lg-4", "control-label"]
             .col-lg-8
@@ -28,7 +28,7 @@
         %br
         %h5= t(:resend_activation_code)
         %hr
-        = form_for @phone , method: :put, url: resend_activation_code_phones_path, html: {class: "form-horizontal"} do |f|
+        = form_for @phone , url: resend_activation_code_phones_path, html: {class: "form-horizontal"} do |f|
           .form-group
             = f.label :number, class: ["col-lg-4", "control-label"]
             .col-lg-8
