@@ -1,0 +1,1 @@
+$(document).ready(function(){$("#nav > li > a").on("click",function(s){$(this).parent().hasClass("has_sub")&&s.preventDefault(),$(this).hasClass("open")?$(this).hasClass("open")&&($(this).removeClass("open"),$(this).next("ul").slideUp(350)):($("#nav li ul").slideUp(350),$("#nav li a").removeClass("open"),$(this).next("ul").slideDown(350),$(this).addClass("open"))})});
