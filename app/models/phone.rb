@@ -9,35 +9,32 @@ class Phone < ActiveRecord::Base
 	after_create :send_activation_code
 	validates_uniqueness_of :token
 
-	
-
 	def admin_activate
 		client = Client.find 0
 		save
 	end
 
 	protected
-
-	def generate_token
-		self.token = loop do
-		  random_token = SecureRandom.urlsafe_base64(nil, false)
-		  break random_token unless Phone.exists?(token: random_token)
+		def generate_token
+			self.token = loop do
+			  random_token = SecureRandom.urlsafe_base64(nil, false)
+			  break random_token unless Phone.exists?(token: random_token)
+			end
 		end
-	end
 
-	def generate_activation_code
-		self.activation_code = loop do
-			activation_code = SecureRandom.urlsafe_base64(6, false)
+		def generate_activation_code
+			self.activation_code = loop do
+				activation_code = SecureRandom.urlsafe_base64(6, false)
+			end
 		end
-	end
 
-	def ping
-		last_ping_date = Time.now
-	end
+		def ping
+			self.last_ping_date = Time.now
+		end
 
-	def send_activation_code
-		Message.create recipient: number, body: "Votre code d'activation est le #{activation_code}.
-		Veuillez répondre à ce message ou entrez ce code dans votre espace d'administration pour valider ce téléphone.",
-		sender: "ADMIN"
-	end
+		def send_activation_code
+			Message.create recipient: self.number, body: "Votre code d'activation est le #{activation_code}.
+			Veuillez répondre à ce message ou entrez ce code dans votre espace d'administration pour valider ce téléphone.",
+			sender: "ADMIN"
+		end
 end

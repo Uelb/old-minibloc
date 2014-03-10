@@ -17,13 +17,9 @@ class Message < ActiveRecord::Base
 		!main_message.nil?
 	end
 
-	
-
 	def self.format_tel_number number
 		number &&= number.gsub(/[ -]/,"").gsub("+33","0")
 	end
-
-	
 
 	def send_status_to_server
 		return unless client.event_base_url
@@ -46,20 +42,20 @@ class Message < ActiveRecord::Base
 		end
 
 		def update_timestamps
-			if status_id == Status.SENT
-				sent_at = Time.now
-			elsif status_id == Status.RETRIEVED
-				retrieved_at = Time.now
-			elsif status_id == Status.RECEIVED
-				received_at = Time.now
+			if !self.sent_at && self.status_id == Status.SENT
+				self.sent_at = Time.now
+			elsif !self.retrieved_at && self.status_id == Status.RETRIEVED
+				self.retrieved_at = Time.now
+			elsif !self.received_at &&  self.status_id == Status.RECEIVED
+				self.received_at = Time.now
 			end
 		end
-		
+
 		def send_to_server_if_answer
-			if main_message
-				client = main_message.client
+			if self.main_message
+				client = self.main_message.client
 				url = client.event_base_url.chomp("/") + "/answer"
-				post url, main_message_id: main_message.id, sender: sender, body: body
+				post url, main_message_id: self.main_message.id, sender: self.sender, body: self.body
 			end
 		end
 end
