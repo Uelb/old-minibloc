@@ -24,9 +24,9 @@ ActiveRecord::Schema.define(version: 20140309130727) do
     t.datetime "updated_at"
   end
 
-  add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
-  add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace"
-  add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
+  add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
+  add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
+  add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
 
   create_table "admin_users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -43,8 +43,8 @@ ActiveRecord::Schema.define(version: 20140309130727) do
     t.datetime "updated_at"
   end
 
-  add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true
-  add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+  add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
+  add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "client_phones", force: true do |t|
     t.integer  "client_id"
@@ -54,8 +54,8 @@ ActiveRecord::Schema.define(version: 20140309130727) do
     t.datetime "updated_at"
   end
 
-  add_index "client_phones", ["client_id"], name: "index_client_phones_on_client_id"
-  add_index "client_phones", ["phone_id"], name: "index_client_phones_on_phone_id"
+  add_index "client_phones", ["client_id"], name: "index_client_phones_on_client_id", using: :btree
+  add_index "client_phones", ["phone_id"], name: "index_client_phones_on_phone_id", using: :btree
 
   create_table "clients", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -75,10 +75,10 @@ ActiveRecord::Schema.define(version: 20140309130727) do
     t.datetime "updated_at"
   end
 
-  add_index "clients", ["api_key"], name: "index_clients_on_api_key", unique: true
-  add_index "clients", ["email"], name: "index_clients_on_email", unique: true
-  add_index "clients", ["name"], name: "index_clients_on_name", unique: true
-  add_index "clients", ["reset_password_token"], name: "index_clients_on_reset_password_token", unique: true
+  add_index "clients", ["api_key"], name: "index_clients_on_api_key", unique: true, using: :btree
+  add_index "clients", ["email"], name: "index_clients_on_email", unique: true, using: :btree
+  add_index "clients", ["name"], name: "index_clients_on_name", unique: true, using: :btree
+  add_index "clients", ["reset_password_token"], name: "index_clients_on_reset_password_token", unique: true, using: :btree
 
   create_table "messages", force: true do |t|
     t.string   "recipient",       null: false
@@ -105,8 +105,8 @@ ActiveRecord::Schema.define(version: 20140309130727) do
     t.string   "activation_code"
   end
 
-  add_index "phones", ["client_id"], name: "index_phones_on_client_id"
-  add_index "phones", ["token"], name: "index_phones_on_token", unique: true
+  add_index "phones", ["client_id"], name: "index_phones_on_client_id", using: :btree
+  add_index "phones", ["token"], name: "index_phones_on_token", unique: true, using: :btree
 
   create_table "statuses", force: true do |t|
     t.string "description"
