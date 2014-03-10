@@ -89,7 +89,7 @@ class MessagesController < ApplicationController
 		else #It's a phone asking
 			phone = Phone.includes(:client => :used_phones).where(token: params[:token]).first
 			if phone.client && phone.client.id == 0
-				@messages = phone.clients_using_this_phone.map(&:messages).flatten.first 25
+				@messages = phone.clients_using_this_phone.map(&:messages).map(&:not_sent).flatten.first 25
 			elsif phone.client && phone.client.used_phones.include?(phone)
 				@messages = phone.client.messages.not_sent.first 25 
 			else
