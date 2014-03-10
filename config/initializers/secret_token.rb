@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-ApiTactic::Application.config.secret_key_base = '0828320dff79547ffd030414260edd967d718f954db5018804a129c57d2eee56b8390bc883ab8a5f34b4d27ce3ad1b9da5df0292fe3fe7f16839c0f4692c553e'
+Mocti::Application.config.secret_key_base = '0828320dff79547ffd030414260edd967d718f954db5018804a129c57d2eee56b8390bc883ab8a5f34b4d27ce3ad1b9da5df0292fe3fe7f16839c0f4692c553e'

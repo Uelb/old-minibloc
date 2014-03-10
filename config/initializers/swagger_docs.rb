@@ -4,7 +4,7 @@ Swagger::Docs::Config.register_apis({
     # the output location where your .json files are written to
     :api_file_path => "public/api/v0/", 
     # the URL base path to your API 
-    :base_path => "http://vitasms.oxynum.fr", 
+    :base_path => "http://mocti.eu", 
     # if you want to delete all .json files at each generation
     :clean_directory => false,
     :formatting => :pretty
@@ -13,6 +13,6 @@ Swagger::Docs::Config.register_apis({
 
 class Swagger::Docs::Config
   def self.transform_path(path)
-    "http://vitasms.oxynum.fr/api/#{path}"
+    "http://mocti.eu/api/#{path}"
   end
 end

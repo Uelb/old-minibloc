@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-ApiTactic::Application.load_tasks
+Mocti::Application.load_tasks
