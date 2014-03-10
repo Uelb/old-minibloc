@@ -7,7 +7,6 @@ class Phone < ActiveRecord::Base
 	before_create :generate_activation_code
 	before_validation :ping
 	after_create :send_activation_code
-	validates_uniqueness_of :token
 
 	def admin_activate
 		client = Client.find 0
@@ -17,15 +16,13 @@ class Phone < ActiveRecord::Base
 	protected
 		def generate_token
 			self.token = loop do
-			  random_token = SecureRandom.urlsafe_base64(nil, false)
-			  break random_token unless Phone.exists?(token: random_token)
+			  token = SecureRandom.urlsafe_base64(nil, false)
+			  break token unless Phone.exists?(token: token)
 			end
 		end
 
 		def generate_activation_code
-			self.activation_code = loop do
-				activation_code = SecureRandom.urlsafe_base64(6, false)
-			end
+			self.activation_code= SecureRandom.urlsafe_base64(6, false)
 		end
 
 		def ping

@@ -54,8 +54,10 @@ class ApplicationController < ActionController::Base
   end
 
   def set_session_variables
-    session[:client_count] = Client.count
-    session[:message_count] = Message.count
+    if client_signed_in?
+      session[:client_count] = Client.count
+      session[:message_count] = Message.count
+    end
   end
 
 end
