@@ -2,6 +2,7 @@ class MessagesController < ApplicationController
 	before_filter :authenticate!, only: [:index, :show, :create]
 	before_filter :authenticate_client!, only: [:new, :create]
 	before_filter :authenticate_phone!, only: [:answers, :update]
+	layout 'macadmin'
 
 	# swagger_controller :messages, "Messages management"
 

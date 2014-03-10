@@ -1,6 +1,35 @@
-= render "partials/menu"
+= content_for :head do 
+  %h2.pull-left
+    %i.icon-cloud-upload
+    All the messages I sent and their answers
+
 - if @messages.empty?
-  .no_message Pas de messages
+  .no_message Pas de message
 - else
-  = render partial: @messages, layout: 'index_layout'
-= link_to t('messages.new'), new_message_path
+  .col-md-12
+    .widget
+      .widget-head
+        .pull-left All your messages
+        .clearfix
+      .widget-content
+        %table.table.table-striped.table-bordered.table-hover
+          %thead
+            %tr
+              %th #
+              %th=t(:recipient)
+              %th=t(:body)
+              %th=t(:status)
+              %th=t(:sent_at)
+              %th=t(:received_at)
+          %tbody
+            - @messages.each do |message|
+              %tr
+                %td=message.id
+                %td=message.recipient
+                %td=message.body
+                %td=message.status_id.to_s + " - " + message.status.description
+                %td=distance_of_time_in_words_to_now(message.sent_at) + " ago" rescue "Not sent yet"
+                %td=distance_of_time_in_words_to_now(message.received_at) + " ago" rescue "Not received yet"
+        .widget-foot
+          = link_to t("messages.new"), new_message_path, class: ["btn", "btn-success", "pull-right"]
+          .clearfix

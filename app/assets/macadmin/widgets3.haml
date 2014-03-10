@@ -1,0 +1,742 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "utf-8"}/
+    / Title and other stuffs
+    %title Widgets3 - MacAdmin
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %meta{:content => "", :name => "description"}/
+    %meta{:content => "", :name => "keywords"}/
+    %meta{:content => "", :name => "author"}/
+    / Stylesheets
+    %link{:href => "style/bootstrap.css", :rel => "stylesheet"}/
+    / Font awesome icon
+    %link{:href => "style/font-awesome.css", :rel => "stylesheet"}/
+    / jQuery UI
+    %link{:href => "style/jquery-ui.css", :rel => "stylesheet"}/
+    / Calendar
+    %link{:href => "style/fullcalendar.css", :rel => "stylesheet"}/
+    / prettyPhoto
+    %link{:href => "style/prettyPhoto.css", :rel => "stylesheet"}/
+    / Star rating
+    %link{:href => "style/rateit.css", :rel => "stylesheet"}/
+    / Date picker
+    %link{:href => "style/bootstrap-datetimepicker.min.css", :rel => "stylesheet"}/
+    / CLEditor
+    %link{:href => "style/jquery.cleditor.css", :rel => "stylesheet"}/
+    / Bootstrap toggle
+    %link{:href => "style/bootstrap-switch.css", :rel => "stylesheet"}/
+    / Main stylesheet
+    %link{:href => "style/style.css", :rel => "stylesheet"}/
+    / Widgets stylesheet
+    %link{:href => "style/widgets.css", :rel => "stylesheet"}/
+    / HTML5 Support for IE
+    /[if lt IE 9]
+      <script src="js/html5shim.js"></script>
+    / Favicon
+    %link{:href => "img/favicon/favicon.png", :rel => "shortcut icon"}/
+  %body
+    .navbar.navbar-fixed-top.bs-docs-nav{:role => "banner"}
+      .conjtainer
+        / Menu button for smallar screens
+        .navbar-header
+          %button.navbar-toggle.btn-navbar{"data-target" => ".bs-navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+            %span Menu
+          / Site name for smallar screens
+          %a.navbar-brand.hidden-lg{:href => "index.html"} MacBeth
+        / Navigation starts
+        %nav.collapse.navbar-collapse.bs-navbar-collapse{:role => "navigation"}
+          %ul.nav.navbar-nav
+            / Upload to server link. Class "dropdown-big" creates big dropdown
+            %li.dropdown.dropdown-big
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                %span.label.label-success
+                  %i.icon-cloud-upload
+                Upload to Cloud
+              / Dropdown
+              %ul.dropdown-menu
+                %li
+                  / Progress bar
+                  %p Photo Upload in Progress
+                  / Bootstrap progress bar
+                  .progress.progress-striped.active
+                    .progress-bar.progress-bar-info{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "40", :role => "progressbar", :style => "width: 40%"}
+                      %span.sr-only 40% Complete
+                  %hr/
+                  / Progress bar
+                  %p Video Upload in Progress
+                  / Bootstrap progress bar
+                  .progress.progress-striped.active
+                    .progress-bar.progress-bar-success{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "80", :role => "progressbar", :style => "width: 80%"}
+                      %span.sr-only 80% Complete
+                  %hr/
+                  / Dropdown menu footer
+                  .drop-foot
+                    %a{:href => "#"} View All
+            / Sync to server link
+            %li.dropdown.dropdown-big
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                %span.label.label-danger
+                  %i.icon-refresh
+                Sync with Server
+              / Dropdown
+              %ul.dropdown-menu
+                %li
+                  / Using "icon-spin" class to rotate icon.
+                  %p
+                    %span.label.label-info
+                      %i.icon-cloud
+                    Syncing Members Lists to Server
+                  %hr/
+                  %p
+                    %span.label.label-warning
+                      %i.icon-cloud
+                    Syncing Bookmarks Lists to Cloud
+                  %hr/
+                  / Dropdown menu footer
+                  .drop-foot
+                    %a{:href => "#"} View All
+          / Search form
+          %form.navbar-form.navbar-left{:role => "search"}
+            .form-group
+              %input.form-control{:placeholder => "Search", :type => "text"}/
+          / Links
+          %ul.nav.navbar-nav.pull-right
+            %li.dropdown.pull-right
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                %i.icon-user
+                Admin
+                %b.caret
+              / Dropdown menu
+              %ul.dropdown-menu
+                %li
+                  %a{:href => "#"}
+                    %i.icon-user
+                    Profile
+                %li
+                  %a{:href => "#"}
+                    %i.icon-cogs
+                    Settings
+                %li
+                  %a{:href => "login.html"}
+                    %i.icon-off
+                    Logout
+    / Header starts
+    %header
+      .container
+        .row
+          / Logo section
+          .col-md-4
+            / Logo.
+            .logo
+              %h1
+                %a{:href => "#"}
+                  Mac
+                  %span.bold Admin
+              %p.meta something goes in meta area
+            / Logo ends
+          / Button section
+          .col-md-4
+            / Buttons
+            %ul.nav.nav-pills
+              / Comment button with number of latest comments count
+              %li.dropdown.dropdown-big
+                %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                  %i.icon-comments
+                  Chats
+                  %span.label.label-info 6
+                %ul.dropdown-menu
+                  %li
+                    / Heading - h5
+                    %h5
+                      %i.icon-comments
+                      Chats
+                    / Use hr tag to add border
+                    %hr/
+                  %li
+                    / List item heading h6
+                    %h6
+                      %a{:href => "#"} Hi :)
+                      %span.label.label-warning.pull-right 10:42
+                    .clearfix
+                    %hr/
+                  %li
+                    %h6
+                      %a{:href => "#"} How are you?
+                      %span.label.label-warning.pull-right 20:42
+                    .clearfix
+                    %hr/
+                  %li
+                    %h6
+                      %a{:href => "#"} What are you doing?
+                      %span.label.label-warning.pull-right 14:42
+                    .clearfix
+                    %hr/
+                  %li
+                    .drop-foot
+                      %a{:href => "#"} View All
+              / Message button with number of latest messages count
+              %li.dropdown.dropdown-big
+                %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                  %i.icon-envelope-alt
+                  Inbox
+                  %span.label.label-primary 6
+                %ul.dropdown-menu
+                  %li
+                    / Heading - h5
+                    %h5
+                      %i.icon-envelope-alt
+                      Messages
+                    / Use hr tag to add border
+                    %hr/
+                  %li
+                    / List item heading h6
+                    %h6
+                      %a{:href => "#"} Hello how are you?
+                    / List item para
+                    %p Quisque eu consectetur erat eget  semper...
+                    %hr/
+                  %li
+                    %h6
+                      %a{:href => "#"} Today is wonderful?
+                    %p Quisque eu consectetur erat eget  semper...
+                    %hr/
+                  %li
+                    .drop-foot
+                      %a{:href => "#"} View All
+              / Members button with number of latest members count
+              %li.dropdown.dropdown-big
+                %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                  %i.icon-user
+                  Users
+                  %span.label.label-success 6
+                %ul.dropdown-menu
+                  %li
+                    / Heading - h5
+                    %h5
+                      %i.icon-user
+                      Users
+                    / Use hr tag to add border
+                    %hr/
+                  %li
+                    / List item heading h6
+                    %h6
+                      %a{:href => "#"} Ravi Kumar
+                      %span.label.label-warning.pull-right Free
+                    .clearfix
+                    %hr/
+                  %li
+                    %h6
+                      %a{:href => "#"} Balaji
+                      %span.label.label-important.pull-right Premium
+                    .clearfix
+                    %hr/
+                  %li
+                    %h6
+                      %a{:href => "#"} Kumarasamy
+                      %span.label.label-warning.pull-right Free
+                    .clearfix
+                    %hr/
+                  %li
+                    .drop-foot
+                      %a{:href => "#"} View All
+          / Data section
+          .col-md-4
+            .header-data
+              / Traffic data
+              .hdata
+                .mcol-left
+                  / Icon with red background
+                  %i.icon-signal.bred
+                .mcol-right
+                  / Number of visitors
+                  %p
+                    %a{:href => "#"} 7000
+                    %em visits
+                .clearfix
+              / Members data
+              .hdata
+                .mcol-left
+                  / Icon with blue background
+                  %i.icon-user.bblue
+                .mcol-right
+                  / Number of visitors
+                  %p
+                    %a{:href => "#"} 3000
+                    %em users
+                .clearfix
+              / revenue data
+              .hdata
+                .mcol-left
+                  / Icon with green background
+                  %i.icon-money.bgreen
+                .mcol-right
+                  / Number of visitors
+                  %p
+                    %a{:href => "#"} 5000
+                    %em orders
+                .clearfix
+    / Header ends
+    / Main content starts
+    .content
+      / Sidebar
+      .sidebar
+        .sidebar-dropdown
+          %a{:href => "#"} Navigation
+        / - Sidebar navigation
+        / If the main navigation has sub navigation, then add the class "has_sub" to "li" of main navigation.
+        %ul#nav
+          / Main menu with font awesome icon
+          %li
+            %a{:href => "index.html"}
+              %i.icon-home
+              Dashboard
+            /
+              Sub menu markup
+              <ul>
+              <li><a href="#">Submenu #1</a></li>
+              <li><a href="#">Submenu #2</a></li>
+              <li><a href="#">Submenu #3</a></li>
+              </ul>
+          %li.has_sub
+            %a.open{:href => "#"}
+              %i.icon-list-alt
+              Widgets
+              %span.pull-right
+                %i.icon-chevron-right
+            %ul
+              %li
+                %a{:href => "widgets1.html"} Widgets #1
+              %li
+                %a{:href => "widgets2.html"} Widgets #2
+              %li
+                %a{:href => "widgets3.html"} Widgets #3
+          %li.has_sub
+            %a{:href => "#"}
+              %i.icon-file-alt
+              Pages #1
+              %span.pull-right
+                %i.icon-chevron-right
+            %ul
+              %li
+                %a{:href => "post.html"} Post
+              %li
+                %a{:href => "login.html"} Login
+              %li
+                %a{:href => "register.html"} Register
+              %li
+                %a{:href => "support.html"} Support
+              %li
+                %a{:href => "invoice.html"} Invoice
+              %li
+                %a{:href => "profile.html"} Profile
+              %li
+                %a{:href => "gallery.html"} Gallery
+          %li.has_sub
+            %a{:href => "#"}
+              %i.icon-file-alt
+              Pages #2
+              %span.pull-right
+                %i.icon-chevron-right
+            %ul
+              %li
+                %a{:href => "media.html"} Media
+              %li
+                %a{:href => "statement.html"} Statement
+              %li
+                %a{:href => "error.html"} Error
+              %li
+                %a{:href => "error-log.html"} Error Log
+              %li
+                %a{:href => "calendar.html"} Calendar
+              %li
+                %a{:href => "grid.html"} Grid
+          %li
+            %a{:href => "charts.html"}
+              %i.icon-bar-chart
+              Charts
+          %li
+            %a{:href => "tables.html"}
+              %i.icon-table
+              Tables
+          %li
+            %a{:href => "forms.html"}
+              %i.icon-tasks
+              Forms
+          %li
+            %a{:href => "ui.html"}
+              %i.icon-magic
+              User Interface
+          %li
+            %a{:href => "calendar.html"}
+              %i.icon-calendar
+              Calendar
+      / Sidebar ends
+      / Main bar
+      .mainbar
+        / Page heading
+        .page-head
+          %h2.pull-left
+            %i.icon-list-alt
+            Widgets
+          / Breadcrumb
+          .bread-crumb.pull-right
+            %a{:href => "index.html"}
+              %i.icon-home
+              Home
+            / Divider
+            %span.divider /
+            %a.bread-current{:href => "#"} Dashboard
+          .clearfix
+        / Page heading ends
+        / Matter
+        .matter
+          .container
+            .row
+              / Project widget
+              .col-md-4
+                .widget
+                  / Widget title
+                  .widget-head
+                    .pull-left Project
+                    .widget-icons.pull-right
+                      %a.wminimize{:href => "#"}
+                        %i.icon-chevron-up
+                      %a.wclose{:href => "#"}
+                        %i.icon-remove
+                    .clearfix
+                  .widget-content
+                    / Widget content
+                    / Task list starts
+                    %ul.project
+                      %li
+                        %p
+                          / Checkbox
+                          %span.uni
+                            %input{:type => "checkbox", :value => "check1"}/
+                          / Name
+                          Hospital Management System
+                        %p.p-meta
+                          / Due date &amp; % Completed
+                          %span Due : 26/2/2012 - 80% Done
+                        / Progress bar
+                        .progress.progress-striped.active
+                          .progress-bar.progress-bar-info{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "100", :role => "progressbar", :style => "width: 90%"}
+                            %span.sr-only 90% Complete
+                      %li
+                        %p
+                          / Checkbox
+                          %span.uni
+                            %input{:type => "checkbox", :value => "check1"}/
+                          / Name
+                          School Download System
+                        %p.p-meta
+                          / Due date &amp; % Completed
+                          %span Due : 26/2/2012 - 80% Done
+                        / Progress bar
+                        .progress.progress-striped.active
+                          .progress-bar.progress-bar-success{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "100", :role => "progressbar", :style => "width: 60%"}
+                            %span.sr-only 60% Complete
+                      %li
+                        %p
+                          / Checkbox
+                          %span.uni
+                            %input{:type => "checkbox", :value => "check1"}/
+                          / Name
+                          Question and Answers Script
+                        %p.p-meta
+                          / Due date &amp; % Completed
+                          %span Due : 26/2/2012 - 80% Done
+                        / Progress bar
+                        .progress.progress-striped.active
+                          .progress-bar.progress-bar-warning{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "100", :role => "progressbar", :style => "width: 70%"}
+                            %span.sr-only 70% Complete
+                      %li
+                        %p
+                          / Checkbox
+                          %span.uni
+                            %input{:type => "checkbox", :value => "check1"}/
+                          / Name
+                          Software Downloads Script
+                        %p.p-meta
+                          / Due date &amp; % Completed
+                          %span Due : 26/2/2012 - 80% Done
+                        / Progress bar
+                        .progress.progress-striped.active
+                          .progress-bar.progress-bar-danger{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "100", :role => "progressbar", :style => "width: 50%"}
+                            %span.sr-only 50% Complete
+                    .clearfix
+                    .widget-foot
+              / Activity widget
+              .col-md-4
+                .widget
+                  / Widget title
+                  .widget-head
+                    .pull-left Recent Activity
+                    .widget-icons.pull-right
+                      %a.wminimize{:href => "#"}
+                        %i.icon-chevron-up
+                      %a.wclose{:href => "#"}
+                        %i.icon-remove
+                    .clearfix
+                  .widget-content
+                    / Widget content
+                    / activity starts
+                    %ul.activity
+                      %li
+                        / Icon with avtivity
+                        %i.icon-envelope-alt
+                        %strong Ashok
+                        Mailed you on 3/12/2032
+                      %li
+                        %i.icon-share
+                        %strong Go to america
+                        Shared by
+                        %strong Ravi Kumar
+                      %li
+                        %i.icon-signin
+                        %strong Admin
+                        Signed in on 2/4/2012
+                      %li
+                        %i.icon-money
+                        %strong Babu Kumar
+                        made $5000 today.
+                      %li
+                        %i.icon-upload-alt
+                        %strong Font Asesome Mp3
+                        got uploaded by
+                        = succeed "." do
+                          %strong Admin
+                      %li
+                        %i.icon-user
+                        %strong Kumarasamy
+                        joined the site on 3/5/2012.
+                      %li
+                        %i.icon-bookmark
+                        You Bootmarked the site
+                        = succeed "." do
+                          %strong Google
+                      %li
+                        %i.icon-plus
+                        %strong Admin
+                        added the article
+                        = succeed "." do
+                          %strong Why not now?
+                    .widget-foot
+                      %button.btn.pull-right.btn-default Clear All
+                      .clearfix
+              / google maps widget
+              .col-md-4
+                .widget
+                  .widget-head
+                    .pull-left Google Maps
+                    .widget-icons.pull-right
+                      %a.wminimize{:href => "#"}
+                        %i.icon-chevron-up
+                      %a.wclose{:href => "#"}
+                        %i.icon-remove
+                    .clearfix
+                  .widget-content
+                    .gmap
+                      %iframe{:frameborder => "0", :height => "300", :marginheight => "0", :marginwidth => "0", :scrolling => "no", :src => "http://maps.google.co.in/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Google+India+Bangalore,+Bennigana+Halli,+Bangalore,+Karnataka&amp;aq=0&amp;oq=google+&amp;sll=9.930582,78.12303&amp;sspn=0.192085,0.308647&amp;ie=UTF8&amp;hq=Google&amp;hnear=Bennigana+Halli,+Bangalore,+Bengaluru+Urban,+Karnataka&amp;t=m&amp;ll=12.993518,77.660294&amp;spn=0.012545,0.036006&amp;z=15&amp;output=embed"}
+                    .widget-foot
+                      / Footer goes here
+            .row
+              .col-md-5
+                / User widget
+                .widget
+                  .widget-head
+                    .pull-left User
+                    .widget-icons.pull-right
+                      %a.wminimize{:href => "#"}
+                        %i.icon-chevron-up
+                      %a.wclose{:href => "#"}
+                        %i.icon-remove
+                    .clearfix
+                  .widget-content
+                    .padd
+                      .user
+                        .user-pic
+                          / User pic
+                          %a{:href => "#"}
+                            %img{:alt => "", :src => "img/user-big.jpg"}/
+                        .user-details
+                          %h5 Ashok, B.Tech, MBA
+                          %p Maecenas quis tristique turpis. Nulla facilisi. Duis sed velit at ac ultrices magna. Aliquam consequat, purus vitae auctor ullamcorper.
+                          %a.btn.btn-info.btn-sm{:href => "#"}
+                            %i.icon-user
+                            View Profile
+                          %a.btn.btn-sm.btn-default{:href => "#"}
+                            %i.icon-envelope-alt
+                            Send Message
+                        .clearfix
+                      %hr/
+                      .user
+                        .user-pic
+                          / User pic
+                          %a{:href => "#"}
+                            %img{:alt => "", :src => "img/user-big.jpg"}/
+                        .user-details
+                          %h5 Ravi Kumar, B.Tech, MBA
+                          %p Maecenas quis tristique turpis. Nulla facilisi. Duis sed velit at ac ultrices magna. Aliquam consequat, purus vitae auctor ullamcorper.
+                          %a.btn.btn-info.btn-sm{:href => "#"}
+                            %i.icon-user
+                            View Profile
+                          %a.btn.btn-sm.btn-default{:href => "#"}
+                            %i.icon-envelope-alt
+                            Send Message
+                        .clearfix
+                      %hr/
+                      .user
+                        .user-pic
+                          / User pic
+                          %a{:href => "#"}
+                            %img{:alt => "", :src => "img/user-big.jpg"}/
+                        .user-details
+                          %h5 Bala Rajan, B.Tech, MBA
+                          %p Maecenas quis tristique turpis. Nulla facilisi. Duis sed velit at ac ultrices magna. Aliquam consequat, purus vitae auctor ullamcorper.
+                          %a.btn.btn-info.btn-sm{:href => "#"}
+                            %i.icon-user
+                            View Profile
+                          %a.btn.btn-sm.btn-default{:href => "#"}
+                            %i.icon-envelope-alt
+                            Send Message
+                        .clearfix
+                    .widget-foot
+                      / Footer goes here
+              .col-md-7
+                / Quick setting
+                .widget
+                  .widget-head
+                    .pull-left Quick Settings
+                    .widget-icons.pull-right
+                      %a.wminimize{:href => "#"}
+                        %i.icon-chevron-up
+                      %a.wclose{:href => "#"}
+                        %i.icon-remove
+                    .clearfix
+                  .widget-content
+                    .padd
+                      .form.quick-post
+                        / Quick setting form (not working)
+                        %form.form-horizontal{:role => "form"}
+                          / Name
+                          .form-group
+                            %label.control-label.col-md-5{:for => "sitename"} Name
+                            .col-md-7
+                              %input#sitename.form-control{:placeholder => "Metro King", :type => "text"}/
+                          / description
+                          .form-group
+                            %label.control-label.col-lg-5{:for => "sitedescription"} Description
+                            .col-lg-7
+                              %textarea#sitedescription.form-control
+                          / Comments
+                          .form-group
+                            %label.control-label.col-lg-5 Comments
+                            .col-lg-7
+                              .toggle-button
+                                %input#toogle-checkbox.form-control{:checked => "checked", :type => "checkbox", :value => "value1"}/
+                          / Registraion
+                          .form-group
+                            %label.control-label.col-lg-3 Registration
+                            .col-lg-9
+                              .checkbox
+                                %label
+                                  %input{:type => "checkbox", :value => ""}/
+                                  Any One Can Register
+                          / Date Format
+                          .form-group
+                            %label.control-label.col-lg-3 Date
+                            .col-lg-9
+                              .radio
+                                %label
+                                  %input#optionsRadios1{:name => "optionsRadios", :type => "radio", :value => "option1"}/
+                                  Jan 18,2012
+                              .radio
+                                %label
+                                  %input#optionsRadios2{:name => "optionsRadios", :type => "radio", :value => "option2"}/
+                                  Jan 18,2012
+                              .radio
+                                %label
+                                  %input#optionsRadios3{:name => "optionsRadios", :type => "radio", :value => "option3"}/
+                                  Jan 18,2012
+                          / User role Format
+                          .form-group
+                            %label.control-label.col-lg-3 New User
+                            .col-lg-9
+                              %select.form-control
+                                %option{:value => "option1"} Author
+                                %option{:value => "option2"} Moderator
+                                %option{:value => "option3"} Editor
+                          / Buttons
+                          .form-group
+                            / Buttons
+                            .col-lg-9.col-lg-offset-2
+                              %button.btn.btn-info{:type => "submit"} Save Now
+                              %button.btn.btn-default{:type => "reset"} Reset
+                    .widget-foot
+                      / Footer goes here
+        / Matter ends
+      / Mainbar ends
+      .clearfix
+    / Content ends
+    / Footer starts
+    %footer
+      .container
+        .row
+          .col-md-12
+            / Copyright info
+            %p.copy
+              Copyright &copy; 2012 |
+              %a{:href => "#"} Your Site
+    / Footer ends
+    / Scroll to top
+    %span.totop
+      %a{:href => "#"}
+        %i.icon-chevron-up
+    / JS
+    %script{:src => "js/jquery.js"}
+    / jQuery
+    %script{:src => "js/bootstrap.js"}
+    / Bootstrap
+    %script{:src => "js/jquery-ui-1.9.2.custom.min.js"}
+    / jQuery UI
+    %script{:src => "js/fullcalendar.min.js"}
+    / Full Google Calendar - Calendar
+    %script{:src => "js/jquery.rateit.min.js"}
+    / RateIt - Star rating
+    %script{:src => "js/jquery.prettyPhoto.js"}
+    / prettyPhoto
+    / jQuery Flot
+    %script{:src => "js/excanvas.min.js"}
+    %script{:src => "js/jquery.flot.js"}
+    %script{:src => "js/jquery.flot.resize.js"}
+    %script{:src => "js/jquery.flot.pie.js"}
+    %script{:src => "js/jquery.flot.stack.js"}
+    / jQuery Notification - Noty
+    %script{:src => "js/jquery.noty.js"}
+    / jQuery Notify
+    %script{:src => "js/themes/default.js"}
+    / jQuery Notify
+    %script{:src => "js/layouts/bottom.js"}
+    / jQuery Notify
+    %script{:src => "js/layouts/topRight.js"}
+    / jQuery Notify
+    %script{:src => "js/layouts/top.js"}
+    / jQuery Notify
+    / jQuery Notification ends
+    %script{:src => "js/sparklines.js"}
+    / Sparklines
+    %script{:src => "js/jquery.cleditor.min.js"}
+    / CLEditor
+    %script{:src => "js/bootstrap-datetimepicker.min.js"}
+    / Date picker
+    %script{:src => "js/bootstrap-switch.min.js"}
+    / Bootstrap Toggle
+    %script{:src => "js/filter.js"}
+    / Filter for support page
+    %script{:src => "js/custom.js"}
+    / Custom codes
+    %script{:src => "js/charts.js"}
+    / Charts &amp; Graphs

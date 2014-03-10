@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   after_filter :set_access_control_headers
   before_filter :configure_permitted_parameters, if: :devise_controller?
+  before_filter :set_session_variables
 
   # respond to options requests with blank text/plain as per spec
   def cors_preflight_check
@@ -50,6 +51,11 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) << :name
+  end
+
+  def set_session_variables
+    session[:client_count] = Client.count
+    session[:message_count] = Message.count
   end
 
 end

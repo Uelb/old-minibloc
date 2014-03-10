@@ -1,0 +1,716 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "utf-8"}/
+    / Title and other stuffs
+    %title Edit Profile - MacKart
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %meta{:content => "", :name => "description"}/
+    %meta{:content => "", :name => "keywords"}/
+    %meta{:content => "", :name => "author"}/
+    %link{:href => "http://fonts.googleapis.com/css?family=Open+Sans:400,600", :rel => "stylesheet", :type => "text/css"}/
+    / Stylesheets
+    %link{:href => "style/bootstrap.css", :rel => "stylesheet"}/
+    / Pretty Photo
+    %link{:href => "style/prettyPhoto.css", :rel => "stylesheet"}/
+    / Sidebar nav
+    %link{:href => "style/sidebar-nav.css", :rel => "stylesheet"}/
+    / Flex slider
+    %link{:href => "style/flexslider.css", :rel => "stylesheet"}/
+    / Font awesome icon
+    %link{:href => "style/font-awesome.css", :rel => "stylesheet"}/
+    / Main stylesheet
+    %link{:href => "style/style.css", :rel => "stylesheet"}/
+    / Stylesheet for Color
+    %link{:href => "style/red.css", :rel => "stylesheet"}/
+    / HTML5 Support for IE
+    /[if lt IE 9]
+      <script src="js/html5shim.js"></script>
+    / Favicon
+    %link{:href => "img/favicon/favicon.png", :rel => "shortcut icon"}/
+  %body
+    / Header starts
+    %header
+      .container
+        .row
+          .col-md-4
+            / Logo. Use class "color" to add color to the text.
+            .logo
+              %h1
+                %a{:href => "#"}
+                  Mac
+                  %span.color.bold Kart
+              %p.meta online shopping is fun!!!
+          .col-md-5.col-md-offset-3
+            / Search form
+            %form.form-inline{:role => "form"}
+              .form-group
+                %input#search.form-control{:placeholder => "Search", :type => "email"}/
+              %button.btn.btn-default{:type => "submit"} Search
+            .hlinks
+              %span
+                / item details with price
+                %a{"data-toggle" => "modal", :href => "#cart", :role => "button"}
+                  3 Item(s) in your
+                  %i.icon-shopping-cart
+                \-
+                %span.bold $25
+              / Login and Register link
+              %span.lr
+                %a{"data-toggle" => "modal", :href => "#login", :role => "button"} Login
+                or
+                %a{"data-toggle" => "modal", :href => "#register", :role => "button"} Register
+    / Header ends
+    / Cart, Login and Register form (Modal)
+    / Cart Modal starts
+    #cart.modal.fade
+      .modal-dialog
+        .modal-content
+          .modal-header
+            %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+            %h4 Shopping Cart
+          .modal-body
+            %table.table.table-striped.tcart
+              %thead
+                %tr
+                  %th Name
+                  %th Quantity
+                  %th Price
+              %tbody
+                %tr
+                  %td
+                    %a{:href => "single-item.html"} HTC One
+                  %td 2
+                  %td $250
+                %tr
+                  %td
+                    %a{:href => "single-item.html"} Apple iPhone
+                  %td 1
+                  %td $502
+                %tr
+                  %td
+                    %a{:href => "single-item.html"} Galaxy Note
+                  %td 4
+                  %td $1303
+                %tr
+                  %th
+                  %th Total
+                  %th $2405
+          .modal-footer
+            %a.btn{:href => "index.html"} Continue Shopping
+            %a.btn.btn-danger{:href => "checkout.html"} Checkout
+    / Cart modal ends
+    / Login Modal starts
+    #login.modal.fade
+      .modal-dialog
+        .modal-content
+          .modal-header
+            %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+            %h4 Login
+          .modal-body
+            .form
+              %form.form-horizontal
+                .form-group
+                  %label.control-label.col-md-3{:for => "username"} Username
+                  .col-md-9
+                    %input#username.form-control{:type => "text"}/
+                .form-group
+                  %label.control-label.col-md-3{:for => "email"} Password
+                  .col-md-9
+                    %input#password.form-control{:type => "password"}/
+                .form-group
+                  .col-md-9.col-md-offset-3
+                    .checkbox.inline
+                      %label
+                        %input#inlineCheckbox1{:type => "checkbox", :value => "agree"}/
+                        Remember Password
+                .form-group
+                  .col-md-9.col-md-offset-3
+                    %button.btn.btn-default{:type => "submit"} Login
+                    %button.btn.btn-default{:type => "reset"} Reset
+          .modal-footer
+            %p
+              Dont have account?
+              %a{:href => "register.html"} Register
+              here.
+    / Login modal ends
+    / Register Modal starts
+    #register.modal.fade
+      .modal-dialog
+        .modal-content
+          .modal-header
+            %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+            %h4 Register
+          .modal-body
+            .form
+              %form.form-horizontal
+                .form-group
+                  %label.control-label.col-md-3{:for => "name"} Name
+                  .col-md-9
+                    %input#name.form-control{:type => "text"}/
+                .form-group
+                  %label.control-label.col-md-3{:for => "email"} Email
+                  .col-md-9
+                    %input#email.form-control{:type => "text"}/
+                .form-group
+                  %label.control-label.col-md-3 Drop Down
+                  .col-md-9
+                    %select.form-control
+                      %option &nbsp;
+                      %option 1
+                      %option 2
+                      %option 3
+                      %option 4
+                      %option 5
+                .form-group
+                  %label.control-label.col-md-3{:for => "username1"} Username
+                  .col-md-9
+                    %input#username1.form-control{:type => "text"}/
+                .form-group
+                  %label.control-label.col-md-3{:for => "password1"} Password
+                  .col-md-9
+                    %input#password1.form-control{:type => "password"}/
+                .form-group
+                  .col-md-9.col-md-offset-3
+                    .checkbox.inline
+                      %label
+                        %input#inlineCheckbox2{:type => "checkbox", :value => "agree"}/
+                        Agree with Terms and Conditions
+                .form-group
+                  .col-md-9.col-md-offset-3
+                    %button.btn.btn-default{:type => "submit"} Register
+                    %button.btn.btn-default{:type => "reset"} Reset
+          .modal-footer
+            %p
+              Already have account?
+              %a{:href => "login.html"} Login
+              here.
+    / Register modal ends
+    / Navigation
+    .navbar.bs-docs-nav{:role => "banner"}
+      .container
+        .navbar-header
+          %button.navbar-toggle{"data-target" => ".bs-navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+        %nav.collapse.navbar-collapse.bs-navbar-collapse{:role => "navigation"}
+          %ul.nav.navbar-nav
+            %li
+              %a{:href => "index.html"}
+                %i.icon-home
+            %li.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                Account
+                %b.caret
+              %ul.dropdown-menu
+                %li
+                  %a{:href => "myaccount.html"} My Account
+                %li
+                  %a{:href => "view-cart.html"} View Cart
+                %li
+                  %a{:href => "checkout.html"} Checkout
+                %li
+                  %a{:href => "wish-list.html"} Wish List
+                %li
+                  %a{:href => "order-history.html"} Order History
+                %li
+                  %a{:href => "edit-profile.html"} Edit Profile
+                %li
+                  %a{:href => "confirmation.html"} Confirmation
+            %li.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                Pages
+                %b.caret
+              %ul.dropdown-menu
+                %li
+                  %a{:href => "general.html"} General
+                %li
+                  %a{:href => "login.html"} Login
+                %li
+                  %a{:href => "register.html"} Register
+                %li
+                  %a{:href => "blog.html"} Blog
+                %li
+                  %a{:href => "blog-single.html"} Blog Single
+                %li
+                  %a{:href => "404.html"} 404
+            %li.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                Smartphones
+                %b.caret
+              %ul.dropdown-menu
+                %li
+                  %a{:href => "items.html"} HTC
+                %li
+                  %a{:href => "items.html"} Samsung
+                %li
+                  %a{:href => "items.html"} Apple
+                %li
+                  %a{:href => "items.html"} Motorola
+                %li
+                  %a{:href => "items.html"} Nokia
+            %li.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                Tablets
+                %b.caret
+              %ul.dropdown-menu
+                %li
+                  %a{:href => "items.html"} Samsung
+                %li
+                  %a{:href => "items.html"} Micromax
+                %li
+                  %a{:href => "items.html"} Apple
+            %li
+              %a{:href => "support.html"} Support
+            %li
+              %a{:href => "contact.html"} Contact
+    / Edit profile
+    .items
+      .container
+        .row
+          / Sidebar
+          .col-md-3.col-sm-3.hidden-xs
+            %h5.title Pages
+            / Sidebar navigation
+            %nav
+              %ul#navi
+                %li
+                  %a{:href => "myaccount.html"} My Account
+                %li
+                  %a{:href => "wish-list.html"} Wish List
+                %li
+                  %a{:href => "order-history.html"} Order History
+                %li
+                  %a{:href => "edit-profile.html"} Edit Profile
+          / Main bar
+          .col-md-9.col-sm-9
+            / Title
+            %h5.title Edit Profile
+            .form.form-small
+              / Edit profile form (not working)
+              %form.form-horizontal
+                / Name
+                .form-group
+                  %label.control-label.col-md-3{:for => "name1"} Name
+                  .col-md-6
+                    %input#name1.form-control{:type => "text"}/
+                / Email
+                .form-group
+                  %label.control-label.col-md-3{:for => "email1"} Email
+                  .col-md-6
+                    %input#email1.form-control{:type => "text"}/
+                / Telephone
+                .form-group
+                  %label.control-label.col-md-3{:for => "telephone"} Telephone
+                  .col-md-6
+                    %input#telephone.form-control{:type => "text"}/
+                / Address
+                .form-group
+                  %label.control-label.col-md-3{:for => "address"} Address
+                  .col-md-6
+                    %textarea#address.form-control
+                / Country
+                .form-group
+                  %label.control-label.col-md-3 Country
+                  .col-md-6
+                    %select.form-control
+                      %option{:value => ""} --- Please Select ---
+                      %option{:value => "1"} Afghanistan
+                      %option{:value => "2"} Albania
+                      %option{:value => "3"} Algeria
+                      %option{:value => "4"} American Samoa
+                      %option{:value => "5"} Andorra
+                      %option{:value => "6"} Angola
+                      %option{:value => "7"} Anguilla
+                      %option{:value => "8"} Antarctica
+                      %option{:value => "9"} Antigua and Barbuda
+                      %option{:value => "10"} Argentina
+                      %option{:value => "11"} Armenia
+                      %option{:value => "12"} Aruba
+                      %option{:value => "13"} Australia
+                      %option{:value => "14"} Austria
+                      %option{:value => "15"} Azerbaijan
+                      %option{:value => "16"} Bahamas
+                      %option{:value => "17"} Bahrain
+                      %option{:value => "18"} Bangladesh
+                      %option{:value => "19"} Barbados
+                      %option{:value => "20"} Belarus
+                      %option{:value => "21"} Belgium
+                      %option{:value => "22"} Belize
+                      %option{:value => "23"} Benin
+                      %option{:value => "24"} Bermuda
+                      %option{:value => "25"} Bhutan
+                      %option{:value => "26"} Bolivia
+                      %option{:value => "27"} Bosnia and Herzegowina
+                      %option{:value => "28"} Botswana
+                      %option{:value => "29"} Bouvet Island
+                      %option{:value => "30"} Brazil
+                      %option{:value => "31"} British Indian Ocean Territory
+                      %option{:value => "32"} Brunei Darussalam
+                      %option{:value => "33"} Bulgaria
+                      %option{:value => "34"} Burkina Faso
+                      %option{:value => "35"} Burundi
+                      %option{:value => "36"} Cambodia
+                      %option{:value => "37"} Cameroon
+                      %option{:value => "38"} Canada
+                      %option{:value => "39"} Cape Verde
+                      %option{:value => "40"} Cayman Islands
+                      %option{:value => "41"} Central African Republic
+                      %option{:value => "42"} Chad
+                      %option{:value => "43"} Chile
+                      %option{:value => "44"} China
+                      %option{:value => "45"} Christmas Island
+                      %option{:value => "46"} Cocos (Keeling) Islands
+                      %option{:value => "47"} Colombia
+                      %option{:value => "48"} Comoros
+                      %option{:value => "49"} Congo
+                      %option{:value => "50"} Cook Islands
+                      %option{:value => "51"} Costa Rica
+                      %option{:value => "52"} Cote D'Ivoire
+                      %option{:value => "53"} Croatia
+                      %option{:value => "54"} Cuba
+                      %option{:value => "55"} Cyprus
+                      %option{:value => "56"} Czech Republic
+                      %option{:value => "237"} Democratic Republic of Congo
+                      %option{:value => "57"} Denmark
+                      %option{:value => "58"} Djibouti
+                      %option{:value => "59"} Dominica
+                      %option{:value => "60"} Dominican Republic
+                      %option{:value => "61"} East Timor
+                      %option{:value => "62"} Ecuador
+                      %option{:value => "63"} Egypt
+                      %option{:value => "64"} El Salvador
+                      %option{:value => "65"} Equatorial Guinea
+                      %option{:value => "66"} Eritrea
+                      %option{:value => "67"} Estonia
+                      %option{:value => "68"} Ethiopia
+                      %option{:value => "69"} Falkland Islands (Malvinas)
+                      %option{:value => "70"} Faroe Islands
+                      %option{:value => "71"} Fiji
+                      %option{:value => "72"} Finland
+                      %option{:value => "73"} France
+                      %option{:value => "74"} France, Metropolitan
+                      %option{:value => "75"} French Guiana
+                      %option{:value => "76"} French Polynesia
+                      %option{:value => "77"} French Southern Territories
+                      %option{:value => "78"} Gabon
+                      %option{:value => "79"} Gambia
+                      %option{:value => "80"} Georgia
+                      %option{:value => "81"} Germany
+                      %option{:value => "82"} Ghana
+                      %option{:value => "83"} Gibraltar
+                      %option{:value => "84"} Greece
+                      %option{:value => "85"} Greenland
+                      %option{:value => "86"} Grenada
+                      %option{:value => "87"} Guadeloupe
+                      %option{:value => "88"} Guam
+                      %option{:value => "89"} Guatemala
+                      %option{:value => "90"} Guinea
+                      %option{:value => "91"} Guinea-bissau
+                      %option{:value => "92"} Guyana
+                      %option{:value => "93"} Haiti
+                      %option{:value => "94"} Heard and Mc Donald Islands
+                      %option{:value => "95"} Honduras
+                      %option{:value => "96"} Hong Kong
+                      %option{:value => "97"} Hungary
+                      %option{:value => "98"} Iceland
+                      %option{:value => "99"} India
+                      %option{:value => "100"} Indonesia
+                      %option{:value => "101"} Iran (Islamic Republic of)
+                      %option{:value => "102"} Iraq
+                      %option{:value => "103"} Ireland
+                      %option{:value => "104"} Israel
+                      %option{:value => "105"} Italy
+                      %option{:value => "106"} Jamaica
+                      %option{:value => "107"} Japan
+                      %option{:value => "108"} Jordan
+                      %option{:value => "109"} Kazakhstan
+                      %option{:value => "110"} Kenya
+                      %option{:value => "111"} Kiribati
+                      %option{:value => "113"} Korea, Republic of
+                      %option{:value => "114"} Kuwait
+                      %option{:value => "115"} Kyrgyzstan
+                      %option{:value => "116"} Lao People's Democratic Republic
+                      %option{:value => "117"} Latvia
+                      %option{:value => "118"} Lebanon
+                      %option{:value => "119"} Lesotho
+                      %option{:value => "120"} Liberia
+                      %option{:value => "121"} Libyan Arab Jamahiriya
+                      %option{:value => "122"} Liechtenstein
+                      %option{:value => "123"} Lithuania
+                      %option{:value => "124"} Luxembourg
+                      %option{:value => "125"} Macau
+                      %option{:value => "126"} Macedonia
+                      %option{:value => "127"} Madagascar
+                      %option{:value => "128"} Malawi
+                      %option{:value => "129"} Malaysia
+                      %option{:value => "130"} Maldives
+                      %option{:value => "131"} Mali
+                      %option{:value => "132"} Malta
+                      %option{:value => "133"} Marshall Islands
+                      %option{:value => "134"} Martinique
+                      %option{:value => "135"} Mauritania
+                      %option{:value => "136"} Mauritius
+                      %option{:value => "137"} Mayotte
+                      %option{:value => "138"} Mexico
+                      %option{:value => "139"} Micronesia, Federated States of
+                      %option{:value => "140"} Moldova, Republic of
+                      %option{:value => "141"} Monaco
+                      %option{:value => "142"} Mongolia
+                      %option{:value => "143"} Montserrat
+                      %option{:value => "144"} Morocco
+                      %option{:value => "145"} Mozambique
+                      %option{:value => "146"} Myanmar
+                      %option{:value => "147"} Namibia
+                      %option{:value => "148"} Nauru
+                      %option{:value => "149"} Nepal
+                      %option{:value => "150"} Netherlands
+                      %option{:value => "151"} Netherlands Antilles
+                      %option{:value => "152"} New Caledonia
+                      %option{:value => "153"} New Zealand
+                      %option{:value => "154"} Nicaragua
+                      %option{:value => "155"} Niger
+                      %option{:value => "156"} Nigeria
+                      %option{:value => "157"} Niue
+                      %option{:value => "158"} Norfolk Island
+                      %option{:value => "112"} North Korea
+                      %option{:value => "159"} Northern Mariana Islands
+                      %option{:value => "160"} Norway
+                      %option{:value => "161"} Oman
+                      %option{:value => "162"} Pakistan
+                      %option{:value => "163"} Palau
+                      %option{:value => "164"} Panama
+                      %option{:value => "165"} Papua New Guinea
+                      %option{:value => "166"} Paraguay
+                      %option{:value => "167"} Peru
+                      %option{:value => "168"} Philippines
+                      %option{:value => "169"} Pitcairn
+                      %option{:value => "170"} Poland
+                      %option{:value => "171"} Portugal
+                      %option{:value => "172"} Puerto Rico
+                      %option{:value => "173"} Qatar
+                      %option{:value => "174"} Reunion
+                      %option{:value => "175"} Romania
+                      %option{:value => "176"} Russian Federation
+                      %option{:value => "177"} Rwanda
+                      %option{:value => "178"} Saint Kitts and Nevis
+                      %option{:value => "179"} Saint Lucia
+                      %option{:value => "180"} Saint Vincent and the Grenadines
+                      %option{:value => "181"} Samoa
+                      %option{:value => "182"} San Marino
+                      %option{:value => "183"} Sao Tome and Principe
+                      %option{:value => "184"} Saudi Arabia
+                      %option{:value => "185"} Senegal
+                      %option{:value => "186"} Seychelles
+                      %option{:value => "187"} Sierra Leone
+                      %option{:value => "188"} Singapore
+                      %option{:value => "189"} Slovak Republic
+                      %option{:value => "190"} Slovenia
+                      %option{:value => "191"} Solomon Islands
+                      %option{:value => "192"} Somalia
+                      %option{:value => "193"} South Africa
+                      %option{:value => "194"} South Georgia &amp; South Sandwich Islands
+                      %option{:value => "195"} Spain
+                      %option{:value => "196"} Sri Lanka
+                      %option{:value => "197"} St. Helena
+                      %option{:value => "198"} St. Pierre and Miquelon
+                      %option{:value => "199"} Sudan
+                      %option{:value => "200"} Suriname
+                      %option{:value => "201"} Svalbard and Jan Mayen Islands
+                      %option{:value => "202"} Swaziland
+                      %option{:value => "203"} Sweden
+                      %option{:value => "204"} Switzerland
+                      %option{:value => "205"} Syrian Arab Republic
+                      %option{:value => "206"} Taiwan
+                      %option{:value => "207"} Tajikistan
+                      %option{:value => "208"} Tanzania, United Republic of
+                      %option{:value => "209"} Thailand
+                      %option{:value => "210"} Togo
+                      %option{:value => "211"} Tokelau
+                      %option{:value => "212"} Tonga
+                      %option{:value => "213"} Trinidad and Tobago
+                      %option{:value => "214"} Tunisia
+                      %option{:value => "215"} Turkey
+                      %option{:value => "216"} Turkmenistan
+                      %option{:value => "217"} Turks and Caicos Islands
+                      %option{:value => "218"} Tuvalu
+                      %option{:value => "219"} Uganda
+                      %option{:value => "220"} Ukraine
+                      %option{:value => "221"} United Arab Emirates
+                      %option{:value => "222"} United Kingdom
+                      %option{:selected => "selected", :value => "223"} United States
+                      %option{:value => "224"} United States Minor Outlying Islands
+                      %option{:value => "225"} Uruguay
+                      %option{:value => "226"} Uzbekistan
+                      %option{:value => "227"} Vanuatu
+                      %option{:value => "228"} Vatican City State (Holy See)
+                      %option{:value => "229"} Venezuela
+                      %option{:value => "230"} Viet Nam
+                      %option{:value => "231"} Virgin Islands (British)
+                      %option{:value => "232"} Virgin Islands (U.S.)
+                      %option{:value => "233"} Wallis and Futuna Islands
+                      %option{:value => "234"} Western Sahara
+                      %option{:value => "235"} Yemen
+                      %option{:value => "236"} Yugoslavia
+                      %option{:value => "238"} Zambia
+                      %option{:value => "239"} Zimbabwe
+                / State
+                .form-group
+                  %label.control-label.col-md-3{:for => "city"} State
+                  .col-md-6
+                    %input#state.form-control{:type => "text"}/
+                / City
+                .form-group
+                  %label.control-label.col-md-3{:for => "city"} City
+                  .col-md-6
+                    %input#city.form-control{:type => "text"}/
+                / Username
+                .form-group
+                  %label.control-label.col-md-3{:for => "username2"} Username
+                  .col-md-6
+                    %input#username2.form-control{:type => "text"}/
+                / Password
+                .form-group
+                  %label.control-label.col-md-3{:for => "password2"} Password
+                  .col-md-6
+                    %input#password2.form-control{:type => "password"}/
+                / Checkbox
+                .form-group
+                  .col-md-3.col-md-offset-3
+                    %label.checkbox.inline
+                      %input#inlineCheckbox3{:type => "checkbox", :value => "agree"}/
+                      Agree with Terms and Conditions
+                / Buttons
+                .form-group
+                  / Buttons
+                  .col-md-3.col-md-offset-3
+                    %button.btn.btn-default{:type => "submit"} Update
+                    %button.btn.btn-default{:type => "reset"} Reset
+    / Newsletter starts
+    .container.newsletter
+      .row
+        .col-md-12
+          .well
+            %h5
+              %i.icon-envelope-alt
+              Hot Offers - Don't Miss Anything!!!
+            %p Nulla facilisi. Sed justo dui, scelerisque ut consectetur vel, eleifend id erat. Morbi auctor adipiscing tempor. Phasellus condimentum rutrum aliquet.
+            %form.form-inline{:role => "form"}
+              .form-group
+                %input#search.form-control{:placeholder => "Subscribe", :type => "email"}/
+              %button.btn.btn-default{:type => "submit"} Subscribe
+    / Newsletter ends
+    / Footer starts
+    %footer
+      .container
+        .row
+          .col-md-12
+            .row
+              .col-md-4
+                .widget
+                  %h5 Contact
+                  %hr/
+                  .social
+                    %a{:href => "#"}
+                      %i.icon-facebook.facebook
+                    %a{:href => "#"}
+                      %i.icon-twitter.twitter
+                    %a{:href => "#"}
+                      %i.icon-linkedin.linkedin
+                    %a{:href => "#"}
+                      %i.icon-google-plus.google-plus
+                  %hr/
+                  %i.icon-home
+                  \&nbsp; 123, Some Area. Los Angeles, CA, 54321.
+                  %hr/
+                  %i.icon-phone
+                  \&nbsp; +239-3823-3434
+                  %hr/
+                  %i.icon-envelope-alt
+                  \&nbsp;
+                  %a{:href => "mailto:#"} someone@company.com
+                  %hr/
+                  .payment-icons
+                    %img{:alt => "", :src => "img/payment/americanexpress.gif"}/
+                    %img{:alt => "", :src => "img/payment/visa.gif"}/
+                    %img{:alt => "", :src => "img/payment/mastercard.gif"}/
+                    %img{:alt => "", :src => "img/payment/discover.gif"}/
+                    %img{:alt => "", :src => "img/payment/paypal.gif"}/
+              .col-md-4
+                .widget
+                  %h5 About Us
+                  %hr/
+                  %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras elementum dolor eget nisi fermentum quis hendrerit magna vestibulum. Curabitur pulvinar ornare vulputate scelerisque scelerisque ut consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras elementum dolor eget nisi fermentum quis hendrerit magna vestibulum.
+              .col-md-4
+                .widget
+                  %h5 Links Goes Here
+                  %hr/
+                  .two-col
+                    .col-left
+                      %ul
+                        %li
+                          %a{:href => "#"} Condimentum
+                        %li
+                          %a{:href => "#"} Etiam at
+                        %li
+                          %a{:href => "#"} Fusce vel
+                        %li
+                          %a{:href => "#"} Vivamus
+                        %li
+                          %a{:href => "#"} Pellentesque
+                        %li
+                          %a{:href => "#"} Vivamus
+                    .col-right
+                      %ul
+                        %li
+                          %a{:href => "#"} Condimentum
+                        %li
+                          %a{:href => "#"} Etiam at
+                        %li
+                          %a{:href => "#"} Fusce vel
+                        %li
+                          %a{:href => "#"} Vivamus
+                        %li
+                          %a{:href => "#"} Pellentesque
+                        %li
+                          %a{:href => "#"} Vivamus
+                    .clearfix
+            %hr/
+            / Copyright info
+            %p.copy
+              Copyright &copy; 2012 |
+              %a{:href => "#"} Your Site
+              \-
+              %a{:href => "#"} Home
+              |
+              %a{:href => "#"} About Us
+              |
+              %a{:href => "#"} Service
+              |
+              %a{:href => "#"} Contact Us
+        .clearfix
+    / Footer ends
+    / Scroll to top
+    %span.totop
+      %a{:href => "#"}
+        %i.icon-chevron-up
+    / JS
+    %script{:src => "js/jquery.js"}
+    / jQuery
+    %script{:src => "js/bootstrap.js"}
+    / Bootstrap
+    %script{:src => "js/jquery.prettyPhoto.js"}
+    / Pretty Photo
+    %script{:src => "js/filter.js"}
+    / Filter for support page
+    %script{:src => "js/jquery.flexslider-min.js"}
+    / Flex slider
+    %script{:src => "js/nav.js"}
+    / Sidebar navigation
+    %script{:src => "js/jquery.carouFredSel-6.1.0-packed.js"}
+    / Carousel for recent posts
+    %script{:src => "js/custom.js"}
+    / Custom codes

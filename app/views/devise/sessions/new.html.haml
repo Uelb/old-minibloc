@@ -1,16 +1,37 @@
-%h2 Sign in
-= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
-  %div
-    = f.label :email
-    %br/
-    = f.email_field :email, :autofocus => true
-  %div
-    = f.label :password
-    %br/
-    = f.password_field :password
-  - if devise_mapping.rememberable?
-    %div
-      = f.check_box :remember_me
-      = f.label :remember_me
-  %div= f.submit "Sign in"
-= render "devise/shared/links"
+/ Form area
+.admin-form
+  .container
+    .row
+      .col-md-12
+        / Widget starts
+        .widget.worange
+          / Widget head
+          .widget-head
+            %i.icon-lock
+            Login
+          .widget-content
+            .padd
+              / Login form
+              = form_for(resource, :as => resource_name, :url => session_path(resource_name), html: {class: 'form-horizontal'}) do |f|
+                / Email
+                .form-group
+                  = f.label :email, class: ["control-label", "col-lg-3"]
+                  .col-lg-9
+                    = f.email_field :email, :autofocus => true, class: "form-control", placeholder: "Email"
+                / Password
+                .form-group
+                  = f.label :password, class: ["control-label", "col-lg-3"]
+                  .col-lg-9
+                    = f.password_field :password, class: "form-control", placeholder: "Password"
+                / Remember me checkbox and sign in button
+                .form-group
+                  .col-lg-9.col-lg-offset-3
+                    .checkbox
+                      %label
+                        = f.check_box :remember_me
+                        = f.label :remember_me
+                .col-lg-9.col-lg-offset-2
+                  %button.btn.btn-danger{:type => "submit"} Sign in
+                  %button.btn.btn-default{:type => "reset"} Reset
+                %br/
+          = render "devise/shared/links"

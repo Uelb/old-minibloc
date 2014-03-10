@@ -1,4 +1,3 @@
-= render "partials/menu"
 = link_to t("clients.edit"), edit_client_path(current_client)
 .api_key= current_client.api_key || t('clients.no_api_key')
 .name= current_client.name

@@ -1,13 +1,50 @@
-= render "partials/menu"
-= link_to t("phones.add"), new_phone_path
+= content_for :head do 
+  %h2.pull-left
+    %i.icon-mobile-phone
+    My phone list
 - if @all_phones.empty?
   .no_phone Vous n'avez pas de téléphone !
 - else
-  %br
-  Phones that are used
-  %br
-  = render partial: @used_phones, layout: 'used'
-  %br
-  Phones that are not used
-  %br
-  = render partial: @not_used_phones, layout: 'not_used'
+  .col-md-12
+    .widget
+      .widget-head
+        .pull-left All your phones
+        .widget-icons.pull-right
+          %a.wminimize{:href => "#"}
+            %i.icon-chevron-up
+          %a.wclose{:href => "#"}
+            %i.icon-remove
+        .clearfix
+      .widget-content
+        %table.table.table-striped.table-bordered.table-hover
+          %thead
+            %tr
+              %th Phone Number
+              %th Token
+              %th Last ping date
+              %th Status
+              %th Control
+          %tbody
+            - @used_phones.each do |phone|
+              %tr
+                %td=phone.number
+                %td=phone.token
+                %td=distance_of_time_in_words_to_now(phone.last_ping_date) + " ago"
+                %td
+                  %span.label.label-success Active
+                %td
+                  = button_to [:unuse, phone], class: ['btn', 'btn-xs', 'btn-danger'] do 
+                    %i.icon-remove
+            - @not_used_phones.each do |phone|
+              %tr
+                %td=phone.number
+                %td=phone.token
+                %td=distance_of_time_in_words_to_now(phone.last_ping_date) + " ago"
+                %td
+                  %span.label.label-danger Inactive
+                %td
+                  = button_to [:use, phone], class: ['btn', 'btn-xs', 'btn-success'] do 
+                    %i.icon-ok
+        .widget-foot
+          = link_to t("clients.add_phone"), new_phone_path, class: ["btn", "btn-success", "pull-right"]
+          .clearfix

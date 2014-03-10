@@ -1,0 +1,327 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "utf-8"}/
+    / Title and other stuffs
+    %title Contact Us - MacBeath
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %meta{:content => "", :name => "description"}/
+    %meta{:content => "", :name => "keywords"}/
+    %meta{:content => "", :name => "author"}/
+    %link{:href => "http://fonts.googleapis.com/css?family=Open+Sans:400,600", :rel => "stylesheet", :type => "text/css"}/
+    / Stylesheets
+    %link{:href => "style/bootstrap.css", :rel => "stylesheet"}/
+    / Pretty Photo
+    %link{:href => "style/prettyPhoto.css", :rel => "stylesheet"}/
+    / Flex slider
+    %link{:href => "style/flexslider.css", :rel => "stylesheet"}/
+    / Font awesome icon
+    %link{:href => "style/font-awesome.css", :rel => "stylesheet"}/
+    / Parallax slider
+    %link{:href => "style/slider.css", :rel => "stylesheet"}/
+    / Refind slider
+    %link{:href => "style/refineslide.css", :rel => "stylesheet"}/
+    / Main stylesheet
+    %link{:href => "style/style.css", :rel => "stylesheet"}/
+    / Stylesheet for Color
+    %link{:href => "style/red.css", :rel => "stylesheet"}/
+    / HTML5 Support for IE
+    /[if lt IE 9]
+      <script src="js/html5shim.js"></script>
+    / Favicon
+    %link{:href => "img/favicon/favicon.png", :rel => "shortcut icon"}/
+  %body
+    / Header starts
+    %header
+      .container
+        .row
+          .col-md-4.col-sm-3
+            / Logo. Use class "color" to add color to the text.
+            .logo
+              %h1
+                %a{:href => "#"}
+                  Mac
+                  %span.color.bold Beath
+              %p.meta something goes in meta area
+          .col-md-8.col-sm-9
+            / Navigation
+            .navbar.bs-docs-nav{:role => "banner"}
+              .container
+                .navbar-header
+                  %button.navbar-toggle{"data-target" => ".bs-navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+                    %span.sr-only Toggle navigation
+                    %span.icon-bar
+                    %span.icon-bar
+                    %span.icon-bar
+                %nav.collapse.navbar-collapse.bs-navbar-collapse{:role => "navigation"}
+                  %ul.nav.navbar-nav
+                    %li
+                      %a{:href => "index.html"} Home
+                    %li.dropdown
+                      %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                        Pages
+                        %b.caret
+                      %ul.dropdown-menu
+                        %li
+                          %a{:href => "404-1.html"} 404
+                        %li
+                          %a{:href => "about1.html"} About
+                        %li
+                          %a{:href => "faq.html"} FAQ
+                        %li
+                          %a{:href => "features2.html"} Features
+                        %li
+                          %a{:href => "login.html"} Login
+                        %li
+                          %a{:href => "faq.html"} FAQ
+                        %li
+                          %a{:href => "pricing1.html"} Pricing Table
+                        %li
+                          %a{:href => "process.html"} Process
+                        %li
+                          %a{:href => "project.html"} Project
+                        %li
+                          %a{:href => "register.html"} Register
+                        %li
+                          %a{:href => "support.html"} Support
+                        %li
+                          %a{:href => "testimonials.html"} Testimonials
+                    %li
+                      %a{:href => "service2.html"} Service
+                    %li
+                      %a{:href => "resume.html"} Resume
+                    %li.dropdown
+                      %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                        Blog
+                        %b.caret
+                      %ul.dropdown-menu
+                        %li
+                          %a{:href => "blog1.html"} Blog
+                        %li
+                          %a{:href => "blog3.html"} Blog Box
+                        %li
+                          %a{:href => "blog-3col.html"} Blog 3 Column
+                        %li
+                          %a{:href => "blog-single.html"} Blog Single
+                    %li
+                      %a{:href => "portfolio1.html"} Portfolio
+                    %li
+                      %a{:href => "contactus1.html"} Contact
+    / Seperator
+    .sep
+    / Header ends
+    / Page heading starts
+    .page-head
+      .container
+        .row
+          .col-md-12
+            %h2 Contact Us #1
+            %h4 something goes here
+    / Page Heading ends
+    / Page content starts
+    .content.contact
+      .container
+        .row
+          .col-md-12
+            / Contact
+            / Google maps
+            .gmap
+              / Google Maps. Replace the below iframe with your Google Maps embed code
+              %iframe{:frameborder => "0", :height => "300", :marginheight => "0", :marginwidth => "0", :scrolling => "no", :src => "http://maps.google.co.in/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Google+India+Bangalore,+Bennigana+Halli,+Bangalore,+Karnataka&amp;aq=0&amp;oq=google+&amp;sll=9.930582,78.12303&amp;sspn=0.192085,0.308647&amp;ie=UTF8&amp;hq=Google&amp;hnear=Bennigana+Halli,+Bangalore,+Bengaluru+Urban,+Karnataka&amp;t=m&amp;ll=12.993518,77.660294&amp;spn=0.012545,0.036006&amp;z=15&amp;output=embed"}
+            .bor
+            .row
+              .col-md-6
+                .cwell
+                  / Contact form
+                  %h4.title Contact Form
+                  %form{:role => "form"}
+                    .form-group
+                      %label{:for => "name"} Your Name
+                      %input#name.form-control{:placeholder => "Enter Name", :type => "text"}/
+                    .form-group
+                      %label{:for => "exampleInputEmail1"} Email address
+                      %input#exampleInputEmail1.form-control{:placeholder => "Enter email", :type => "email"}/
+                    .form-group
+                      %label{:for => "exampleInputEmail1"} Content
+                      %textarea.form-control{:rows => "3"}
+                    .checkbox
+                      %label
+                        %input{:type => "checkbox"}/
+                        Important?
+                    %button.btn.btn-default{:type => "submit"} Send
+                    %button.btn.btn-default{:type => "reset"} Reset
+                  %hr/
+              .col-md-6
+                .cwell
+                  / Address section
+                  %h4.title Address
+                  .address
+                    %address
+                      / Company name
+                      %strong Responsive Web, Inc.
+                      %br/
+                      / Address
+                      795 Folsom Ave, Suite 600
+                      %br/
+                      San Francisco, CA 94107
+                      %br/
+                      / Phone number
+                      %abbr{:title => "Phone"} P:
+                      (123) 456-7890.
+                    %address
+                      / Name
+                      %strong Full Name
+                      %br/
+                      / Email
+                      %a{:href => "mailto:#"} first.last@gmail.com
+                    / Social media icons
+                    %strong Get in touch:
+                    .social
+                      %a{:href => "#"}
+                        %i.icon-facebook.facebook
+                      %a{:href => "#"}
+                        %i.icon-twitter.twitter
+                      %a{:href => "#"}
+                        %i.icon-linkedin.linkedin
+                      %a{:href => "#"}
+                        %i.icon-google-plus.google-plus
+                      %a{:href => "#"}
+                        %i.icon-pinterest.pinterest
+                  %hr/
+    / Page content ends
+    / CTA Starts
+    .container
+      .cta
+        .row
+          .col-md-5.col-sm-5
+            .ctas
+              / Title and Para
+              %h5 Professional Product Ever Made in Internet
+              %p Sed diam nisi, pulvinar vitae molestie vitae molestie hendreri hendrerit, venenatis eget mauris.
+          .col-md-4.col-sm-4
+            .ctas
+              / List
+              %ul
+                %li Very Cheap in Market. Check it today.
+                %li Professional and Powerful. Don't miss it.
+                %li 1000% Guanrantee. No Worries. No Probs.
+          .col-md-3.col-sm-3
+            .ctas
+              / Button
+              .button
+                %a{:href => "#"} Buy it Today for $99
+              %p limited period offer
+    / CTA Ends
+    / Footer starts
+    %footer
+      .container
+        .row
+          .col-md-12
+            .row
+              .col-md-4
+                .widget
+                  %h5 Contact
+                  %hr/
+                  %p Praesent ultricies enim ac ipsum aliquet . Nullam justo nunc, dignissim at convallis posuere, sodales eu orci.
+                  %hr/
+                  %i.icon-home
+                  \&nbsp; 123, Some Area. Los Angeles, CA, 54321.
+                  %hr/
+                  %i.icon-phone
+                  \&nbsp; +239-3823-3434
+                  %hr/
+                  %i.icon-envelope-alt
+                  \&nbsp;
+                  %a{:href => "mailto:#"} someone@company.com
+                  %hr/
+                  .social
+                    %a{:href => "#"}
+                      %i.icon-facebook.facebook
+                    %a{:href => "#"}
+                      %i.icon-twitter.twitter
+                    %a{:href => "#"}
+                      %i.icon-linkedin.linkedin
+                    %a{:href => "#"}
+                      %i.icon-google-plus.google-plus
+              .col-md-4
+                .widget
+                  %h5 About Us
+                  %hr/
+                  %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras elementum dolor eget nisi fermentum quis hendrerit magna vestibulum. Curabitur pulvinar ornare vulputate scelerisque scelerisque ut consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras elementum dolor eget nisi fermentum quis hendrerit magna vestibulum..
+              .col-md-4
+                .widget
+                  %h5 Links Goes Here
+                  %hr/
+                  .two-col
+                    .col-left
+                      %ul
+                        %li
+                          %a{:href => "#"} Condimentum
+                        %li
+                          %a{:href => "#"} Etiam at
+                        %li
+                          %a{:href => "#"} Fusce vel
+                        %li
+                          %a{:href => "#"} Vivamus
+                        %li
+                          %a{:href => "#"} Pellentesque
+                        %li
+                          %a{:href => "#"} Vivamus
+                    .col-right
+                      %ul
+                        %li
+                          %a{:href => "#"} Condimentum
+                        %li
+                          %a{:href => "#"} Etiam at
+                        %li
+                          %a{:href => "#"} Fusce vel
+                        %li
+                          %a{:href => "#"} Vivamus
+                        %li
+                          %a{:href => "#"} Pellentesque
+                        %li
+                          %a{:href => "#"} Vivamus
+                    .clearfix
+            %hr/
+            / Copyright info
+            %p.copy
+              Copyright &copy; 2012 |
+              %a{:href => "#"} Your Site
+              \-
+              %a{:href => "#"} Home
+              |
+              %a{:href => "#"} About Us
+              |
+              %a{:href => "#"} Service
+              | Designed by
+              %a{:href => "http://responsivewebinc.com/bootstrap-themes"} Bootstrap Themes
+        .clearfix
+    / Footer ends
+    / Scroll to top
+    %span.totop
+      %a{:href => "#"}
+        %i.icon-chevron-up
+    / JS
+    %script{:src => "js/jquery.js"}
+    / jQuery
+    %script{:src => "js/bootstrap.js"}
+    / Bootstrap
+    %script{:src => "js/jquery.isotope.js"}
+    / Isotope
+    %script{:src => "js/jquery.prettyPhoto.js"}
+    / Pretty Photo
+    %script{:src => "js/filter.js"}
+    / Filter for support page
+    %script{:src => "js/jquery.flexslider-min.js"}
+    / Flex slider
+    %script{:src => "js/jquery.cslider.js"}
+    / Parallax Slider
+    %script{:src => "js/modernizr.custom.28468.js"}
+    / Parallax slider extra
+    %script{:src => "js/jquery.carouFredSel-6.1.0-packed.js"}
+    / Carousel for recent posts
+    %script{:src => "js/jquery.refineslide.min.js"}
+    / Refind slider
+    %script{:src => "js/custom.js"}
+    / Custom codes

@@ -1,0 +1,40 @@
+/ Header starts
+%header
+  .container
+    .row
+      / Logo section
+      .col-md-4
+        / Logo.
+        .logo
+          %h1
+            %a{:href => "#"}
+              Mocti
+              %span.bold Admin
+          %p.meta= t(:short_description)
+        / Logo ends
+      / Data section
+      .col-md-3.pull-right
+        .header-data
+          / Members data
+          .hdata
+            .mcol-left
+              / Icon with blue background
+              %i.icon-user.bblue
+            .mcol-right
+              / Number of visitors
+              %p
+                = session[:client_count]
+                %em users
+            .clearfix
+          / revenue data
+          .hdata
+            .mcol-left
+              / Icon with green background
+              %i.icon-cloud-upload.bgreen
+            .mcol-right
+              / Number of visitors
+              %p
+                = session[:message_count]
+                %em messages
+            .clearfix
+/ Header ends

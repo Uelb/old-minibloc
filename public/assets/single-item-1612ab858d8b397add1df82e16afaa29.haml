@@ -1,0 +1,772 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "utf-8"}/
+    / Title and other stuffs
+    %title Single Item - MacKart
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %meta{:content => "", :name => "description"}/
+    %meta{:content => "", :name => "keywords"}/
+    %meta{:content => "", :name => "author"}/
+    %link{:href => "http://fonts.googleapis.com/css?family=Open+Sans:400,600", :rel => "stylesheet", :type => "text/css"}/
+    / Stylesheets
+    %link{:href => "style/bootstrap.css", :rel => "stylesheet"}/
+    / Pretty Photo
+    %link{:href => "style/prettyPhoto.css", :rel => "stylesheet"}/
+    / Sidebar nav
+    %link{:href => "style/sidebar-nav.css", :rel => "stylesheet"}/
+    / Flex slider
+    %link{:href => "style/flexslider.css", :rel => "stylesheet"}/
+    / Font awesome icon
+    %link{:href => "style/font-awesome.css", :rel => "stylesheet"}/
+    / Main stylesheet
+    %link{:href => "style/style.css", :rel => "stylesheet"}/
+    / Stylesheet for Color
+    %link{:href => "style/red.css", :rel => "stylesheet"}/
+    / HTML5 Support for IE
+    /[if lt IE 9]
+      <script src="js/html5shim.js"></script>
+    / Favicon
+    %link{:href => "img/favicon/favicon.png", :rel => "shortcut icon"}/
+  %body
+    / Header starts
+    %header
+      .container
+        .row
+          .col-md-4
+            / Logo. Use class "color" to add color to the text.
+            .logo
+              %h1
+                %a{:href => "#"}
+                  Mac
+                  %span.color.bold Kart
+              %p.meta online shopping is fun!!!
+          .col-md-5.col-md-offset-3
+            / Search form
+            %form.form-inline{:role => "form"}
+              .form-group
+                %input#search.form-control{:placeholder => "Search", :type => "email"}/
+              %button.btn.btn-default{:type => "submit"} Search
+            .hlinks
+              %span
+                / item details with price
+                %a{"data-toggle" => "modal", :href => "#cart", :role => "button"}
+                  3 Item(s) in your
+                  %i.icon-shopping-cart
+                \-
+                %span.bold $25
+              / Login and Register link
+              %span.lr
+                %a{"data-toggle" => "modal", :href => "#login", :role => "button"} Login
+                or
+                %a{"data-toggle" => "modal", :href => "#register", :role => "button"} Register
+    / Header ends
+    / Cart, Login and Register form (Modal)
+    / Cart Modal starts
+    #cart.modal.fade
+      .modal-dialog
+        .modal-content
+          .modal-header
+            %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+            %h4 Shopping Cart
+          .modal-body
+            %table.table.table-striped.tcart
+              %thead
+                %tr
+                  %th Name
+                  %th Quantity
+                  %th Price
+              %tbody
+                %tr
+                  %td
+                    %a{:href => "single-item.html"} HTC One
+                  %td 2
+                  %td $250
+                %tr
+                  %td
+                    %a{:href => "single-item.html"} Apple iPhone
+                  %td 1
+                  %td $502
+                %tr
+                  %td
+                    %a{:href => "single-item.html"} Galaxy Note
+                  %td 4
+                  %td $1303
+                %tr
+                  %th
+                  %th Total
+                  %th $2405
+          .modal-footer
+            %a.btn{:href => "index.html"} Continue Shopping
+            %a.btn.btn-danger{:href => "checkout.html"} Checkout
+    / Cart modal ends
+    / Login Modal starts
+    #login.modal.fade
+      .modal-dialog
+        .modal-content
+          .modal-header
+            %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+            %h4 Login
+          .modal-body
+            .form
+              %form.form-horizontal
+                .form-group
+                  %label.control-label.col-md-3{:for => "username"} Username
+                  .col-md-9
+                    %input#username.form-control{:type => "text"}/
+                .form-group
+                  %label.control-label.col-md-3{:for => "email"} Password
+                  .col-md-9
+                    %input#password.form-control{:type => "password"}/
+                .form-group
+                  .col-md-9.col-md-offset-3
+                    .checkbox.inline
+                      %label
+                        %input#inlineCheckbox1{:type => "checkbox", :value => "agree"}/
+                        Remember Password
+                .form-group
+                  .col-md-9.col-md-offset-3
+                    %button.btn.btn-default{:type => "submit"} Login
+                    %button.btn.btn-default{:type => "reset"} Reset
+          .modal-footer
+            %p
+              Dont have account?
+              %a{:href => "register.html"} Register
+              here.
+    / Login modal ends
+    / Register Modal starts
+    #register.modal.fade
+      .modal-dialog
+        .modal-content
+          .modal-header
+            %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+            %h4 Register
+          .modal-body
+            .form
+              %form.form-horizontal
+                .form-group
+                  %label.control-label.col-md-3{:for => "name"} Name
+                  .col-md-9
+                    %input#name.form-control{:type => "text"}/
+                .form-group
+                  %label.control-label.col-md-3{:for => "email"} Email
+                  .col-md-9
+                    %input#email.form-control{:type => "text"}/
+                .form-group
+                  %label.control-label.col-md-3 Drop Down
+                  .col-md-9
+                    %select.form-control
+                      %option &nbsp;
+                      %option 1
+                      %option 2
+                      %option 3
+                      %option 4
+                      %option 5
+                .form-group
+                  %label.control-label.col-md-3{:for => "username1"} Username
+                  .col-md-9
+                    %input#username1.form-control{:type => "text"}/
+                .form-group
+                  %label.control-label.col-md-3{:for => "password1"} Password
+                  .col-md-9
+                    %input#password1.form-control{:type => "password"}/
+                .form-group
+                  .col-md-9.col-md-offset-3
+                    .checkbox.inline
+                      %label
+                        %input#inlineCheckbox2{:type => "checkbox", :value => "agree"}/
+                        Agree with Terms and Conditions
+                .form-group
+                  .col-md-9.col-md-offset-3
+                    %button.btn.btn-default{:type => "submit"} Register
+                    %button.btn.btn-default{:type => "reset"} Reset
+          .modal-footer
+            %p
+              Already have account?
+              %a{:href => "login.html"} Login
+              here.
+    / Register modal ends
+    / Navigation
+    .navbar.bs-docs-nav{:role => "banner"}
+      .container
+        .navbar-header
+          %button.navbar-toggle{"data-target" => ".bs-navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+        %nav.collapse.navbar-collapse.bs-navbar-collapse{:role => "navigation"}
+          %ul.nav.navbar-nav
+            %li
+              %a{:href => "index.html"}
+                %i.icon-home
+            %li.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                Account
+                %b.caret
+              %ul.dropdown-menu
+                %li
+                  %a{:href => "myaccount.html"} My Account
+                %li
+                  %a{:href => "view-cart.html"} View Cart
+                %li
+                  %a{:href => "checkout.html"} Checkout
+                %li
+                  %a{:href => "wish-list.html"} Wish List
+                %li
+                  %a{:href => "order-history.html"} Order History
+                %li
+                  %a{:href => "edit-profile.html"} Edit Profile
+                %li
+                  %a{:href => "confirmation.html"} Confirmation
+            %li.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                Pages
+                %b.caret
+              %ul.dropdown-menu
+                %li
+                  %a{:href => "general.html"} General
+                %li
+                  %a{:href => "login.html"} Login
+                %li
+                  %a{:href => "register.html"} Register
+                %li
+                  %a{:href => "blog.html"} Blog
+                %li
+                  %a{:href => "blog-single.html"} Blog Single
+                %li
+                  %a{:href => "404.html"} 404
+            %li.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                Smartphones
+                %b.caret
+              %ul.dropdown-menu
+                %li
+                  %a{:href => "items.html"} HTC
+                %li
+                  %a{:href => "items.html"} Samsung
+                %li
+                  %a{:href => "items.html"} Apple
+                %li
+                  %a{:href => "items.html"} Motorola
+                %li
+                  %a{:href => "items.html"} Nokia
+            %li.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                Tablets
+                %b.caret
+              %ul.dropdown-menu
+                %li
+                  %a{:href => "items.html"} Samsung
+                %li
+                  %a{:href => "items.html"} Micromax
+                %li
+                  %a{:href => "items.html"} Apple
+            %li
+              %a{:href => "support.html"} Support
+            %li
+              %a{:href => "contact.html"} Contact
+    / Items
+    .items
+      .container
+        .row
+          / Sidebar
+          .col-md-4.col-sm-4.hidden-xs
+            %h5.title Categories
+            / Sidebar navigation
+            %nav
+              %ul#nav
+                / Main menu. Use the class "has_sub" to "li" tag if it has submenu.
+                %li
+                  %a{:href => "index.html"} Home
+                %li.has_sub
+                  %a{:href => "#"} Smartphone
+                  / Submenu
+                  %ul
+                    %li
+                      %a{:href => "items.html"} HTC
+                    %li
+                      %a{:href => "items.html"} Samsung
+                    %li
+                      %a{:href => "items.html"} Apple
+                    %li
+                      %a{:href => "items.html"} Motorola
+                    %li
+                      %a{:href => "items.html"} Nokia
+                %li.has_sub
+                  %a{:href => "#"} Tablet
+                  %ul
+                    %li
+                      %a{:href => "items.html"} Samsung
+                    %li
+                      %a{:href => "items.html"} Apple
+                    %li
+                      %a{:href => "items.html"} Motorola
+                %li.has_sub
+                  %a{:href => "#"} Digital Camera
+                  %ul
+                    %li
+                      %a{:href => "items.html"} Nikkon
+                    %li
+                      %a{:href => "items.html"} Samsung
+                    %li
+                      %a{:href => "items.html"} Sony
+                    %li
+                      %a{:href => "items.html"} Cannon
+                %li.has_sub
+                  %a{:href => "#"} Computers
+                  %ul
+                    %li
+                      %a{:href => "items.html"} Dell
+                    %li
+                      %a{:href => "items.html"} Lenovo
+                    %li
+                      %a{:href => "items.html"} Apple
+                    %li
+                      %a{:href => "items.html"} Samsung
+                %li.has_sub
+                  %a{:href => "#"} Software
+                  %ul
+                    %li
+                      %a{:href => "items.html"} Microsoft
+                    %li
+                      %a{:href => "items.html"} Nero
+                    %li
+                      %a{:href => "items.html"} Apple
+                    %li
+                      %a{:href => "items.html"} Avaira
+            %br/
+            / Sidebar items (featured items)
+            .sidebar-items
+              %h5.title Featured Items
+              / Item #1
+              .sitem
+                / Don't forget the class "onethree-left" and "onethree-right"
+                .onethree-left
+                  / Image
+                  %a{:href => "single-item.html"}
+                    %img{:alt => "", :src => "img/photos/2.png"}/
+                .onethree-right
+                  / Title
+                  %a{:href => "single-item.html"} HTC One V
+                  / Para
+                  %p Aenean ullamcorper justo tincidunt justo aliquet.
+                  / Price
+                  %p.bold $199
+                .clearfix
+              .sitem
+                .onethree-left
+                  %a{:href => "single-item.html"}
+                    %img{:alt => "", :src => "img/photos/3.png"}/
+                .onethree-right
+                  %a{:href => "single-item.html"} Sony One V
+                  %p Aenean ullamcorper justo tincidunt justo aliquet.
+                  %p.bold $399
+                .clearfix
+              .sitem
+                .onethree-left
+                  %a{:href => "single-item.html"}
+                    %img{:alt => "", :src => "img/photos/4.png"}/
+                .onethree-right
+                  %a{:href => "single-item.html"} Nokia One V
+                  %p Aenean ullamcorper justo tincidunt justo aliquet.
+                  %p.bold $159
+                .clearfix
+              .sitem
+                .onethree-left
+                  %a{:href => "single-item.html"}
+                    %img{:alt => "", :src => "img/photos/5.png"}/
+                .onethree-right
+                  %a{:href => "single-item.html"} Samsung One V
+                  %p Aenean ullamcorper justo tincidunt justo aliquet.
+                  %p.bold $299
+                .clearfix
+          / Main content
+          .col-md-8.col-sm-8
+            / Breadcrumbs
+            %ul.breadcrumb
+              %li
+                %a{:href => "index.html"} Home
+                %span.divider /
+              %li
+                %a{:href => "items.html"} Smartphone
+                %span.divider /
+              %li.active Apple
+            / Product details
+            .product-main
+              .row
+                .col-md-6.col-sm-6
+                  / Image. Flex slider
+                  .product-slider
+                    .product-image-slider.flexslider
+                      %ul.slides
+                        / Each slide should be enclosed inside li tag.
+                        / Slide #1
+                        %li
+                          / Image
+                          %img{:alt => "", :src => "img/photos/1-1.png"}/
+                        / Slide #2
+                        %li
+                          %img{:alt => "", :src => "img/photos/1-2.png"}/
+                        %li
+                          %img{:alt => "", :src => "img/photos/1-3.png"}/
+                        %li
+                          %img{:alt => "", :src => "img/photos/1-4.png"}/
+                        %li
+                          %img{:alt => "", :src => "img/photos/1-5.png"}/
+                .col-md-6.col-sm-6
+                  / Title
+                  %h4.title Apple iPhone 5G
+                  %h5 Price : $999
+                  %p Shipping : Free
+                  %p Brand : Apple
+                  %p Modal : 5G
+                  %p Availability : In Stock
+                  / Dropdown menu
+                  .form-group
+                    %select.form-control
+                      %option Color
+                      %option Black
+                      %option White
+                      %option Grey
+                  / Quantity and add to cart button
+                  .row
+                    .col-md-6
+                      .input-group
+                        %input.form-control.input-sm{:type => "text", :value => "2"}/
+                        %span.input-group-btn
+                          %button.btn.btn-default.btn-sm{:type => "button"} Add to Cart
+                  / Add to wish list
+                  %a{:href => "wish-list.html"} + Add to Wish List
+            %br/
+            / Description, specs and review
+            %ul.nav.nav-tabs
+              / Use uniqe name for "href" in below anchor tags
+              %li.active
+                %a{"data-toggle" => "tab", :href => "#tab1"} Description
+              %li
+                %a{"data-toggle" => "tab", :href => "#tab2"} Specs
+              %li
+                %a{"data-toggle" => "tab", :href => "#tab3"} Review (5)
+            / Tab Content
+            .tab-content
+              / Description
+              #tab1.tab-pane.active
+                %h5 Apple iPhone 5G
+                %p
+                  Nulla facilisi. Sed justo dui, scelerisque ut consectetur vel, eleifend id erat. Morbi auctor adipiscing tempor. Phasellus condimentum rutrum aliquet. Quisque eu consectetur erat. Proin rutrum, erat eget posuere semper,
+                  = succeed "," do
+                    %em arcu mauris posuere tortor
+                  in commodo enim magna id massa. Suspendisse potenti. Aliquam erat volutpat. Maecenas quis tristique turpis. Nulla facilisi. Duis sed velit at
+                  %a{:href => "#"} magna sollicitudin cursus
+                  ac ultrices magna. Aliquam consequat, purus vitae auctor ullamcorper, sem velit convallis quam, a pharetra justo nunc et mauris. Vivamus diam diam, fermentum sed dapibus eget, egestas sed eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                %h6 Features
+                %ul
+                  %li Etiam adipiscing posuere justo, nec iaculis justo dictum non
+                  %li Cras tincidunt mi non arcu hendrerit eleifend
+                  %li Aenean ullamcorper justo tincidunt justo aliquet et lobortis diam faucibus
+                  %li Maecenas hendrerit neque id ante dictum mattis
+                  %li Vivamus non neque lacus, et cursus tortor
+              / Sepcs
+              #tab2.tab-pane
+                %h5.title Product Specs
+                %table.table.table-striped.tcart
+                  %tbody
+                    %tr
+                      %td
+                        %strong Name
+                      %td Apple iPhone 5G
+                    %tr
+                      %td
+                        %strong Brand
+                      %td Apple
+                    %tr
+                      %td
+                        %strong Modal
+                      %td Fifth Generation
+                    %tr
+                      %td
+                        %strong Memory
+                      %td 2GB RAM
+                    %tr
+                      %td
+                        %strong Storage
+                      %td 16GB, 32GB, 64GB
+                    %tr
+                      %td
+                        %strong Camera
+                      %td Front VGA, Read 8MP
+                    %tr
+                      %td
+                        %strong Processor
+                      %td Apple 1.25GHz Processor
+                    %tr
+                      %td
+                        %strong Battery
+                      %td 30 Hours Standby
+              / Review
+              #tab3.tab-pane
+                %h5 Product Reviews
+                .item-review
+                  %h5
+                    Ravi Kumar -
+                    %span.color 4/5
+                  %p.rmeta 27/1/2012
+                  %p Suspendisse potenti. Morbi ac felis nec mauris imperdiet fermentum. Aenean sodales augue ac lacus hendrerit sed rhoncus erat hendrerit. Vivamus vel ultricies elit. Curabitur lacinia nulla vel tellus elementum non mollis justo aliquam.
+                %hr/
+                %h5.title Write a Review
+                .form.form-small
+                  / Review form (not working)
+                  %form.form-horizontal
+                    / Name
+                    .form-group
+                      %label.control-label.col-md-3{:for => "name2"} Your Name
+                      .col-md-6
+                        %input#name2.form-control{:type => "text"}/
+                    / Select box
+                    .form-group
+                      %label.control-label.col-md-3 Rating
+                      .col-md-6
+                        %select.form-control
+                          %option &nbsp;
+                          %option 1
+                          %option 2
+                          %option 3
+                          %option 4
+                          %option 5
+                    / Review
+                    .form-group
+                      %label.control-label.col-md-3{:for => "name"} Your Review
+                      .col-md-6
+                        %textarea.form-control
+                    / Buttons
+                    .form-group
+                      / Buttons
+                      .col-md-6.col-md-offset-3
+                        %button.btn.btn-default{:type => "submit"} Post
+                        %button.btn.btn-default{:type => "reset"} Reset
+    / Recent items carousel starts
+    .recent-posts
+      .container
+        .row
+          .col-md-12
+            .bor
+            %h4.title Recent Items
+            .carousel_nav.pull-right
+              / Navigation
+              %a#car_prev.prev{:href => "#"}
+                %i.icon-chevron-left
+              %a#car_next.next{:href => "#"}
+                %i.icon-chevron-right
+            .clearfix
+            %ul.rps-carousel
+              / Recent items #1
+              / Each item should be enclosed inside "li"  tag.
+              %li
+                .rp-item
+                  .rp-image
+                    / Image
+                    %a{:href => "single-item.html"}
+                      %img{:alt => "", :src => "img/photos/2.png"}/
+                  .rp-details
+                    / Title and para
+                    %h5
+                      %a{:href => "single-item.html"}
+                        HTC One V
+                        %span.price.pull-right $225
+                    .clearfix
+                    / Description
+                    %p Travel far away to a space station.
+              / Recent items #2
+              %li
+                .rp-item
+                  .rp-image
+                    %a{:href => "single-item.html"}
+                      %img{:alt => "", :src => "img/photos/3.png"}/
+                  .rp-details
+                    / Title and para
+                    %h5
+                      %a{:href => "single-item.html"}
+                        Sony Xperia Pro
+                        %span.price.pull-right $525
+                    .clearfix
+                    %p Travel far away to a space station.
+              %li
+                .rp-item
+                  .rp-image
+                    %a{:href => "single-item.html"}
+                      %img{:alt => "", :src => "img/photos/4.png"}/
+                  .rp-details
+                    / Title and para
+                    %h5
+                      %a{:href => "single-item.html"}
+                        Samsung Pop
+                        %span.price.pull-right $255
+                    .clearfix
+                    %p Travel far away to a space station.
+              %li
+                .rp-item
+                  .rp-image
+                    %a{:href => "single-item.html"}
+                      %img{:alt => "", :src => "img/photos/5.png"}/
+                  .rp-details
+                    / Title and para
+                    %h5
+                      %a{:href => "single-item.html"}
+                        Motorola Droid
+                        %span.price.pull-right $325
+                    .clearfix
+                    %p Travel far away to a space station.
+              %li
+                .rp-item
+                  .rp-image
+                    %a{:href => "single-item.html"}
+                      %img{:alt => "", :src => "img/photos/6.png"}/
+                  .rp-details
+                    / Title and para
+                    %h5
+                      %a{:href => "single-item.html"}
+                        Blackberry Force
+                        %span.price.pull-right $125
+                    .clearfix
+                    %p Travel far away to a space station.
+              %li
+                .rp-item
+                  .rp-image
+                    %a{:href => "single-item.html"}
+                      %img{:alt => "", :src => "img/photos/7.png"}/
+                  .rp-details
+                    / Title and para
+                    %h5
+                      %a{:href => "single-item.html"}
+                        Pantech One
+                        %span.price.pull-right $253
+                    .clearfix
+                    %p Travel far away to a space station.
+    / Recent Posts ends
+    / Newsletter starts
+    .container.newsletter
+      .row
+        .col-md-12
+          .well
+            %h5
+              %i.icon-envelope-alt
+              Hot Offers - Don't Miss Anything!!!
+            %p Nulla facilisi. Sed justo dui, scelerisque ut consectetur vel, eleifend id erat. Morbi auctor adipiscing tempor. Phasellus condimentum rutrum aliquet.
+            %form.form-inline{:role => "form"}
+              .form-group
+                %input#search.form-control{:placeholder => "Subscribe", :type => "email"}/
+              %button.btn.btn-default{:type => "submit"} Subscribe
+    / Newsletter ends
+    / Footer starts
+    %footer
+      .container
+        .row
+          .col-md-12
+            .row
+              .col-md-4
+                .widget
+                  %h5 Contact
+                  %hr/
+                  .social
+                    %a{:href => "#"}
+                      %i.icon-facebook.facebook
+                    %a{:href => "#"}
+                      %i.icon-twitter.twitter
+                    %a{:href => "#"}
+                      %i.icon-linkedin.linkedin
+                    %a{:href => "#"}
+                      %i.icon-google-plus.google-plus
+                  %hr/
+                  %i.icon-home
+                  \&nbsp; 123, Some Area. Los Angeles, CA, 54321.
+                  %hr/
+                  %i.icon-phone
+                  \&nbsp; +239-3823-3434
+                  %hr/
+                  %i.icon-envelope-alt
+                  \&nbsp;
+                  %a{:href => "mailto:#"} someone@company.com
+                  %hr/
+                  .payment-icons
+                    %img{:alt => "", :src => "img/payment/americanexpress.gif"}/
+                    %img{:alt => "", :src => "img/payment/visa.gif"}/
+                    %img{:alt => "", :src => "img/payment/mastercard.gif"}/
+                    %img{:alt => "", :src => "img/payment/discover.gif"}/
+                    %img{:alt => "", :src => "img/payment/paypal.gif"}/
+              .col-md-4
+                .widget
+                  %h5 About Us
+                  %hr/
+                  %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras elementum dolor eget nisi fermentum quis hendrerit magna vestibulum. Curabitur pulvinar ornare vulputate scelerisque scelerisque ut consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras elementum dolor eget nisi fermentum quis hendrerit magna vestibulum.
+              .col-md-4
+                .widget
+                  %h5 Links Goes Here
+                  %hr/
+                  .two-col
+                    .col-left
+                      %ul
+                        %li
+                          %a{:href => "#"} Condimentum
+                        %li
+                          %a{:href => "#"} Etiam at
+                        %li
+                          %a{:href => "#"} Fusce vel
+                        %li
+                          %a{:href => "#"} Vivamus
+                        %li
+                          %a{:href => "#"} Pellentesque
+                        %li
+                          %a{:href => "#"} Vivamus
+                    .col-right
+                      %ul
+                        %li
+                          %a{:href => "#"} Condimentum
+                        %li
+                          %a{:href => "#"} Etiam at
+                        %li
+                          %a{:href => "#"} Fusce vel
+                        %li
+                          %a{:href => "#"} Vivamus
+                        %li
+                          %a{:href => "#"} Pellentesque
+                        %li
+                          %a{:href => "#"} Vivamus
+                    .clearfix
+            %hr/
+            / Copyright info
+            %p.copy
+              Copyright &copy; 2012 |
+              %a{:href => "#"} Your Site
+              \-
+              %a{:href => "#"} Home
+              |
+              %a{:href => "#"} About Us
+              |
+              %a{:href => "#"} Service
+              |
+              %a{:href => "#"} Contact Us
+        .clearfix
+    / Footer ends
+    / Scroll to top
+    %span.totop
+      %a{:href => "#"}
+        %i.icon-chevron-up
+    / JS
+    %script{:src => "js/jquery.js"}
+    / jQuery
+    %script{:src => "js/bootstrap.js"}
+    / Bootstrap
+    %script{:src => "js/jquery.prettyPhoto.js"}
+    / Pretty Photo
+    %script{:src => "js/filter.js"}
+    / Filter for support page
+    %script{:src => "js/jquery.flexslider-min.js"}
+    / Flex slider
+    %script{:src => "js/nav.js"}
+    / Sidebar navigation
+    %script{:src => "js/jquery.carouFredSel-6.1.0-packed.js"}
+    / Carousel for recent posts
+    %script{:src => "js/custom.js"}
+    / Custom codes

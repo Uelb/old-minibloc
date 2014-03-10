@@ -1,0 +1,451 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "utf-8"}/
+    / Title and other stuffs
+    %title Index - MacBeath
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %meta{:content => "", :name => "description"}/
+    %meta{:content => "", :name => "keywords"}/
+    %meta{:content => "", :name => "author"}/
+    %link{:href => "http://fonts.googleapis.com/css?family=Open+Sans:400,600", :rel => "stylesheet", :type => "text/css"}/
+    / Stylesheets
+    %link{:href => "style/bootstrap.css", :rel => "stylesheet"}/
+    / Pretty Photo
+    %link{:href => "style/prettyPhoto.css", :rel => "stylesheet"}/
+    / Flex slider
+    %link{:href => "style/flexslider.css", :rel => "stylesheet"}/
+    / Font awesome icon
+    %link{:href => "style/font-awesome.css", :rel => "stylesheet"}/
+    / Parallax slider
+    %link{:href => "style/slider.css", :rel => "stylesheet"}/
+    / Refind slider
+    %link{:href => "style/refineslide.css", :rel => "stylesheet"}/
+    / Main stylesheet
+    %link{:href => "style/style.css", :rel => "stylesheet"}/
+    / Stylesheet for Color
+    %link{:href => "style/red.css", :rel => "stylesheet"}/
+    / HTML5 Support for IE
+    /[if lt IE 9]
+      <script src="js/html5shim.js"></script>
+    / Favicon
+    %link{:href => "img/favicon/favicon.png", :rel => "shortcut icon"}/
+  %body
+    / Header starts
+    %header
+      .container
+        .row
+          .col-md-4.col-sm-3
+            / Logo. Use class "color" to add color to the text.
+            .logo
+              %h1
+                %a{:href => "#"}
+                  Mac
+                  %span.color.bold Beath
+              %p.meta something goes in meta area
+          .col-md-8.col-sm-9
+            / Navigation
+            .navbar.bs-docs-nav{:role => "banner"}
+              .container
+                .navbar-header
+                  %button.navbar-toggle{"data-target" => ".bs-navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+                    %span.sr-only Toggle navigation
+                    %span.icon-bar
+                    %span.icon-bar
+                    %span.icon-bar
+                %nav.collapse.navbar-collapse.bs-navbar-collapse{:role => "navigation"}
+                  %ul.nav.navbar-nav
+                    %li
+                      %a{:href => "index.html"} Home
+                    %li.dropdown
+                      %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                        Pages
+                        %b.caret
+                      %ul.dropdown-menu
+                        %li
+                          %a{:href => "404-1.html"} 404
+                        %li
+                          %a{:href => "about1.html"} About
+                        %li
+                          %a{:href => "faq.html"} FAQ
+                        %li
+                          %a{:href => "features2.html"} Features
+                        %li
+                          %a{:href => "login.html"} Login
+                        %li
+                          %a{:href => "faq.html"} FAQ
+                        %li
+                          %a{:href => "pricing1.html"} Pricing Table
+                        %li
+                          %a{:href => "process.html"} Process
+                        %li
+                          %a{:href => "project.html"} Project
+                        %li
+                          %a{:href => "register.html"} Register
+                        %li
+                          %a{:href => "support.html"} Support
+                        %li
+                          %a{:href => "testimonials.html"} Testimonials
+                    %li
+                      %a{:href => "service2.html"} Service
+                    %li
+                      %a{:href => "resume.html"} Resume
+                    %li.dropdown
+                      %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                        Blog
+                        %b.caret
+                      %ul.dropdown-menu
+                        %li
+                          %a{:href => "blog1.html"} Blog
+                        %li
+                          %a{:href => "blog3.html"} Blog Box
+                        %li
+                          %a{:href => "blog-3col.html"} Blog 3 Column
+                        %li
+                          %a{:href => "blog-single.html"} Blog Single
+                    %li
+                      %a{:href => "portfolio1.html"} Portfolio
+                    %li
+                      %a{:href => "contactus1.html"} Contact
+    / Seperator
+    .sep
+    / Header ends
+    / Refine slider starts
+    .container
+      .row
+        .col-md-12
+          %ul#rs-slider.rs-slider
+            / Each slide should be enclosed inside li with the calss "group"
+            %li.group
+              / Image
+              %img{:alt => "", :src => "img/photos/l1.jpg"}/
+              / Caption
+              .rs-caption
+                / Title
+                %h4 3 Different Sliders
+                / Para
+                %p
+                  Proin porttitor eros a ante molestie gravida commodo dui adipiscing.
+                  %a{:href => "#"} Morbi dictum nibh gravida
+                  mi pretium dapibus. Nullam in est urna.
+                / Button
+                .button
+                  %a{:href => "#"} Read More
+            %li.group
+              %img{:alt => "", :src => "img/photos/l2.jpg"}/
+              .rs-caption
+                %h4 3 Different Sliders
+                %p
+                  Proin porttitor eros a ante molestie gravida commodo dui adipiscing.
+                  %a{:href => "#"} Morbi dictum nibh gravida
+                  mi pretium dapibus. Nullam in est urna.
+                .button
+                  %a{:href => "#"} Read More
+            %li.group
+              %img{:alt => "", :src => "img/photos/l3.jpg"}/
+              .rs-caption
+                %h4 3 Different Sliders
+                %p
+                  Proin porttitor eros a ante molestie gravida commodo dui adipiscing.
+                  %a{:href => "#"} Morbi dictum nibh gravida
+                  mi pretium dapibus. Nullam in est urna.
+                .button
+                  %a{:href => "#"} Read More
+            %li.group
+              %img{:alt => "", :src => "img/photos/l4.jpg"}/
+              .rs-caption
+                %h4 3 Different Sliders
+                %p
+                  Proin porttitor eros a ante molestie gravida commodo dui adipiscing.
+                  %a{:href => "#"} Morbi dictum nibh gravida
+                  mi pretium dapibus. Nullam in est urna.
+                .button
+                  %a{:href => "#"} Read More
+            %li.group
+              %img{:alt => "", :src => "img/photos/l5.jpg"}/
+              .rs-caption
+                %h4 3 Different Sliders
+                %p
+                  Proin porttitor eros a ante molestie gravida commodo dui adipiscing.
+                  %a{:href => "#"} Morbi dictum nibh gravida
+                  mi pretium dapibus. Nullam in est urna.
+                .button
+                  %a{:href => "#"} Read More
+            %li.group
+              %img{:alt => "", :src => "img/photos/l1.jpg"}/
+              .rs-caption
+                %h4 3 Different Sliders
+                %p
+                  Proin porttitor eros a ante molestie gravida commodo dui adipiscing.
+                  %a{:href => "#"} Morbi dictum nibh gravida
+                  mi pretium dapibus. Nullam in est urna.
+                .button
+                  %a{:href => "#"} Read More
+          %hr/
+    / Refine Slider Ends
+    / Hero starts
+    .container
+      .row
+        .col-md-12
+          .hero
+            / Title, para and button
+            %h4 Donec commodo ligula et arcu viverra erat bibendum ?
+            %p Praesent at tellus porttitor nisl porttitor sagittis. Mauris in massa ligula, a tempor nulla. Ut tempus interdum mauris vel vehicula. Nulla vitae cursus leo. Praesent eleifend sodales felis, in congue purus scelerisque eget.
+            .button
+              %a{:href => "#"}
+                %i.icon-shopping-cart
+                Buy Now
+              \&nbsp; or &nbsp;
+              %a{:href => "#"} Try Now
+          %hr/
+    / Hero Ends
+    / Service style #2 starts
+    .container
+      .service-two
+        .row
+          .col-md-3
+            %h5 Nullam in est urna. In  vesti dui ante mosti ecomdo  adipiscing enim. Curabitur rhoncus.
+            %p
+              Vestilum comdo vestibulum dui ante mostie gridas condimum
+              %a{:href => "#"} Risus eget viverra.
+          .col-md-3
+            / Service heading with font awesome icon
+            %h5
+              %i.icon-gift
+              Invitae adipiscing
+            / Service para
+            %p Proin porttitor eros a ante moles gravida diam mi vestilum  vesti dui ante mosti ecomdo vestibulum dui ante mostie vestibulum dui ante mostie grida adipiscing rhoncus condimum.
+          .col-md-3
+            %h5
+              %i.icon-bullhorn
+              Proin porttitor
+            %p Proin porttitor eros a ante moles gravida diam mi vestilum vesti dui ante mostie comdo vestibulum dui ante mostie vestibulum dui ante mostie grida adipiscing rhoncus condimum.
+          .col-md-3
+            %h5
+              %i.icon-fire
+              Mostie comdovesti
+            %p Proin porttitor eros a ante moles gravida diam mi vestilum vesti dui ante mostie comdo vestibulum dui ante mostie vestibulum dui ante mostie grida adipiscing rhoncus condimum.
+      %hr/
+    / Service style #2 ends
+    / [Starts] Testimonial (flex slider ), About &amp; Twitter Slider (FlexSlider)
+    .container.fsliders
+      .row
+        / Testimonial
+        .col-md-4
+          %h5 Testimonials
+          .testi-flex.flexslider
+            %ul.slides
+              / Each slider should be enclosed inside li tag
+              %li
+                %p Cras enim ipsum luctus at condimentum eleifend. Nullam euismod pelleque condimentum purus libero cursus. Aenean consequat condintum nisi convallis urna.
+                / Author name
+                %p.author.pull-right
+                  \-
+                  = succeed "," do
+                    %span.color Ashok
+                  CEO
+                .clearfix
+              %li
+                %p Nullam in est urna. In vitae condimentum adipiscing enim. Duis eget condimentum risus ac orci sit amet id orci. Etiam ac ante at lorem ultrices elementum.
+                %p.author.pull-right
+                  \-
+                  = succeed "," do
+                    %span.color Ravi Kumar
+                  CTO
+                .clearfix
+              %li
+                %p Aenean sodales augue ac lacus hendrerit sed rhoncus erat hendrerit.  Curabitur condimentum lacinia nulla vel tellus elementum non mollis justo aliquam.
+                %p.author.pull-right
+                  \-
+                  = succeed "," do
+                    %span.color Babu
+                  CFO
+                .clearfix
+              %li
+                %p Proin porttitor eros a ante molestie gravida commodo dui adipiscing. Mi pretium condimentum dapibus. Nullam in est urna. In vitae adipiscing enim.
+                %p.author.pull-right
+                  \-
+                  = succeed "," do
+                    %span.color Raju
+                  CEO
+                .clearfix
+        / Tabs
+        .col-md-4
+          .tabs
+            %h5 Tabs
+            %ul.nav.nav-tabs
+              / Use unique name in anchor tag
+              %li.active
+                %a{"data-toggle" => "tab", :href => "#home"} Home
+              %li
+                %a{"data-toggle" => "tab", :href => "#profile"} Profile
+              %li
+                %a{"data-toggle" => "tab", :href => "#messages"} Messages
+            / Tab conten
+            .tab-content
+              / "ID" should match "href" value in abouve "nav tabs"
+              #home.tab-pane.active In ut nulla est. Sed a  mauris. Duis eget risus ac orci vulputate vestibulum sit amet id orci. Etiam ac ante at lorem  . Fusce  leo vitae velit interdum at laoreet justo ullamcorper.
+              #profile.tab-pane Suspendisse id lectus at lorem  posuere. Duis gravida lacus a urna cursus varius. Donec congue odio vitae eros condimentum nec  augue . Integer  enim, porta non  at, ligula.
+              #messages.tab-pane Lorem ipsum elit. Duis vulputate eros nec odio egestas in dictum nisi vehicula. Pellentesque habitant morbi tristique senectus et netus et  fames ac turpis egestas.
+        / About
+        .col-md-4
+          %h5 Our Team
+          .about-flex.flexslider
+            %ul.slides
+              %li
+                / Image, Name and Designation
+                %h6
+                  %img.alignleft{:alt => "", :src => "img/photos/user-small.jpg"}>/
+                  Ashok, CEO
+                  %span.meta Info Systems
+                .clearfix
+                %hr/
+                / Para
+                %p Cras enim ipsum luctus at condimentum eleifend. Nullam euismod pelleque purus libero cursus. Aenean consequat condintum nisi convallis urna.
+              %li
+                / Image, Name and Designation
+                %h6
+                  %img.alignleft{:alt => "", :src => "img/photos/user-small.jpg"}>/
+                  Ravi Kumar, CTO
+                  %span.meta Babu Systems
+                .clearfix
+                %hr/
+                / Para
+                %p Duis vulputate eros nec odio egestas in dictum nisi vehicula. Pellentesque habitant morbi tristique senectus et netus et  fames ac turpis egestas.
+              %li
+                / Image, Name and Designation
+                %h6
+                  %img.alignleft{:alt => "", :src => "img/photos/user-small.jpg"}>/
+                  Babu Kannan, Manager
+                  %span.meta Ravi Systems
+                .clearfix
+                %hr/
+                / Para
+                %p Duis eget risus ac orci vulputate vestibulum sit amet id orci. Etiam ac ante at lorem  . Fusce  leo vitae velit interdum at laoreet justo ullamcorper.
+    / [Ends] Testimonial (flexslider), About &amp; Twitter Slider (FlexSlider)
+    / Clients starts
+    .container
+      .row
+        .col-md-12
+          / Clients images
+          .clients
+            %img{:alt => "", :src => "img/clients/amazon_b.png"}/
+            %img{:alt => "", :src => "img/clients/google_b.png"}/
+            %img{:alt => "", :src => "img/clients/twitter_b.png"}/
+            %img{:alt => "", :src => "img/clients/facebook_b.png"}/
+            %img{:alt => "", :src => "img/clients/skype_b.png"}/
+            %img{:alt => "", :src => "img/clients/youtube_b.png"}/
+    / Clients ends
+    / Footer starts
+    %footer
+      .container
+        .row
+          .col-md-12
+            .row
+              .col-md-4
+                .widget
+                  %h5 Contact
+                  %hr/
+                  %p Praesent ultricies enim ac ipsum aliquet . Nullam justo nunc, dignissim at convallis posuere, sodales eu orci.
+                  %hr/
+                  %i.icon-home
+                  \&nbsp; 123, Some Area. Los Angeles, CA, 54321.
+                  %hr/
+                  %i.icon-phone
+                  \&nbsp; +239-3823-3434
+                  %hr/
+                  %i.icon-envelope-alt
+                  \&nbsp;
+                  %a{:href => "mailto:#"} someone@company.com
+                  %hr/
+                  .social
+                    %a{:href => "#"}
+                      %i.icon-facebook.facebook
+                    %a{:href => "#"}
+                      %i.icon-twitter.twitter
+                    %a{:href => "#"}
+                      %i.icon-linkedin.linkedin
+                    %a{:href => "#"}
+                      %i.icon-google-plus.google-plus
+              .col-md-4
+                .widget
+                  %h5 About Us
+                  %hr/
+                  %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras elementum dolor eget nisi fermentum quis hendrerit magna vestibulum. Curabitur pulvinar ornare vulputate scelerisque scelerisque ut consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras elementum dolor eget nisi fermentum quis hendrerit magna vestibulum..
+              .col-md-4
+                .widget
+                  %h5 Links Goes Here
+                  %hr/
+                  .two-col
+                    .col-left
+                      %ul
+                        %li
+                          %a{:href => "#"} Condimentum
+                        %li
+                          %a{:href => "#"} Etiam at
+                        %li
+                          %a{:href => "#"} Fusce vel
+                        %li
+                          %a{:href => "#"} Vivamus
+                        %li
+                          %a{:href => "#"} Pellentesque
+                        %li
+                          %a{:href => "#"} Vivamus
+                    .col-right
+                      %ul
+                        %li
+                          %a{:href => "#"} Condimentum
+                        %li
+                          %a{:href => "#"} Etiam at
+                        %li
+                          %a{:href => "#"} Fusce vel
+                        %li
+                          %a{:href => "#"} Vivamus
+                        %li
+                          %a{:href => "#"} Pellentesque
+                        %li
+                          %a{:href => "#"} Vivamus
+                    .clearfix
+            %hr/
+            / Copyright info
+            %p.copy
+              Copyright &copy; 2012 |
+              %a{:href => "#"} Your Site
+              \-
+              %a{:href => "#"} Home
+              |
+              %a{:href => "#"} About Us
+              |
+              %a{:href => "#"} Service
+              | Designed by
+              %a{:href => "http://responsivewebinc.com/bootstrap-themes"} Bootstrap Themes
+        .clearfix
+    / Footer ends
+    / Scroll to top
+    %span.totop
+      %a{:href => "#"}
+        %i.icon-chevron-up
+    / JS
+    %script{:src => "js/jquery.js"}
+    / jQuery
+    %script{:src => "js/bootstrap.js"}
+    / Bootstrap
+    %script{:src => "js/jquery.isotope.js"}
+    / Isotope
+    %script{:src => "js/jquery.prettyPhoto.js"}
+    / Pretty Photo
+    %script{:src => "js/filter.js"}
+    / Filter for support page
+    %script{:src => "js/jquery.flexslider-min.js"}
+    / Flex slider
+    %script{:src => "js/jquery.cslider.js"}
+    / Parallax Slider
+    %script{:src => "js/modernizr.custom.28468.js"}
+    / Parallax slider extra
+    %script{:src => "js/jquery.carouFredSel-6.1.0-packed.js"}
+    / Carousel for recent posts
+    %script{:src => "js/jquery.refineslide.min.js"}
+    / Refind slider
+    %script{:src => "js/custom.js"}
+    / Custom codes

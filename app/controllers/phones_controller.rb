@@ -8,6 +8,7 @@ class PhonesController < ApplicationController
 
 	before_filter :authenticate!, only: :index
 	before_filter :authenticate_client!, only: [:update, :use, :unuse, :activate]
+	layout 'macadmin'
 
 	def create
 		@p = Phone.where(phone_params).first

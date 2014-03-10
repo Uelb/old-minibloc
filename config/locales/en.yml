@@ -4,9 +4,15 @@ en:
     no_event_base_url: "You are not using the event plugin yet. Please refer to this link :"
     edit: "Edit my account"
     update: "Update my account"
-    phones: "My phone list"
+    phones: "My phones list"
+    add_phone: "Add a phone"
+    all_messages: "Sent and received messages"
+    new_message: "Create a message"
   phones:
     activate: "Activate"
     code: "Resend the activation code"
+    index: "Phones"
   messages:
     create: "Send"
+    new: "Create a new message"
+  short_description: "The easy sms sending solution"

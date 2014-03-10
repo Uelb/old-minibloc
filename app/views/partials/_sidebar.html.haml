@@ -1,0 +1,47 @@
+
+/ Sidebar
+.sidebar
+  .sidebar-dropdown
+    %a{:href => "#"} Navigation
+  / - Sidebar navigation
+  / If the main navigation has sub navigation, then add the class "has_sub" to "li" of main navigation.
+  %ul#nav
+    / Main menu with font awesome icon
+    %li
+      = link_to root_path, class: :open do
+        %i.icon-home
+        Dashboard
+      /
+        Sub menu markup
+        <ul>
+        <li><a href="#">Submenu #1</a></li>
+        <li><a href="#">Submenu #2</a></li>
+        <li><a href="#">Submenu #3</a></li>
+        </ul>
+    %li.has_sub
+      = link_to "#" do
+        %i.icon-cloud-upload
+        = t('clients.messages')
+        %span.pull-right
+          %i.icon-chevron-right
+      %ul
+        %li
+          = link_to t('clients.all_messages'), messages_path
+        %li
+          = link_to t('clients.new_message'), new_message_path
+    %li.has_sub
+      %a{:href => "#"}
+        %i.icon-mobile-phone
+        = t('phones.index')
+        %span.pull-right
+          %i.icon-chevron-right
+      %ul
+        %li
+          = link_to t('clients.phones'), phones_path
+        %li
+          = link_to t('clients.add_phone'), new_phone_path
+    %li
+      =link_to statuses_path do
+        %i.icon-briefcase
+        SMS Statuses
+/ Sidebar ends

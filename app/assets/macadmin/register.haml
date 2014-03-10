@@ -1,0 +1,83 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "utf-8"}/
+    / Title and other stuffs
+    %title Register - MacAdmin
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %meta{:content => "", :name => "description"}/
+    %meta{:content => "", :name => "keywords"}/
+    %meta{:content => "", :name => "author"}/
+    / Stylesheets
+    %link{:href => "style/bootstrap.css", :rel => "stylesheet"}/
+    %link{:href => "style/font-awesome.css", :rel => "stylesheet"}/
+    %link{:href => "style/style.css", :rel => "stylesheet"}/
+    %link{:href => "style/bootstrap-responsive.css", :rel => "stylesheet"}/
+    / HTML5 Support for IE
+    /[if lt IE 9]
+      <script src="js/html5shim.js"></script>
+    / Favicon
+    %link{:href => "img/favicon/favicon.png", :rel => "shortcut icon"}/
+  %body
+    .admin-form
+      .container
+        .row
+          .col-lg-12
+            / Widget starts
+            .widget.wred
+              .widget-head
+                %i.icon-lock
+                Register
+              .widget-content
+                .padd
+                  %form.form-horizontal
+                    / Registration form starts
+                    / Name
+                    .form-group
+                      %label.control-label.col-lg-3{:for => "name"} Name
+                      .col-lg-9
+                        %input#name.form-control{:type => "text"}/
+                    / Email
+                    .form-group
+                      %label.control-label.col-lg-3{:for => "email"} Email
+                      .col-lg-9
+                        %input#email.form-control{:type => "text"}/
+                    / Select box
+                    .form-group
+                      %label.control-label.col-lg-3 Drop Down
+                      .col-lg-9
+                        %select.form-control
+                          %option &nbsp;
+                          %option 1
+                          %option 2
+                          %option 3
+                          %option 4
+                          %option 5
+                    / Username
+                    .form-group
+                      %label.control-label.col-lg-3{:for => "username"} Username
+                      .col-lg-9
+                        %input#username.form-control{:type => "text"}/
+                    / Password
+                    .form-group
+                      %label.control-label.col-lg-3{:for => "email"} Password
+                      .col-lg-9
+                        %input#password.form-control{:type => "password"}/
+                    / Accept box and button s
+                    .form-group
+                      .col-lg-9.col-lg-offset-3
+                        .checkbox
+                          %label
+                            %input{:type => "checkbox"}/
+                            Accept Terms &amp; Conditions
+                        %br/
+                        %button.btn.btn-danger{:type => "submit"} Register
+                        %button.btn.btn-success{:type => "reset"} Reset
+                    %br/
+              .widget-foot
+                Already Registred?
+                %a{:href => "login.html"} Login
+    / JS
+    %script{:src => "js/jquery.js"}
+    %script{:src => "js/bootstrap.js"}

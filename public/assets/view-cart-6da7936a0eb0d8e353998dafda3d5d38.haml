@@ -1,0 +1,535 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "utf-8"}/
+    / Title and other stuffs
+    %title View Cart - MacKart
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %meta{:content => "", :name => "description"}/
+    %meta{:content => "", :name => "keywords"}/
+    %meta{:content => "", :name => "author"}/
+    %link{:href => "http://fonts.googleapis.com/css?family=Open+Sans:400,600", :rel => "stylesheet", :type => "text/css"}/
+    / Stylesheets
+    %link{:href => "style/bootstrap.css", :rel => "stylesheet"}/
+    / Pretty Photo
+    %link{:href => "style/prettyPhoto.css", :rel => "stylesheet"}/
+    / Sidebar nav
+    %link{:href => "style/sidebar-nav.css", :rel => "stylesheet"}/
+    / Flex slider
+    %link{:href => "style/flexslider.css", :rel => "stylesheet"}/
+    / Font awesome icon
+    %link{:href => "style/font-awesome.css", :rel => "stylesheet"}/
+    / Main stylesheet
+    %link{:href => "style/style.css", :rel => "stylesheet"}/
+    / Stylesheet for Color
+    %link{:href => "style/red.css", :rel => "stylesheet"}/
+    / HTML5 Support for IE
+    /[if lt IE 9]
+      <script src="js/html5shim.js"></script>
+    / Favicon
+    %link{:href => "img/favicon/favicon.png", :rel => "shortcut icon"}/
+  %body
+    / Header starts
+    %header
+      .container
+        .row
+          .col-md-4
+            / Logo. Use class "color" to add color to the text.
+            .logo
+              %h1
+                %a{:href => "#"}
+                  Mac
+                  %span.color.bold Kart
+              %p.meta online shopping is fun!!!
+          .col-md-5.col-md-offset-3
+            / Search form
+            %form.form-inline{:role => "form"}
+              .form-group
+                %input#search.form-control{:placeholder => "Search", :type => "email"}/
+              %button.btn.btn-default{:type => "submit"} Search
+            .hlinks
+              %span
+                / item details with price
+                %a{"data-toggle" => "modal", :href => "#cart", :role => "button"}
+                  3 Item(s) in your
+                  %i.icon-shopping-cart
+                \-
+                %span.bold $25
+              / Login and Register link
+              %span.lr
+                %a{"data-toggle" => "modal", :href => "#login", :role => "button"} Login
+                or
+                %a{"data-toggle" => "modal", :href => "#register", :role => "button"} Register
+    / Header ends
+    / Cart, Login and Register form (Modal)
+    / Cart Modal starts
+    #cart.modal.fade
+      .modal-dialog
+        .modal-content
+          .modal-header
+            %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+            %h4 Shopping Cart
+          .modal-body
+            %table.table.table-striped.tcart
+              %thead
+                %tr
+                  %th Name
+                  %th Quantity
+                  %th Price
+              %tbody
+                %tr
+                  %td
+                    %a{:href => "single-item.html"} HTC One
+                  %td 2
+                  %td $250
+                %tr
+                  %td
+                    %a{:href => "single-item.html"} Apple iPhone
+                  %td 1
+                  %td $502
+                %tr
+                  %td
+                    %a{:href => "single-item.html"} Galaxy Note
+                  %td 4
+                  %td $1303
+                %tr
+                  %th
+                  %th Total
+                  %th $2405
+          .modal-footer
+            %a.btn{:href => "index.html"} Continue Shopping
+            %a.btn.btn-danger{:href => "checkout.html"} Checkout
+    / Cart modal ends
+    / Login Modal starts
+    #login.modal.fade
+      .modal-dialog
+        .modal-content
+          .modal-header
+            %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+            %h4 Login
+          .modal-body
+            .form
+              %form.form-horizontal
+                .form-group
+                  %label.control-label.col-md-3{:for => "username"} Username
+                  .col-md-9
+                    %input#username.form-control{:type => "text"}/
+                .form-group
+                  %label.control-label.col-md-3{:for => "email"} Password
+                  .col-md-9
+                    %input#password.form-control{:type => "password"}/
+                .form-group
+                  .col-md-9.col-md-offset-3
+                    .checkbox.inline
+                      %label
+                        %input#inlineCheckbox1{:type => "checkbox", :value => "agree"}/
+                        Remember Password
+                .form-group
+                  .col-md-9.col-md-offset-3
+                    %button.btn.btn-default{:type => "submit"} Login
+                    %button.btn.btn-default{:type => "reset"} Reset
+          .modal-footer
+            %p
+              Dont have account?
+              %a{:href => "register.html"} Register
+              here.
+    / Login modal ends
+    / Register Modal starts
+    #register.modal.fade
+      .modal-dialog
+        .modal-content
+          .modal-header
+            %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+            %h4 Register
+          .modal-body
+            .form
+              %form.form-horizontal
+                .form-group
+                  %label.control-label.col-md-3{:for => "name"} Name
+                  .col-md-9
+                    %input#name.form-control{:type => "text"}/
+                .form-group
+                  %label.control-label.col-md-3{:for => "email"} Email
+                  .col-md-9
+                    %input#email.form-control{:type => "text"}/
+                .form-group
+                  %label.control-label.col-md-3 Drop Down
+                  .col-md-9
+                    %select.form-control
+                      %option &nbsp;
+                      %option 1
+                      %option 2
+                      %option 3
+                      %option 4
+                      %option 5
+                .form-group
+                  %label.control-label.col-md-3{:for => "username1"} Username
+                  .col-md-9
+                    %input#username1.form-control{:type => "text"}/
+                .form-group
+                  %label.control-label.col-md-3{:for => "password1"} Password
+                  .col-md-9
+                    %input#password1.form-control{:type => "password"}/
+                .form-group
+                  .col-md-9.col-md-offset-3
+                    .checkbox.inline
+                      %label
+                        %input#inlineCheckbox2{:type => "checkbox", :value => "agree"}/
+                        Agree with Terms and Conditions
+                .form-group
+                  .col-md-9.col-md-offset-3
+                    %button.btn.btn-default{:type => "submit"} Register
+                    %button.btn.btn-default{:type => "reset"} Reset
+          .modal-footer
+            %p
+              Already have account?
+              %a{:href => "login.html"} Login
+              here.
+    / Register modal ends
+    / Navigation
+    .navbar.bs-docs-nav{:role => "banner"}
+      .container
+        .navbar-header
+          %button.navbar-toggle{"data-target" => ".bs-navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+        %nav.collapse.navbar-collapse.bs-navbar-collapse{:role => "navigation"}
+          %ul.nav.navbar-nav
+            %li
+              %a{:href => "index.html"}
+                %i.icon-home
+            %li.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                Account
+                %b.caret
+              %ul.dropdown-menu
+                %li
+                  %a{:href => "myaccount.html"} My Account
+                %li
+                  %a{:href => "view-cart.html"} View Cart
+                %li
+                  %a{:href => "checkout.html"} Checkout
+                %li
+                  %a{:href => "wish-list.html"} Wish List
+                %li
+                  %a{:href => "order-history.html"} Order History
+                %li
+                  %a{:href => "edit-profile.html"} Edit Profile
+                %li
+                  %a{:href => "confirmation.html"} Confirmation
+            %li.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                Pages
+                %b.caret
+              %ul.dropdown-menu
+                %li
+                  %a{:href => "general.html"} General
+                %li
+                  %a{:href => "login.html"} Login
+                %li
+                  %a{:href => "register.html"} Register
+                %li
+                  %a{:href => "blog.html"} Blog
+                %li
+                  %a{:href => "blog-single.html"} Blog Single
+                %li
+                  %a{:href => "404.html"} 404
+            %li.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                Smartphones
+                %b.caret
+              %ul.dropdown-menu
+                %li
+                  %a{:href => "items.html"} HTC
+                %li
+                  %a{:href => "items.html"} Samsung
+                %li
+                  %a{:href => "items.html"} Apple
+                %li
+                  %a{:href => "items.html"} Motorola
+                %li
+                  %a{:href => "items.html"} Nokia
+            %li.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                Tablets
+                %b.caret
+              %ul.dropdown-menu
+                %li
+                  %a{:href => "items.html"} Samsung
+                %li
+                  %a{:href => "items.html"} Micromax
+                %li
+                  %a{:href => "items.html"} Apple
+            %li
+              %a{:href => "support.html"} Support
+            %li
+              %a{:href => "contact.html"} Contact
+    / Cart starts
+    .cart
+      .container
+        .row
+          .col-md-12
+            / Title with number of items in shopping kart
+            %h3.title
+              %i.icon-shopping-cart
+              Items in your cart [
+              %span.color> 5
+              ]
+            %br/
+            / Table
+            %table.table.table-striped.tcart
+              %thead
+                %tr
+                  %th #
+                  %th Name
+                  %th Image
+                  %th Quantity
+                  %th Unit Price
+                  %th Total
+              %tbody
+                %tr
+                  / Index
+                  %td 1
+                  / Product  name
+                  %td
+                    %a{:href => "single-item.html"} HTC One
+                  / Product image
+                  %td
+                    %a{:href => "single-item.html"}
+                      %img{:alt => "", :src => "img/photos/2.png"}/
+                  / Quantity with refresh and remove button
+                  %td.item-input
+                    .input-group
+                      %input.form-control{:type => "text", :value => "2"}/
+                      %span.input-group-btn
+                        %button.btn.btn-default{:type => "button"}
+                          %i.icon-refresh
+                        %button.btn.btn-danger{:type => "button"}
+                          %i.icon-remove
+                  / Unit price
+                  %td $150
+                  / Total cost
+                  %td $300
+                %tr
+                  %td 2
+                  %td
+                    %a{:href => "single-item.html"} Sony Xperia
+                  %td
+                    %a{:href => "single-item.html"}
+                      %img{:alt => "", :src => "img/photos/3.png"}/
+                  %td.item-input
+                    .input-group
+                      %input.form-control{:type => "text", :value => "2"}/
+                      %span.input-group-btn
+                        %button.btn.btn-default{:type => "button"}
+                          %i.icon-refresh
+                        %button.btn.btn-danger{:type => "button"}
+                          %i.icon-remove
+                  %td $150
+                  %td $150
+                %tr
+                  %td 3
+                  %td
+                    %a{:href => "single-item.html"} Nokia Asha
+                  %td
+                    %a{:href => "single-item.html"}
+                      %img{:alt => "", :src => "img/photos/4.png"}/
+                  %td.item-input
+                    .input-group
+                      %input.form-control{:type => "text", :value => "2"}/
+                      %span.input-group-btn
+                        %button.btn.btn-default{:type => "button"}
+                          %i.icon-refresh
+                        %button.btn.btn-danger{:type => "button"}
+                          %i.icon-remove
+                  %td $250
+                  %td $250
+                %tr
+                  %td 4
+                  %td
+                    %a{:href => "single-item.html"} Samsung Galaxy Pro
+                  %td
+                    %a{:href => "single-item.html"}
+                      %img{:alt => "", :src => "img/photos/5.png"}/
+                  %td.item-input
+                    .input-group
+                      %input.form-control{:type => "text", :value => "2"}/
+                      %span.input-group-btn
+                        %button.btn.btn-default{:type => "button"}
+                          %i.icon-refresh
+                        %button.btn.btn-danger{:type => "button"}
+                          %i.icon-remove
+                  %td $450
+                  %td $450
+                %tr
+                  %td 5
+                  %td
+                    %a{:href => "single-item.html"} Micromax Funbook
+                  %td
+                    %a{:href => "single-item.html"}
+                      %img{:alt => "", :src => "img/photos/6.png"}/
+                  %td.item-input
+                    .input-group
+                      %input.form-control{:type => "text", :value => "2"}/
+                      %span.input-group-btn
+                        %button.btn.btn-default{:type => "button"}
+                          %i.icon-refresh
+                        %button.btn.btn-danger{:type => "button"}
+                          %i.icon-remove
+                  %td $150
+                  %td $300
+                %tr
+                  %th
+                  %th
+                  %th
+                  %th
+                  %th Total
+                  %th $2405
+            %form.form-inline
+              / Discount Coupen
+              %h5.title Discount Coupen
+              .form-group
+                %input.form-control{:id => "", :placeholder => "Discount Coupon", :type => "email"}/
+              %button.btn.btn-default{:type => "submit"} Apply
+              %br/
+              %br/
+              / Gift coupen
+              %h5.title Gift Coupen
+              .form-group
+                %input.form-control{:id => "", :placeholder => "Gift Coupon", :type => "email"}/
+              %button.btn.btn-default{:type => "submit"} Apply
+            / Button s
+            .row
+              .col-md-4.col-md-offset-8
+                .pull-right
+                  %a.btn.btn-default{:href => "index.html"} Continue Shopping
+                  %a.btn.btn-danger{:href => "checkout.html"} CheckOut
+    / Cart ends
+    / Newsletter starts
+    .container.newsletter
+      .row
+        .col-md-12
+          .well
+            %h5
+              %i.icon-envelope-alt
+              Hot Offers - Don't Miss Anything!!!
+            %p Nulla facilisi. Sed justo dui, scelerisque ut consectetur vel, eleifend id erat. Morbi auctor adipiscing tempor. Phasellus condimentum rutrum aliquet.
+            %form.form-inline{:role => "form"}
+              .form-group
+                %input#search.form-control{:placeholder => "Subscribe", :type => "email"}/
+              %button.btn.btn-default{:type => "submit"} Subscribe
+    / Newsletter ends
+    / Footer starts
+    %footer
+      .container
+        .row
+          .col-md-12
+            .row
+              .col-md-4
+                .widget
+                  %h5 Contact
+                  %hr/
+                  .social
+                    %a{:href => "#"}
+                      %i.icon-facebook.facebook
+                    %a{:href => "#"}
+                      %i.icon-twitter.twitter
+                    %a{:href => "#"}
+                      %i.icon-linkedin.linkedin
+                    %a{:href => "#"}
+                      %i.icon-google-plus.google-plus
+                  %hr/
+                  %i.icon-home
+                  \&nbsp; 123, Some Area. Los Angeles, CA, 54321.
+                  %hr/
+                  %i.icon-phone
+                  \&nbsp; +239-3823-3434
+                  %hr/
+                  %i.icon-envelope-alt
+                  \&nbsp;
+                  %a{:href => "mailto:#"} someone@company.com
+                  %hr/
+                  .payment-icons
+                    %img{:alt => "", :src => "img/payment/americanexpress.gif"}/
+                    %img{:alt => "", :src => "img/payment/visa.gif"}/
+                    %img{:alt => "", :src => "img/payment/mastercard.gif"}/
+                    %img{:alt => "", :src => "img/payment/discover.gif"}/
+                    %img{:alt => "", :src => "img/payment/paypal.gif"}/
+              .col-md-4
+                .widget
+                  %h5 About Us
+                  %hr/
+                  %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras elementum dolor eget nisi fermentum quis hendrerit magna vestibulum. Curabitur pulvinar ornare vulputate scelerisque scelerisque ut consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras elementum dolor eget nisi fermentum quis hendrerit magna vestibulum.
+              .col-md-4
+                .widget
+                  %h5 Links Goes Here
+                  %hr/
+                  .two-col
+                    .col-left
+                      %ul
+                        %li
+                          %a{:href => "#"} Condimentum
+                        %li
+                          %a{:href => "#"} Etiam at
+                        %li
+                          %a{:href => "#"} Fusce vel
+                        %li
+                          %a{:href => "#"} Vivamus
+                        %li
+                          %a{:href => "#"} Pellentesque
+                        %li
+                          %a{:href => "#"} Vivamus
+                    .col-right
+                      %ul
+                        %li
+                          %a{:href => "#"} Condimentum
+                        %li
+                          %a{:href => "#"} Etiam at
+                        %li
+                          %a{:href => "#"} Fusce vel
+                        %li
+                          %a{:href => "#"} Vivamus
+                        %li
+                          %a{:href => "#"} Pellentesque
+                        %li
+                          %a{:href => "#"} Vivamus
+                    .clearfix
+            %hr/
+            / Copyright info
+            %p.copy
+              Copyright &copy; 2012 |
+              %a{:href => "#"} Your Site
+              \-
+              %a{:href => "#"} Home
+              |
+              %a{:href => "#"} About Us
+              |
+              %a{:href => "#"} Service
+              |
+              %a{:href => "#"} Contact Us
+        .clearfix
+    / Footer ends
+    / Scroll to top
+    %span.totop
+      %a{:href => "#"}
+        %i.icon-chevron-up
+    / JS
+    %script{:src => "js/jquery.js"}
+    / jQuery
+    %script{:src => "js/bootstrap.js"}
+    / Bootstrap
+    %script{:src => "js/jquery.prettyPhoto.js"}
+    / Pretty Photo
+    %script{:src => "js/filter.js"}
+    / Filter for support page
+    %script{:src => "js/jquery.flexslider-min.js"}
+    / Flex slider
+    %script{:src => "js/nav.js"}
+    / Sidebar navigation
+    %script{:src => "js/jquery.carouFredSel-6.1.0-packed.js"}
+    / Carousel for recent posts
+    %script{:src => "js/custom.js"}
+    / Custom codes

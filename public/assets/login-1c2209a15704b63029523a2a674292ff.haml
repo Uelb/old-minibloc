@@ -1,0 +1,64 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "utf-8"}/
+    / Title and other stuffs
+    %title Login - MacAdmin
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %meta{:content => "", :name => "description"}/
+    %meta{:content => "", :name => "keywords"}/
+    %meta{:content => "", :name => "author"}/
+    / Stylesheets
+    %link{:href => "style/bootstrap.css", :rel => "stylesheet"}/
+    %link{:href => "style/font-awesome.css", :rel => "stylesheet"}/
+    %link{:href => "style/style.css", :rel => "stylesheet"}/
+    %link{:href => "style/bootstrap-responsive.css", :rel => "stylesheet"}/
+    / HTML5 Support for IE
+    /[if lt IE 9]
+      <script src="js/html5shim.js"></script>
+    / Favicon
+    %link{:href => "img/favicon/favicon.png", :rel => "shortcut icon"}/
+  %body
+    / Form area
+    .admin-form
+      .container
+        .row
+          .col-md-12
+            / Widget starts
+            .widget.worange
+              / Widget head
+              .widget-head
+                %i.icon-lock
+                Login
+              .widget-content
+                .padd
+                  / Login form
+                  %form.form-horizontal
+                    / Email
+                    .form-group
+                      %label.control-label.col-lg-3{:for => "inputEmail"} Email
+                      .col-lg-9
+                        %input#inputEmail.form-control{:placeholder => "Email", :type => "text"}/
+                    / Password
+                    .form-group
+                      %label.control-label.col-lg-3{:for => "inputPassword"} Password
+                      .col-lg-9
+                        %input#inputPassword.form-control{:placeholder => "Password", :type => "password"}/
+                    / Remember me checkbox and sign in button
+                    .form-group
+                      .col-lg-9.col-lg-offset-3
+                        .checkbox
+                          %label
+                            %input{:type => "checkbox"}/
+                            Remember me
+                    .col-lg-9.col-lg-offset-2
+                      %button.btn.btn-danger{:type => "submit"} Sign in
+                      %button.btn.btn-default{:type => "reset"} Reset
+                    %br/
+              .widget-foot
+                Not Registred?
+                %a{:href => "#"} Register here
+    / JS
+    %script{:src => "js/jquery.js"}
+    %script{:src => "js/bootstrap.js"}

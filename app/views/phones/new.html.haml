@@ -1,15 +1,39 @@
-= render "partials/menu"
-%br
-= t("phones.activate")
-= form_for @phone,method: :put, url: activate_phones_path do |f|
-  = f.label :number
-  = f.telephone_field :number
-  =f.label :activation_code
-  = f.text_field :activation_code
-  = f.submit t("phones.activate")
-
-= t(:resend_activation_code)
-= form_for @phone, url: resend_activation_code_phones_path do |f|
-  = f.label :number
-  = f.telephone_field :number
-  = f.submit t("phones.code")
+= content_for :head do 
+  %h2.pull-left
+    %i.icon-mobile-phone
+    Activate a new phone
+.col-md-12
+  .widget.wgreen
+    .widget-head
+      .pull-left Activate a new phone
+      .clearfix
+    .widget-content
+      .padd
+        %h5= t("phones.activate")
+        %hr/
+        / Form starts.
+        = form_for @phone , method: :put, url: activate_phones_path, html: {class: "form-horizontal"} do |f|
+          .form-group
+            = f.label :number, class: ["col-lg-4", "control-label"]
+            .col-lg-8
+              = f.telephone_field :number, placeholder: "Phone Number", class: "form-control"
+          .form-group
+            = f.label :activation_code, class: ["col-lg-4", "control-label"]
+            .col-lg-8
+              = f.text_field :activation_code, placeholder: "Activation code", class: "form-control"
+          .form-group
+            .col-lg-offset-1.col-lg-9
+              = f.submit t("phones.activate"), class: ["btn", "btn-primary"]
+        %br
+        %br
+        %h5= t(:resend_activation_code)
+        %hr
+        = form_for @phone , method: :put, url: resend_activation_code_phones_path, html: {class: "form-horizontal"} do |f|
+          .form-group
+            = f.label :number, class: ["col-lg-4", "control-label"]
+            .col-lg-8
+              = f.telephone_field :number, placeholder: "Phone Number", class: "form-control"
+          .form-group
+            .col-lg-offset-1.col-lg-9
+              = f.submit t("phones.code"), class: ["btn", "btn-primary"]
+    .widget-foot

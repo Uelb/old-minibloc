@@ -1,0 +1,572 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "utf-8"}/
+    / Title and other stuffs
+    %title Error-Log - MacAdmin
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %meta{:content => "", :name => "description"}/
+    %meta{:content => "", :name => "keywords"}/
+    %meta{:content => "", :name => "author"}/
+    / Stylesheets
+    %link{:href => "style/bootstrap.css", :rel => "stylesheet"}/
+    / Font awesome icon
+    %link{:href => "style/font-awesome.css", :rel => "stylesheet"}/
+    / jQuery UI
+    %link{:href => "style/jquery-ui.css", :rel => "stylesheet"}/
+    / Calendar
+    %link{:href => "style/fullcalendar.css", :rel => "stylesheet"}/
+    / prettyPhoto
+    %link{:href => "style/prettyPhoto.css", :rel => "stylesheet"}/
+    / Star rating
+    %link{:href => "style/rateit.css", :rel => "stylesheet"}/
+    / Date picker
+    %link{:href => "style/bootstrap-datetimepicker.min.css", :rel => "stylesheet"}/
+    / CLEditor
+    %link{:href => "style/jquery.cleditor.css", :rel => "stylesheet"}/
+    / Bootstrap toggle
+    %link{:href => "style/bootstrap-switch.css", :rel => "stylesheet"}/
+    / Main stylesheet
+    %link{:href => "style/style.css", :rel => "stylesheet"}/
+    / Widgets stylesheet
+    %link{:href => "style/widgets.css", :rel => "stylesheet"}/
+    / HTML5 Support for IE
+    /[if lt IE 9]
+      <script src="js/html5shim.js"></script>
+    / Favicon
+    %link{:href => "img/favicon/favicon.png", :rel => "shortcut icon"}/
+  %body
+    .navbar.navbar-fixed-top.bs-docs-nav{:role => "banner"}
+      .conjtainer
+        / Menu button for smallar screens
+        .navbar-header
+          %button.navbar-toggle.btn-navbar{"data-target" => ".bs-navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+            %span Menu
+          / Site name for smallar screens
+          %a.navbar-brand.hidden-lg{:href => "index.html"} MacBeth
+        / Navigation starts
+        %nav.collapse.navbar-collapse.bs-navbar-collapse{:role => "navigation"}
+          %ul.nav.navbar-nav
+            / Upload to server link. Class "dropdown-big" creates big dropdown
+            %li.dropdown.dropdown-big
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                %span.label.label-success
+                  %i.icon-cloud-upload
+                Upload to Cloud
+              / Dropdown
+              %ul.dropdown-menu
+                %li
+                  / Progress bar
+                  %p Photo Upload in Progress
+                  / Bootstrap progress bar
+                  .progress.progress-striped.active
+                    .progress-bar.progress-bar-info{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "40", :role => "progressbar", :style => "width: 40%"}
+                      %span.sr-only 40% Complete
+                  %hr/
+                  / Progress bar
+                  %p Video Upload in Progress
+                  / Bootstrap progress bar
+                  .progress.progress-striped.active
+                    .progress-bar.progress-bar-success{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "80", :role => "progressbar", :style => "width: 80%"}
+                      %span.sr-only 80% Complete
+                  %hr/
+                  / Dropdown menu footer
+                  .drop-foot
+                    %a{:href => "#"} View All
+            / Sync to server link
+            %li.dropdown.dropdown-big
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                %span.label.label-danger
+                  %i.icon-refresh
+                Sync with Server
+              / Dropdown
+              %ul.dropdown-menu
+                %li
+                  / Using "icon-spin" class to rotate icon.
+                  %p
+                    %span.label.label-info
+                      %i.icon-cloud
+                    Syncing Members Lists to Server
+                  %hr/
+                  %p
+                    %span.label.label-warning
+                      %i.icon-cloud
+                    Syncing Bookmarks Lists to Cloud
+                  %hr/
+                  / Dropdown menu footer
+                  .drop-foot
+                    %a{:href => "#"} View All
+          / Search form
+          %form.navbar-form.navbar-left{:role => "search"}
+            .form-group
+              %input.form-control{:placeholder => "Search", :type => "text"}/
+          / Links
+          %ul.nav.navbar-nav.pull-right
+            %li.dropdown.pull-right
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                %i.icon-user
+                Admin
+                %b.caret
+              / Dropdown menu
+              %ul.dropdown-menu
+                %li
+                  %a{:href => "#"}
+                    %i.icon-user
+                    Profile
+                %li
+                  %a{:href => "#"}
+                    %i.icon-cogs
+                    Settings
+                %li
+                  %a{:href => "login.html"}
+                    %i.icon-off
+                    Logout
+    / Header starts
+    %header
+      .container
+        .row
+          / Logo section
+          .col-md-4
+            / Logo.
+            .logo
+              %h1
+                %a{:href => "#"}
+                  Mac
+                  %span.bold Admin
+              %p.meta something goes in meta area
+            / Logo ends
+          / Button section
+          .col-md-4
+            / Buttons
+            %ul.nav.nav-pills
+              / Comment button with number of latest comments count
+              %li.dropdown.dropdown-big
+                %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                  %i.icon-comments
+                  Chats
+                  %span.label.label-info 6
+                %ul.dropdown-menu
+                  %li
+                    / Heading - h5
+                    %h5
+                      %i.icon-comments
+                      Chats
+                    / Use hr tag to add border
+                    %hr/
+                  %li
+                    / List item heading h6
+                    %h6
+                      %a{:href => "#"} Hi :)
+                      %span.label.label-warning.pull-right 10:42
+                    .clearfix
+                    %hr/
+                  %li
+                    %h6
+                      %a{:href => "#"} How are you?
+                      %span.label.label-warning.pull-right 20:42
+                    .clearfix
+                    %hr/
+                  %li
+                    %h6
+                      %a{:href => "#"} What are you doing?
+                      %span.label.label-warning.pull-right 14:42
+                    .clearfix
+                    %hr/
+                  %li
+                    .drop-foot
+                      %a{:href => "#"} View All
+              / Message button with number of latest messages count
+              %li.dropdown.dropdown-big
+                %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                  %i.icon-envelope-alt
+                  Inbox
+                  %span.label.label-primary 6
+                %ul.dropdown-menu
+                  %li
+                    / Heading - h5
+                    %h5
+                      %i.icon-envelope-alt
+                      Messages
+                    / Use hr tag to add border
+                    %hr/
+                  %li
+                    / List item heading h6
+                    %h6
+                      %a{:href => "#"} Hello how are you?
+                    / List item para
+                    %p Quisque eu consectetur erat eget  semper...
+                    %hr/
+                  %li
+                    %h6
+                      %a{:href => "#"} Today is wonderful?
+                    %p Quisque eu consectetur erat eget  semper...
+                    %hr/
+                  %li
+                    .drop-foot
+                      %a{:href => "#"} View All
+              / Members button with number of latest members count
+              %li.dropdown.dropdown-big
+                %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                  %i.icon-user
+                  Users
+                  %span.label.label-success 6
+                %ul.dropdown-menu
+                  %li
+                    / Heading - h5
+                    %h5
+                      %i.icon-user
+                      Users
+                    / Use hr tag to add border
+                    %hr/
+                  %li
+                    / List item heading h6
+                    %h6
+                      %a{:href => "#"} Ravi Kumar
+                      %span.label.label-warning.pull-right Free
+                    .clearfix
+                    %hr/
+                  %li
+                    %h6
+                      %a{:href => "#"} Balaji
+                      %span.label.label-important.pull-right Premium
+                    .clearfix
+                    %hr/
+                  %li
+                    %h6
+                      %a{:href => "#"} Kumarasamy
+                      %span.label.label-warning.pull-right Free
+                    .clearfix
+                    %hr/
+                  %li
+                    .drop-foot
+                      %a{:href => "#"} View All
+          / Data section
+          .col-md-4
+            .header-data
+              / Traffic data
+              .hdata
+                .mcol-left
+                  / Icon with red background
+                  %i.icon-signal.bred
+                .mcol-right
+                  / Number of visitors
+                  %p
+                    %a{:href => "#"} 7000
+                    %em visits
+                .clearfix
+              / Members data
+              .hdata
+                .mcol-left
+                  / Icon with blue background
+                  %i.icon-user.bblue
+                .mcol-right
+                  / Number of visitors
+                  %p
+                    %a{:href => "#"} 3000
+                    %em users
+                .clearfix
+              / revenue data
+              .hdata
+                .mcol-left
+                  / Icon with green background
+                  %i.icon-money.bgreen
+                .mcol-right
+                  / Number of visitors
+                  %p
+                    %a{:href => "#"} 5000
+                    %em orders
+                .clearfix
+    / Header ends
+    / Main content starts
+    .content
+      / Sidebar
+      .sidebar
+        .sidebar-dropdown
+          %a{:href => "#"} Navigation
+        / - Sidebar navigation
+        / If the main navigation has sub navigation, then add the class "has_sub" to "li" of main navigation.
+        %ul#nav
+          / Main menu with font awesome icon
+          %li
+            %a{:href => "index.html"}
+              %i.icon-home
+              Dashboard
+            /
+              Sub menu markup
+              <ul>
+              <li><a href="#">Submenu #1</a></li>
+              <li><a href="#">Submenu #2</a></li>
+              <li><a href="#">Submenu #3</a></li>
+              </ul>
+          %li.has_sub
+            %a{:href => "#"}
+              %i.icon-list-alt
+              Widgets
+              %span.pull-right
+                %i.icon-chevron-right
+            %ul
+              %li
+                %a{:href => "widgets1.html"} Widgets #1
+              %li
+                %a{:href => "widgets2.html"} Widgets #2
+              %li
+                %a{:href => "widgets3.html"} Widgets #3
+          %li.has_sub
+            %a{:href => "#"}
+              %i.icon-file-alt
+              Pages #1
+              %span.pull-right
+                %i.icon-chevron-right
+            %ul
+              %li
+                %a{:href => "post.html"} Post
+              %li
+                %a{:href => "login.html"} Login
+              %li
+                %a{:href => "register.html"} Register
+              %li
+                %a{:href => "support.html"} Support
+              %li
+                %a{:href => "invoice.html"} Invoice
+              %li
+                %a{:href => "profile.html"} Profile
+              %li
+                %a{:href => "gallery.html"} Gallery
+          %li.has_sub
+            %a.open{:href => "#"}
+              %i.icon-file-alt
+              Pages #2
+              %span.pull-right
+                %i.icon-chevron-right
+            %ul
+              %li
+                %a{:href => "media.html"} Media
+              %li
+                %a{:href => "statement.html"} Statement
+              %li
+                %a{:href => "error.html"} Error
+              %li
+                %a{:href => "error-log.html"} Error Log
+              %li
+                %a{:href => "calendar.html"} Calendar
+              %li
+                %a{:href => "grid.html"} Grid
+          %li
+            %a{:href => "charts.html"}
+              %i.icon-bar-chart
+              Charts
+          %li
+            %a{:href => "tables.html"}
+              %i.icon-table
+              Tables
+          %li
+            %a{:href => "forms.html"}
+              %i.icon-tasks
+              Forms
+          %li
+            %a{:href => "ui.html"}
+              %i.icon-magic
+              User Interface
+          %li
+            %a{:href => "calendar.html"}
+              %i.icon-calendar
+              Calendar
+      / Sidebar ends
+      / Main bar
+      .mainbar
+        / Page heading
+        .page-head
+          %h2.pull-left
+            %i.icon-file-alt
+            Error Log
+          / Breadcrumb
+          .bread-crumb.pull-right
+            %a{:href => "index.html"}
+              %i.icon-home
+              Home
+            / Divider
+            %span.divider /
+            %a.bread-current{:href => "#"} Dashboard
+          .clearfix
+        / Page heading ends
+        / Matter
+        .matter
+          .container
+            .row
+              .col-md-12
+                .widget
+                  .widget-head
+                    .pull-left Error Log
+                    .widget-icons.pull-right
+                      %a.wminimize{:href => "#"}
+                        %i.icon-chevron-up
+                      %a.wclose{:href => "#"}
+                        %i.icon-remove
+                    .clearfix
+                  .widget-content
+                    .padd
+                      .error-log
+                        %ul
+                          / Use class "green" or "red" to add color
+                          %li
+                            %span.green [Tue Jan 11 17:32:52 2013]
+                            %span.red [error]
+                            [google 123.124.2.2] client denied by server: /export/home/macadmin/testdoc
+                          %li
+                            %span.green [Tue Jan 11 17:32:52 2013]
+                            %span.red [error]
+                            [google 123.124.2.2] client denied by server: /export/home/macadmin/testdoc - no such file
+                          %li
+                            %span.green [Tue Jan 11 17:32:52 2013]
+                            %span.red [error]
+                            [google 123.124.2.2] client denied by server: /export/home/macadmin/testdoc
+                          %li
+                            %span.green [Tue Jan 11 17:32:52 2013]
+                            %span.red [error]
+                            [google 123.124.2.2] client denied by server: /export/home/macadmin/testdoc - no such file
+                          %li
+                            %span.green [Tue Jan 11 17:32:52 2013]
+                            %span.red [error]
+                            [google 123.124.2.2] client denied by server: /export/home/macadmin/testdoc
+                          %li
+                            %span.green [Tue Jan 11 17:32:52 2013]
+                            %span.red [error]
+                            [google 123.124.2.2] client denied by server: /export/home/macadmin/testdoc
+                          %li
+                            %span.green [Tue Jan 11 17:32:52 2013]
+                            %span.red [error]
+                            [google 123.124.2.2] client denied by server: /export/home/macadmin/testdoc - no such file
+                          %li
+                            %span.green [Tue Jan 11 17:32:52 2013]
+                            %span.red [error]
+                            [google 123.124.2.2] client denied by server: /export/home/macadmin/testdoc
+                          %li
+                            %span.green [Tue Jan 11 17:32:52 2013]
+                            %span.red [error]
+                            [google 123.124.2.2] client denied by server: /export/home/macadmin/testdoc
+                          %li
+                            %span.green [Tue Jan 11 17:32:52 2013]
+                            %span.red [error]
+                            [google 123.124.2.2] client denied by server: /export/home/macadmin/testdoc - no such file
+                          %li
+                            %span.green [Tue Jan 11 17:32:52 2013]
+                            %span.red [error]
+                            [google 123.124.2.2] client denied by server: /export/home/macadmin/testdoc
+                          %li
+                            %span.green [Tue Jan 11 17:32:52 2013]
+                            %span.red [error]
+                            [google 123.124.2.2] client denied by server: /export/home/macadmin/testdoc - no such file
+                          %li
+                            %span.green [Tue Jan 11 17:32:52 2013]
+                            %span.red [error]
+                            [google 123.124.2.2] client denied by server: /export/home/macadmin/testdoc
+                          %li
+                            %span.green [Tue Jan 11 17:32:52 2013]
+                            %span.red [error]
+                            [google 123.124.2.2] client denied by server: /export/home/macadmin/testdoc
+                          %li
+                            %span.green [Tue Jan 11 17:32:52 2013]
+                            %span.red [error]
+                            [google 123.124.2.2] client denied by server: /export/home/macadmin/testdoc - no such file
+                          %li
+                            %span.green [Tue Jan 11 17:32:52 2013]
+                            %span.red [error]
+                            [google 123.124.2.2] client denied by server: /export/home/macadmin/testdoc
+                          %li
+                            %span.green [Tue Jan 11 17:32:52 2013]
+                            %span.red [error]
+                            [google 123.124.2.2] client denied by server: /export/home/macadmin/testdoc - no such file
+                          %li
+                            %span.green [Tue Jan 11 17:32:52 2013]
+                            %span.red [error]
+                            [google 123.124.2.2] client denied by server: /export/home/macadmin/testdoc - no such file
+                          %li
+                            %span.green [Tue Jan 11 17:32:52 2013]
+                            %span.red [error]
+                            [google 123.124.2.2] client denied by server: /export/home/macadmin/testdoc
+                          %li
+                            %span.green [Tue Jan 11 17:32:52 2013]
+                            %span.red [error]
+                            [google 123.124.2.2] client denied by server: /export/home/macadmin/testdoc - no such file
+                          %li
+                            %span.green [Tue Jan 11 17:32:52 2013]
+                            %span.red [error]
+                            [google 123.124.2.2] client denied by server: /export/home/macadmin/testdoc - no such file
+                          %li
+                            %span.green [Tue Jan 11 17:32:52 2013]
+                            %span.red [error]
+                            [google 123.124.2.2] client denied by server: /export/home/macadmin/testdoc
+                          %li
+                            %span.green [Tue Jan 11 17:32:52 2013]
+                            %span.red [error]
+                            [google 123.124.2.2] client denied by server: /export/home/macadmin/testdoc - no such file
+                          %li
+                            %span.green [Tue Jan 11 17:32:52 2013]
+                            %span.red [error]
+                            [google 123.124.2.2] client denied by server: /export/home/macadmin/testdoc - no such file
+                    .widget-foot
+                      / Footer goes here
+        / Matter ends
+      / Mainbar ends
+      .clearfix
+    / Content ends
+    / Footer starts
+    %footer
+      .container
+        .row
+          .col-md-12
+            / Copyright info
+            %p.copy
+              Copyright &copy; 2012 |
+              %a{:href => "#"} Your Site
+    / Footer ends
+    / Scroll to top
+    %span.totop
+      %a{:href => "#"}
+        %i.icon-chevron-up
+    / JS
+    %script{:src => "js/jquery.js"}
+    / jQuery
+    %script{:src => "js/bootstrap.js"}
+    / Bootstrap
+    %script{:src => "js/jquery-ui-1.9.2.custom.min.js"}
+    / jQuery UI
+    %script{:src => "js/fullcalendar.min.js"}
+    / Full Google Calendar - Calendar
+    %script{:src => "js/jquery.rateit.min.js"}
+    / RateIt - Star rating
+    %script{:src => "js/jquery.prettyPhoto.js"}
+    / prettyPhoto
+    / jQuery Flot
+    %script{:src => "js/excanvas.min.js"}
+    %script{:src => "js/jquery.flot.js"}
+    %script{:src => "js/jquery.flot.resize.js"}
+    %script{:src => "js/jquery.flot.pie.js"}
+    %script{:src => "js/jquery.flot.stack.js"}
+    / jQuery Notification - Noty
+    %script{:src => "js/jquery.noty.js"}
+    / jQuery Notify
+    %script{:src => "js/themes/default.js"}
+    / jQuery Notify
+    %script{:src => "js/layouts/bottom.js"}
+    / jQuery Notify
+    %script{:src => "js/layouts/topRight.js"}
+    / jQuery Notify
+    %script{:src => "js/layouts/top.js"}
+    / jQuery Notify
+    / jQuery Notification ends
+    %script{:src => "js/sparklines.js"}
+    / Sparklines
+    %script{:src => "js/jquery.cleditor.min.js"}
+    / CLEditor
+    %script{:src => "js/bootstrap-datetimepicker.min.js"}
+    / Date picker
+    %script{:src => "js/bootstrap-switch.min.js"}
+    / Bootstrap Toggle
+    %script{:src => "js/filter.js"}
+    / Filter for support page
+    %script{:src => "js/custom.js"}
+    / Custom codes
+    %script{:src => "js/charts.js"}
+    / Charts &amp; Graphs

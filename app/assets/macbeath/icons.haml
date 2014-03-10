@@ -1,0 +1,665 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "utf-8"}/
+    / Title and other stuffs
+    %title Icons - MacBeath
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %meta{:content => "", :name => "description"}/
+    %meta{:content => "", :name => "keywords"}/
+    %meta{:content => "", :name => "author"}/
+    %link{:href => "http://fonts.googleapis.com/css?family=Open+Sans:400,600", :rel => "stylesheet", :type => "text/css"}/
+    / Stylesheets
+    %link{:href => "style/bootstrap.css", :rel => "stylesheet"}/
+    / Pretty Photo
+    %link{:href => "style/prettyPhoto.css", :rel => "stylesheet"}/
+    / Flex slider
+    %link{:href => "style/flexslider.css", :rel => "stylesheet"}/
+    / Font awesome icon
+    %link{:href => "style/font-awesome.css", :rel => "stylesheet"}/
+    / Parallax slider
+    %link{:href => "style/slider.css", :rel => "stylesheet"}/
+    / Refind slider
+    %link{:href => "style/refineslide.css", :rel => "stylesheet"}/
+    / Main stylesheet
+    %link{:href => "style/style.css", :rel => "stylesheet"}/
+    / Stylesheet for Color
+    %link{:href => "style/red.css", :rel => "stylesheet"}/
+    / HTML5 Support for IE
+    /[if lt IE 9]
+      <script src="js/html5shim.js"></script>
+    / Favicon
+    %link{:href => "img/favicon/favicon.png", :rel => "shortcut icon"}/
+  %body
+    / Header starts
+    %header
+      .container
+        .row
+          .col-md-4.col-sm-3
+            / Logo. Use class "color" to add color to the text.
+            .logo
+              %h1
+                %a{:href => "#"}
+                  Mac
+                  %span.color.bold Beath
+              %p.meta something goes in meta area
+          .col-md-8.col-sm-9
+            / Navigation
+            .navbar.bs-docs-nav{:role => "banner"}
+              .container
+                .navbar-header
+                  %button.navbar-toggle{"data-target" => ".bs-navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+                    %span.sr-only Toggle navigation
+                    %span.icon-bar
+                    %span.icon-bar
+                    %span.icon-bar
+                %nav.collapse.navbar-collapse.bs-navbar-collapse{:role => "navigation"}
+                  %ul.nav.navbar-nav
+                    %li
+                      %a{:href => "index.html"} Home
+                    %li.dropdown
+                      %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                        Pages
+                        %b.caret
+                      %ul.dropdown-menu
+                        %li
+                          %a{:href => "404-1.html"} 404
+                        %li
+                          %a{:href => "about1.html"} About
+                        %li
+                          %a{:href => "faq.html"} FAQ
+                        %li
+                          %a{:href => "features2.html"} Features
+                        %li
+                          %a{:href => "login.html"} Login
+                        %li
+                          %a{:href => "faq.html"} FAQ
+                        %li
+                          %a{:href => "pricing1.html"} Pricing Table
+                        %li
+                          %a{:href => "process.html"} Process
+                        %li
+                          %a{:href => "project.html"} Project
+                        %li
+                          %a{:href => "register.html"} Register
+                        %li
+                          %a{:href => "support.html"} Support
+                        %li
+                          %a{:href => "testimonials.html"} Testimonials
+                    %li
+                      %a{:href => "service2.html"} Service
+                    %li
+                      %a{:href => "resume.html"} Resume
+                    %li.dropdown
+                      %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                        Blog
+                        %b.caret
+                      %ul.dropdown-menu
+                        %li
+                          %a{:href => "blog1.html"} Blog
+                        %li
+                          %a{:href => "blog3.html"} Blog Box
+                        %li
+                          %a{:href => "blog-3col.html"} Blog 3 Column
+                        %li
+                          %a{:href => "blog-single.html"} Blog Single
+                    %li
+                      %a{:href => "portfolio1.html"} Portfolio
+                    %li
+                      %a{:href => "contactus1.html"} Contact
+    / Seperator
+    .sep
+    / Header ends
+    / Page heading starts
+    .page-head
+      .container
+        .row
+          .col-md-12
+            %h2 iCons
+            %h4 something goes here
+    / Page Heading ends
+    / Page content starts
+    .content
+      .container
+        .row
+          .col-md-12
+            %h5
+              This theme supports
+              = succeed "." do
+                %a{:href => "http://fortawesome.github.com/Font-Awesome/"} Font Awesome Icons
+            %hr/
+          .col-md-3
+            %ul.icons
+              %li
+                %i.icon-adjust
+                icon-adjust
+              %li
+                %i.icon-asterisk
+                icon-asterisk
+              %li
+                %i.icon-ban-circle
+                icon-ban-circle
+              %li
+                %i.icon-bar-chart
+                icon-bar-chart
+              %li
+                %i.icon-barcode
+                icon-barcode
+              %li
+                %i.icon-beaker
+                icon-beaker
+              %li
+                %i.icon-bell
+                icon-bell
+              %li
+                %i.icon-bolt
+                icon-bolt
+              %li
+                %i.icon-book
+                icon-book
+              %li
+                %i.icon-bookmark
+                icon-bookmark
+              %li
+                %i.icon-bookmark-empty
+                icon-bookmark-empty
+              %li
+                %i.icon-briefcase
+                icon-briefcase
+              %li
+                %i.icon-bullhorn
+                icon-bullhorn
+              %li
+                %i.icon-calendar
+                icon-calendar
+              %li
+                %i.icon-camera
+                icon-camera
+              %li
+                %i.icon-camera-retro
+                icon-camera-retro
+              %li
+                %i.icon-certificate
+                icon-certificate
+              %li
+                %i.icon-check
+                icon-check
+              %li
+                %i.icon-check-empty
+                icon-check-empty
+              %li
+                %i.icon-cloud
+                icon-cloud
+              %li
+                %i.icon-cog
+                icon-cog
+              %li
+                %i.icon-cogs
+                icon-cogs
+              %li
+                %i.icon-comment
+                icon-comment
+              %li
+                %i.icon-comment-alt
+                icon-comment-alt
+              %li
+                %i.icon-comments
+                icon-comments
+              %li
+                %i.icon-comments-alt
+                icon-comments-alt
+              %li
+                %i.icon-credit-card
+                icon-credit-card
+              %li
+                %i.icon-dashboard
+                icon-dashboard
+              %li
+                %i.icon-download
+                icon-download
+              %li
+                %i.icon-download-alt
+                icon-download-alt
+              %li
+                %i.icon-edit
+                icon-edit
+              %li
+                %i.icon-envelope
+                icon-envelope
+              %li
+                %i.icon-envelope-alt
+                icon-envelope-alt
+          .col-md-3
+            %ul.icons
+              %li
+                %i.icon-exclamation-sign
+                icon-exclamation-sign
+              %li
+                %i.icon-external-link
+                icon-external-link
+              %li
+                %i.icon-eye-close
+                icon-eye-close
+              %li
+                %i.icon-eye-open
+                icon-eye-open
+              %li
+                %i.icon-facetime-video
+                icon-facetime-video
+              %li
+                %i.icon-film
+                icon-film
+              %li
+                %i.icon-filter
+                icon-filter
+              %li
+                %i.icon-fire
+                icon-fire
+              %li
+                %i.icon-flag
+                icon-flag
+              %li
+                %i.icon-folder-close
+                icon-folder-close
+              %li
+                %i.icon-folder-open
+                icon-folder-open
+              %li
+                %i.icon-gift
+                icon-gift
+              %li
+                %i.icon-glass
+                icon-glass
+              %li
+                %i.icon-globe
+                icon-globe
+              %li
+                %i.icon-group
+                icon-group
+              %li
+                %i.icon-hdd
+                icon-hdd
+              %li
+                %i.icon-headphones
+                icon-headphones
+              %li
+                %i.icon-heart
+                icon-heart
+              %li
+                %i.icon-heart-empty
+                icon-heart-empty
+              %li
+                %i.icon-home
+                icon-home
+              %li
+                %i.icon-inbox
+                icon-inbox
+              %li
+                %i.icon-info-sign
+                icon-info-sign
+              %li
+                %i.icon-key
+                icon-key
+              %li
+                %i.icon-leaf
+                icon-leaf
+              %li
+                %i.icon-legal
+                icon-legal
+              %li
+                %i.icon-lemon
+                icon-lemon
+              %li
+                %i.icon-lock
+                icon-lock
+              %li
+                %i.icon-unlock
+                icon-unlock
+              %li
+                %i.icon-magic
+                icon-magic
+              %li
+                %i.icon-magnet
+                icon-magnet
+              %li
+                %i.icon-map-marker
+                icon-map-marker
+              %li
+                %i.icon-minus
+                icon-minus
+              %li
+                %i.icon-minus-sign
+                icon-minus-sign
+          .col-md-3
+            %ul.icons
+              %li
+                %i.icon-money
+                icon-money
+              %li
+                %i.icon-move
+                icon-move
+              %li
+                %i.icon-music
+                icon-music
+              %li
+                %i.icon-off
+                icon-off
+              %li
+                %i.icon-ok
+                icon-ok
+              %li
+                %i.icon-ok-circle
+                icon-ok-circle
+              %li
+                %i.icon-ok-sign
+                icon-ok-sign
+              %li
+                %i.icon-pencil
+                icon-pencil
+              %li
+                %i.icon-picture
+                icon-picture
+              %li
+                %i.icon-plane
+                icon-plane
+              %li
+                %i.icon-plus
+                icon-plus
+              %li
+                %i.icon-plus-sign
+                icon-plus-sign
+              %li
+                %i.icon-print
+                icon-print
+              %li
+                %i.icon-pushpin
+                icon-pushpin
+              %li
+                %i.icon-qrcode
+                icon-qrcode
+              %li
+                %i.icon-question-sign
+                icon-question-sign
+              %li
+                %i.icon-random
+                icon-random
+              %li
+                %i.icon-refresh
+                icon-refresh
+              %li
+                %i.icon-remove
+                icon-remove
+              %li
+                %i.icon-remove-circle
+                icon-remove-circle
+              %li
+                %i.icon-remove-sign
+                icon-remove-sign
+              %li
+                %i.icon-reorder
+                icon-reorder
+              %li
+                %i.icon-resize-horizontal
+                icon-resize-horizontal
+              %li
+                %i.icon-resize-vertical
+                icon-resize-vertical
+              %li
+                %i.icon-retweet
+                icon-retweet
+              %li
+                %i.icon-road
+                icon-road
+              %li
+                %i.icon-rss
+                icon-rss
+              %li
+                %i.icon-screenshot
+                icon-screenshot
+              %li
+                %i.icon-search
+                icon-search
+              %li
+                %i.icon-share
+                icon-share
+              %li
+                %i.icon-share-alt
+                icon-share-alt
+              %li
+                %i.icon-shopping-cart
+                icon-shopping-cart
+          .col-md-3
+            %ul.icons
+              %li
+                %i.icon-signal
+                icon-signal
+              %li
+                %i.icon-signin
+                icon-signin
+              %li
+                %i.icon-signout
+                icon-signout
+              %li
+                %i.icon-sitemap
+                icon-sitemap
+              %li
+                %i.icon-sort
+                icon-sort
+              %li
+                %i.icon-sort-down
+                icon-sort-down
+              %li
+                %i.icon-sort-up
+                icon-sort-up
+              %li
+                %i.icon-star
+                icon-star
+              %li
+                %i.icon-star-empty
+                icon-star-empty
+              %li
+                %i.icon-star-half
+                icon-star-half
+              %li
+                %i.icon-tag
+                icon-tag
+              %li
+                %i.icon-tags
+                icon-tags
+              %li
+                %i.icon-tasks
+                icon-tasks
+              %li
+                %i.icon-thumbs-down
+                icon-thumbs-down
+              %li
+                %i.icon-thumbs-up
+                icon-thumbs-up
+              %li
+                %i.icon-time
+                icon-time
+              %li
+                %i.icon-tint
+                icon-tint
+              %li
+                %i.icon-trash
+                icon-trash
+              %li
+                %i.icon-trophy
+                icon-trophy
+              %li
+                %i.icon-truck
+                icon-truck
+              %li
+                %i.icon-umbrella
+                icon-umbrella
+              %li
+                %i.icon-upload
+                icon-upload
+              %li
+                %i.icon-upload-alt
+                icon-upload-alt
+              %li
+                %i.icon-user
+                icon-user
+              %li
+                %i.icon-user-md
+                icon-user-md
+              %li
+                %i.icon-volume-off
+                icon-volume-off
+              %li
+                %i.icon-volume-down
+                icon-volume-down
+              %li
+                %i.icon-volume-up
+                icon-volume-up
+              %li
+                %i.icon-warning-sign
+                icon-warning-sign
+              %li
+                %i.icon-wrench
+                icon-wrench
+              %li
+                %i.icon-zoom-in
+                icon-zoom-in
+              %li
+                %i.icon-zoom-out
+                icon-zoom-out
+    / Page content ends
+    / CTA Starts
+    .container
+      .cta
+        .row
+          .col-md-5.col-sm-5
+            .ctas
+              / Title and Para
+              %h5 Professional Product Ever Made in Internet
+              %p Sed diam nisi, pulvinar vitae molestie vitae molestie hendreri hendrerit, venenatis eget mauris.
+          .col-md-4.col-sm-4
+            .ctas
+              / List
+              %ul
+                %li Very Cheap in Market. Check it today.
+                %li Professional and Powerful. Don't miss it.
+                %li 1000% Guanrantee. No Worries. No Probs.
+          .col-md-3.col-sm-3
+            .ctas
+              / Button
+              .button
+                %a{:href => "#"} Buy it Today for $99
+              %p limited period offer
+    / CTA Ends
+    / Footer starts
+    %footer
+      .container
+        .row
+          .col-md-12
+            .row
+              .col-md-4
+                .widget
+                  %h5 Contact
+                  %hr/
+                  %p Praesent ultricies enim ac ipsum aliquet . Nullam justo nunc, dignissim at convallis posuere, sodales eu orci.
+                  %hr/
+                  %i.icon-home
+                  \&nbsp; 123, Some Area. Los Angeles, CA, 54321.
+                  %hr/
+                  %i.icon-phone
+                  \&nbsp; +239-3823-3434
+                  %hr/
+                  %i.icon-envelope-alt
+                  \&nbsp;
+                  %a{:href => "mailto:#"} someone@company.com
+                  %hr/
+                  .social
+                    %a{:href => "#"}
+                      %i.icon-facebook.facebook
+                    %a{:href => "#"}
+                      %i.icon-twitter.twitter
+                    %a{:href => "#"}
+                      %i.icon-linkedin.linkedin
+                    %a{:href => "#"}
+                      %i.icon-google-plus.google-plus
+              .col-md-4
+                .widget
+                  %h5 About Us
+                  %hr/
+                  %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras elementum dolor eget nisi fermentum quis hendrerit magna vestibulum. Curabitur pulvinar ornare vulputate scelerisque scelerisque ut consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras elementum dolor eget nisi fermentum quis hendrerit magna vestibulum..
+              .col-md-4
+                .widget
+                  %h5 Links Goes Here
+                  %hr/
+                  .two-col
+                    .col-left
+                      %ul
+                        %li
+                          %a{:href => "#"} Condimentum
+                        %li
+                          %a{:href => "#"} Etiam at
+                        %li
+                          %a{:href => "#"} Fusce vel
+                        %li
+                          %a{:href => "#"} Vivamus
+                        %li
+                          %a{:href => "#"} Pellentesque
+                        %li
+                          %a{:href => "#"} Vivamus
+                    .col-right
+                      %ul
+                        %li
+                          %a{:href => "#"} Condimentum
+                        %li
+                          %a{:href => "#"} Etiam at
+                        %li
+                          %a{:href => "#"} Fusce vel
+                        %li
+                          %a{:href => "#"} Vivamus
+                        %li
+                          %a{:href => "#"} Pellentesque
+                        %li
+                          %a{:href => "#"} Vivamus
+                    .clearfix
+            %hr/
+            / Copyright info
+            %p.copy
+              Copyright &copy; 2012 |
+              %a{:href => "#"} Your Site
+              \-
+              %a{:href => "#"} Home
+              |
+              %a{:href => "#"} About Us
+              |
+              %a{:href => "#"} Service
+              | Designed by
+              %a{:href => "http://responsivewebinc.com/bootstrap-themes"} Bootstrap Themes
+        .clearfix
+    / Footer ends
+    / Scroll to top
+    %span.totop
+      %a{:href => "#"}
+        %i.icon-chevron-up
+    / JS
+    %script{:src => "js/jquery.js"}
+    / jQuery
+    %script{:src => "js/bootstrap.js"}
+    / Bootstrap
+    %script{:src => "js/jquery.isotope.js"}
+    / Isotope
+    %script{:src => "js/jquery.prettyPhoto.js"}
+    / Pretty Photo
+    %script{:src => "js/filter.js"}
+    / Filter for support page
+    %script{:src => "js/jquery.flexslider-min.js"}
+    / Flex slider
+    %script{:src => "js/jquery.cslider.js"}
+    / Parallax Slider
+    %script{:src => "js/modernizr.custom.28468.js"}
+    / Parallax slider extra
+    %script{:src => "js/jquery.carouFredSel-6.1.0-packed.js"}
+    / Carousel for recent posts
+    %script{:src => "js/jquery.refineslide.min.js"}
+    / Refind slider
+    %script{:src => "js/custom.js"}
+    / Custom codes

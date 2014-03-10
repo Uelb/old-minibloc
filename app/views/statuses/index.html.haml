@@ -1,0 +1,20 @@
+= content_for :head do 
+  %h2.pull-left
+    %i.icon-briefcase
+    Status List
+.col-md-12
+  .widget
+    .widget-head
+      .pull-left Statuses
+      .clearfix
+    .widget-content
+      %table.table.table-striped.table-bordered.table-hover
+        %thead
+          %tr
+            %th #
+            %th Description
+        %tbody
+          - @statuses.each do |status|
+            %tr
+              %td= status.id
+              %td= status.description

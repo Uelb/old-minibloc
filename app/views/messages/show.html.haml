@@ -1,2 +1,6 @@
-= render 'partials/menu'
+= content_for :head do 
+  %h2.pull-left
+    %i.icon-cloud-upload
+    Message #
+    =@message.id
 = render @message

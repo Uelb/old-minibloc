@@ -37,3 +37,4 @@ end
 gem 'swagger-docs'
 gem 'devise'
 gem 'activeadmin', github: 'gregbell/active_admin'
+gem 'jquery-turbolinks'

@@ -1,0 +1,23 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "utf-8"}/
+    / Title and other stuffs
+    %title Mocti
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %meta{:content => "", :name => "description"}/
+    %meta{:content => "", :name => "keywords"}/
+    %meta{:content => "", :name => "author"}/
+    = stylesheet_link_tag 'macadmin'
+    = javascript_include_tag 'application', 'macadmin/bootstrap'
+    = csrf_meta_tags
+  %body
+    = render "partials/navbar"
+    = render "partials/header"
+    .content
+      =render "partials/sidebar"
+      .mainbar
+        .clearfix.page-head
+          =yield :head
+        =yield

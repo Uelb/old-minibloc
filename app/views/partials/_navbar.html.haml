@@ -1,0 +1,35 @@
+.navbar.navbar-fixed-top.bs-docs-nav{:role => "banner"}
+  .conjtainer
+    / Menu button for smallar screens
+    .navbar-header
+      %button.navbar-toggle.btn-navbar{"data-target" => ".bs-navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+        %span Menu
+      / Site name for smallar screens
+      %a.navbar-brand.hidden-lg{:href => "index.html"} Mocti
+    / Navigation starts
+    %nav.collapse.navbar-collapse.bs-navbar-collapse{:role => "navigation"}
+      / Search form
+      %form.navbar-form.navbar-left{:role => "search"}
+        .form-group
+          %input.form-control{:placeholder => "Search", :type => "text"}/
+      / Links
+      %ul.nav.navbar-nav.pull-right
+        %li.dropdown.pull-right
+          %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+            %i.icon-user
+            Admin
+            %b.caret
+          / Dropdown menu
+          %ul.dropdown-menu
+            %li
+              %a{:href => "#"}
+                %i.icon-user
+                Profile
+            %li
+              %a{:href => "#"}
+                %i.icon-cogs
+                Settings
+            %li
+              = link_to(destroy_client_session_path, :method => :delete) do
+                %i.icon-off
+                = t(:logout)

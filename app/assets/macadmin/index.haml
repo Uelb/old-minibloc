@@ -1,0 +1,532 @@
+/ Main bar
+.mainbar
+  / Page heading
+  .page-head
+    %h2.pull-left
+      %i.icon-home
+      Dashboard
+    / Breadcrumb
+    .bread-crumb.pull-right
+      %a{:href => "index.html"}
+        %i.icon-home
+        Home
+      / Divider
+      %span.divider /
+      %a.bread-current{:href => "#"} Dashboard
+    .clearfix
+  / Page heading ends
+  / Matter
+  .matter
+    .container
+      / Today status. jQuery Sparkline plugin used.
+      .row
+        .col-md-12
+          / List starts
+          %ul.today-datas
+            / List #1
+            %li
+              / Graph
+              %div
+                %span#todayspark1.spark
+              / Text
+              .datas-text 12,000 visitors/day
+            %li
+              %div
+                %span#todayspark2.spark
+              .datas-text 30,000 Pageviews
+            %li
+              %div
+                %span#todayspark3.spark
+              .datas-text 15.66% Bounce Rate
+            %li
+              %div
+                %span#todayspark4.spark
+              .datas-text $12,000 Revenue/Day
+            %li
+              %div
+                %span#todayspark5.spark
+              .datas-text 15,000000 visitors till date
+      / Today status ends
+      / Dashboard Graph starts
+      .row
+        .col-md-8
+          / Widget
+          .widget
+            / Widget head
+            .widget-head
+              .pull-left Dashboard
+              .widget-icons.pull-right
+                %a.wminimize{:href => "#"}
+                  %i.icon-chevron-up
+                %a.wclose{:href => "#"}
+                  %i.icon-remove
+              .clearfix
+            / Widget content
+            .widget-content
+              .padd
+                / Curve chart (Blue color). jQuery Flot plugin used.
+                #curve-chart
+                %hr/
+                / Hover location
+                #hoverdata
+                  Mouse hovers at
+                  (
+                  %span#x> 0
+                  ,
+                  = succeed ")." do
+                    %span#y 0
+                  %span#clickdata
+                / Skil this line. <div class="uni"><input id="enableTooltip" type="checkbox">Enable tooltip</div>
+            / Widget ends
+        .col-md-4
+          .widget
+            .widget-head
+              .pull-left Today Status
+              .widget-icons.pull-right
+                %a.wminimize{:href => "#"}
+                  %i.icon-chevron-up
+                %a.wclose{:href => "#"}
+                  %i.icon-remove
+              .clearfix
+            .widget-content
+              .padd
+                / Visitors, pageview, bounce rate, etc., Sparklines plugin used
+                %ul.current-status
+                  %li
+                    %span#status1
+                    %span.bold Visits : 2000
+                  %li
+                    %span#status2
+                    %span.bold Unique Visitors : 1,345
+                  %li
+                    %span#status3
+                    %span.bold Pageviews : 2000
+                  %li
+                    %span#status4
+                    %span.bold Pages / Visit : 2000
+                  %li
+                    %span#status5
+                    %span.bold Avg. Visit Duration : 2000
+                  %li
+                    %span#status6
+                    %span.bold Bounce Rate : 2000
+                  %li
+                    %span#status7
+                    %span.bold % New Visits : 2000
+      / Dashboard graph ends
+      / Chats, File upload and Recent Comments
+      .row
+        .col-md-4
+          / Widget
+          .widget
+            / Widget title
+            .widget-head
+              .pull-left Chats
+              .widget-icons.pull-right
+                %a.wminimize{:href => "#"}
+                  %i.icon-chevron-up
+                %a.wclose{:href => "#"}
+                  %i.icon-remove
+              .clearfix
+            .widget-content
+              / Widget content
+              .padd
+                %ul.chats
+                  / Chat by us. Use the class "by-me".
+                  %li.by-me
+                    / Use the class "pull-left" in avatar
+                    .avatar.pull-left
+                      %img{:alt => "", :src => "img/user.jpg"}/
+                    .chat-content
+                      / In meta area, first include "name" and then "time"
+                      .chat-meta
+                        Ashok
+                        %span.pull-right 3 hours ago
+                      Vivamus diam elit diam, consectetur dapibus adipiscing elit.
+                      .clearfix
+                  / Chat by other. Use the class "by-other".
+                  %li.by-other
+                    / Use the class "pull-right" in avatar
+                    .avatar.pull-right
+                      %img{:alt => "", :src => "img/user.jpg"}/
+                    .chat-content
+                      / In the chat meta, first include "time" then "name"
+                      .chat-meta
+                        3 hours ago
+                        %span.pull-right Ravi
+                      Vivamus diam elit diam, consectetur fconsectetur dapibus adipiscing elit.
+                      .clearfix
+                  %li.by-me
+                    .avatar.pull-left
+                      %img{:alt => "", :src => "img/user.jpg"}/
+                    .chat-content
+                      .chat-meta
+                        Ashok
+                        %span.pull-right 4 hours ago
+                      Vivamus diam elit diam, consectetur fermentum sed dapibus eget, Vivamus consectetur dapibus adipiscing elit.
+                      .clearfix
+                  %li.by-other
+                    / Use the class "pull-right" in avatar
+                    .avatar.pull-right
+                      %img{:alt => "", :src => "img/user.jpg"}/
+                    .chat-content
+                      / In the chat meta, first include "time" then "name"
+                      .chat-meta
+                        3 hours ago
+                        %span.pull-right Ravi
+                      Vivamus diam elit diam, consectetur fermentum sed dapibus eget, Vivamus consectetur dapibus adipiscing elit.
+                      .clearfix
+              / Widget footer
+              .widget-foot
+                %form.form-inline
+                  .form-group
+                    %input.form-control{:placeholder => "Type your message here...", :type => "text"}/
+                  %button.btn.btn-primary{:type => "submit"} Send
+        / File Upload widget
+        .col-md-4
+          .widget
+            / Widget title
+            .widget-head
+              .pull-left File Upload
+              .widget-icons.pull-right
+                %a.wminimize{:href => "#"}
+                  %i.icon-chevron-up
+                %a.wclose{:href => "#"}
+                  %i.icon-remove
+              .clearfix
+            .widget-content
+              / Widget content
+              %ul.file-upload
+                %li
+                  %strong
+                    %i.icon-upload-alt
+                    File_Name_Here.Mp3
+                  .file-meta 3.3 of 5MB - 5 mins - 1MB/Sec
+                  .progress.progress-animated.progress-striped
+                    .progress-bar.progress-bar-success{"data-percentage" => "100"}
+                      %span.sr-only 100 % completed
+                %li
+                  %strong
+                    %i.icon-ok
+                    Third_File_Here.Mp3
+                  .file-meta 5MB - 5 mins - Stopped
+                %li
+                  %strong
+                    %i.icon-ok
+                    Third_File_Here.Mp3
+                  .file-meta 5MB - 5 mins - Stopped
+              .widget-foot
+          .widget
+            / Widget title
+            .widget-head
+              .pull-left Browsers
+              .widget-icons.pull-right
+                %a.wminimize{:href => "#"}
+                  %i.icon-chevron-up
+                %a.wclose{:href => "#"}
+                  %i.icon-remove
+              .clearfix
+            .widget-content.referrer
+              / Widget content
+              %table.table.table-striped.table-bordered.table-hover
+                %tr
+                  %th
+                    %center #
+                  %th Browsers
+                  %th Visits
+                %tr
+                  %td
+                    %img{:alt => "", :src => "img/icons/chrome.png"}/
+                  %td Google Chrome
+                  %td 3,005
+                %tr
+                  %td
+                    %img{:alt => "", :src => "img/icons/firefox.png"}/
+                  %td Mozilla Firefox
+                  %td 2,505
+                %tr
+                  %td
+                    %img{:alt => "", :src => "img/icons/ie.png"}/
+                  %td Internet Explorer
+                  %td 1,405
+                %tr
+                  %td
+                    %img{:alt => "", :src => "img/icons/opera.png"}/
+                  %td Opera
+                  %td 4,005
+                %tr
+                  %td
+                    %img{:alt => "", :src => "img/icons/safari.png"}/
+                  %td Safari
+                  %td 505
+              .widget-foot
+        .col-md-4
+          / Widget
+          .widget
+            / Widget title
+            .widget-head
+              .pull-left Recent Comments
+              .widget-icons.pull-right
+                %a.wminimize{:href => "#"}
+                  %i.icon-chevron-up
+                %a.wclose{:href => "#"}
+                  %i.icon-remove
+              .clearfix
+            .widget-content
+              / Widget content
+              .padd
+                %ul.recent
+                  %li
+                    .recent-content
+                      .recent-meta Posted on 25/1/2120 by Ashok
+                      %div
+                        Vivamus diam elit diam, consectetur fermentum sed dapibus eget, Vivamus consectetur dapibus adipiscing elit.
+                      .btn-group
+                        %button.btn.btn-xs.btn-default
+                          %i.icon-ok
+                        %button.btn.btn-xs.btn-default
+                          %i.icon-pencil
+                        %button.btn.btn-xs.btn-default
+                          %i.icon-remove
+                      %button.btn.btn-xs.btn-danger.pull-right Spam
+                      .clearfix
+                  %li
+                    .recent-content
+                      .recent-meta Posted on 25/1/2120 by Ashok
+                      %div
+                        Vivamus diam elit diam, consectetur fermentum sed dapibus eget, Vivamus consectetur dapibus adipiscing elit.
+                      .btn-group
+                        %button.btn.btn-xs.btn-default
+                          %i.icon-ok
+                        %button.btn.btn-xs.btn-default
+                          %i.icon-pencil
+                        %button.btn.btn-xs.btn-default
+                          %i.icon-remove
+                      %button.btn.btn-xs.btn-danger.pull-right Spam
+                      .clearfix
+                  %li
+                    .recent-content
+                      .recent-meta Posted on 25/1/2120 by Ashok
+                      %div
+                        Vivamus diam elit diam, consectetur fermentum sed dapibus eget, Vivamus consectetur dapibus adipiscing elit.
+                      .btn-group
+                        %button.btn.btn-xs.btn-default
+                          %i.icon-ok
+                        %button.btn.btn-xs.btn-default
+                          %i.icon-pencil
+                        %button.btn.btn-xs.btn-default
+                          %i.icon-remove
+                      %button.btn.btn-xs.btn-danger.pull-right Spam
+                      .clearfix
+              / Widget footer
+              .widget-foot
+                %ul.pagination.pull-right
+                  %li
+                    %a{:href => "#"} Prev
+                  %li
+                    %a{:href => "#"} 1
+                  %li
+                    %a{:href => "#"} 2
+                  %li
+                    %a{:href => "#"} 3
+                  %li
+                    %a{:href => "#"} 4
+                  %li
+                    %a{:href => "#"} Next
+                .clearfix
+      .row
+        .col-md-6
+          .widget.wblack
+            .widget-head
+              .pull-left Black Chart
+              .widget-icons.pull-right
+                %a.wminimize{:href => "#"}
+                  %i.icon-chevron-up
+                %a.wclose{:href => "#"}
+                  %i.icon-remove
+              .clearfix
+            .widget-content
+              .padd
+                #bar-chart
+              .widget-foot
+                / Footer goes here
+        .col-md-6
+          .widget
+            .widget-head
+              .pull-left Quick Post
+              .widget-icons.pull-right
+                %a.wminimize{:href => "#"}
+                  %i.icon-chevron-up
+                %a.wclose{:href => "#"}
+                  %i.icon-remove
+              .clearfix
+            .widget-content
+              .padd
+                .form.quick-post
+                  / Edit profile form (not working)
+                  %form.form-horizontal
+                    / Title
+                    .form-group
+                      %label.control-label.col-lg-3{:for => "title"} Title
+                      .col-lg-9
+                        %input#title.form-control{:type => "text"}/
+                    / Content
+                    .form-group
+                      %label.control-label.col-lg-3{:for => "content"} Content
+                      .col-lg-9
+                        %textarea#content.form-control
+                    / Cateogry
+                    .form-group
+                      %label.control-label.col-lg-3 Category
+                      .col-lg-9
+                        %select.form-control
+                          %option{:value => ""} - Choose Cateogry -
+                          %option{:value => "1"} General
+                          %option{:value => "2"} News
+                          %option{:value => "3"} Media
+                          %option{:value => "4"} Funny
+                    / Tags
+                    .form-group
+                      %label.control-label.col-lg-3{:for => "tags"} Tags
+                      .col-lg-9
+                        %input#tags.form-control{:type => "text"}/
+                    / Buttons
+                    .form-group
+                      / Buttons
+                      .col-lg-offset-2.col-lg-9
+                        %button.btn.btn-success{:type => "submit"} Publish
+                        %button.btn.btn-danger{:type => "submit"} Save Draft
+                        %button.btn.btn-default{:type => "reset"} Reset
+              .widget-foot
+                / Footer goes here
+  / Matter ends
+/ Mainbar ends
+.clearfix
+/ Content ends
+/ Charts &amp; Graphs
+/ Script for this page
+:javascript
+$(function () {
+
+    /* Bar Chart starts */
+
+    var d1 = [];
+    for (var i = 0; i <= 20; i += 1)
+        d1.push([i, parseInt(Math.random() * 30)]);
+
+    var d2 = [];
+    for (var i = 0; i <= 20; i += 1)
+        d2.push([i, parseInt(Math.random() * 30)]);
+
+
+    var stack = 0, bars = true, lines = false, steps = false;
+    
+    function plotWithOptions() {
+        $.plot($("#bar-chart"), [ d1, d2 ], {
+            series: {
+                stack: stack,
+                lines: { show: lines, fill: true, steps: steps },
+                bars: { show: bars, barWidth: 0.8 }
+            },
+            grid: {
+                borderWidth: 0, hoverable: true, color: "#777"
+            },
+            colors: ["#ff6c24", "#ff2424"],
+            bars: {
+                  show: true,
+                  lineWidth: 0,
+                  fill: true,
+                  fillColor: { colors: [ { opacity: 0.9 }, { opacity: 0.8 } ] }
+            }
+        });
+    }
+
+    plotWithOptions();
+    
+    $(".stackControls input").click(function (e) {
+        e.preventDefault();
+        stack = $(this).val() == "With stacking" ? true : null;
+        plotWithOptions();
+    });
+    $(".graphControls input").click(function (e) {
+        e.preventDefault();
+        bars = $(this).val().indexOf("Bars") != -1;
+        lines = $(this).val().indexOf("Lines") != -1;
+        steps = $(this).val().indexOf("steps") != -1;
+        plotWithOptions();
+    });
+
+    /* Bar chart ends */
+
+});
+
+
+/* Curve chart starts */
+
+$(function () {
+    var sin = [], cos = [];
+    for (var i = 0; i < 14; i += 0.5) {
+        sin.push([i, Math.sin(i)]);
+        cos.push([i, Math.cos(i)]);
+    }
+
+    var plot = $.plot($("#curve-chart"),
+           [ { data: sin, label: "sin(x)"}, { data: cos, label: "cos(x)" } ], {
+               series: {
+                   lines: { show: true, fill: true},
+                   points: { show: true }
+               },
+               grid: { hoverable: true, clickable: true, borderWidth:0 },
+               yaxis: { min: -1.2, max: 1.2 },
+               colors: ["#1eafed", "#1eafed"]
+             });
+
+    function showTooltip(x, y, contents) {
+        $('<div id="tooltip">' + contents + '</div>').css( {
+            position: 'absolute',
+            display: 'none',
+            top: y + 5,
+            left: x + 5,
+            border: '1px solid #000',
+            padding: '2px 8px',
+            color: '#ccc',
+            'background-color': '#000',
+            opacity: 0.9
+        }).appendTo("body").fadeIn(200);
+    }
+
+    var previousPoint = null;
+    $("#curve-chart").bind("plothover", function (event, pos, item) {
+        $("#x").text(pos.x.toFixed(2));
+        $("#y").text(pos.y.toFixed(2));
+
+        if ($("#enableTooltip:checked").length > 0) {
+            if (item) {
+                if (previousPoint != item.dataIndex) {
+                    previousPoint = item.dataIndex;
+                    
+                    $("#tooltip").remove();
+                    var x = item.datapoint[0].toFixed(2),
+                        y = item.datapoint[1].toFixed(2);
+                    
+                    showTooltip(item.pageX, item.pageY, 
+                                item.series.label + " of " + x + " = " + y);
+                }
+            }
+            else {
+                $("#tooltip").remove();
+                previousPoint = null;            
+            }
+        }
+    }); 
+
+    $("#curve-chart").bind("plotclick", function (event, pos, item) {
+        if (item) {
+            $("#clickdata").text("You clicked point " + item.dataIndex + " in " + item.series.label + ".");
+            plot.highlight(item.series, item.datapoint);
+        }
+    });
+
+});
+
+/* Curve chart ends */
