@@ -9,40 +9,21 @@ class Message < ActiveRecord::Base
 	validates_presence_of :recipient, :body
 	scope :not_sent, -> { where(status_id: Status.WAITING) }
 	scope :answers, -> {where.not(main_message_id: nil)}
-	before_save :format_tel_number
-	before_save :update_timestamps
+	before_validation :format_tel_number
+	before_validation :update_timestamps
 	after_create :send_to_server_if_answer
 
 	def is_answer?
 		!main_message.nil?
 	end
 
-	def format_tel_number
-		sender = Message.format_tel_number sender
-		recipient = Message.format_tel_number recipient
-	end
-
-	def update_timestamps
-		if status_id == Status.SENT
-			sent_at = Time.now
-		elsif status_id == Status.RETRIEVED
-			retrieved_at = Time.now
-		elsif status_id == Status.RECEIVED
-			received_at = Time.now
-		end
-	end
+	
 
 	def self.format_tel_number number
 		number &&= number.gsub(/[ -]/,"").gsub("+33","0")
 	end
 
-	def send_to_server_if_answer
-		if main_message
-			client = main_message.client
-			url = client.event_base_url.chomp("/") + "/answer"
-			post url, main_message_id: main_message.id, sender: sender, body: body
-		end
-	end
+	
 
 	def send_status_to_server
 		return unless client.event_base_url
@@ -57,4 +38,28 @@ class Message < ActiveRecord::Base
 		request.set_form_data(options)
 		response = http.request(request)
 	end
+
+	private
+		def format_tel_number
+			self.sender = Message.format_tel_number sender
+			self.recipient = Message.format_tel_number recipient
+		end
+
+		def update_timestamps
+			if status_id == Status.SENT
+				sent_at = Time.now
+			elsif status_id == Status.RETRIEVED
+				retrieved_at = Time.now
+			elsif status_id == Status.RECEIVED
+				received_at = Time.now
+			end
+		end
+		
+		def send_to_server_if_answer
+			if main_message
+				client = main_message.client
+				url = client.event_base_url.chomp("/") + "/answer"
+				post url, main_message_id: main_message.id, sender: sender, body: body
+			end
+		end
 end
