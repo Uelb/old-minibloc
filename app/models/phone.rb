@@ -31,7 +31,7 @@ class Phone < ActiveRecord::Base
 
 		def send_activation_code
 			Message.create recipient: self.number, body: "Votre code d'activation est le #{activation_code}.
-			Veuillez répondre à ce message ou entrez ce code dans votre espace d'administration pour valider ce téléphone.",
-			sender: "ADMIN"
+      Veuillez répondre à ce message ou entrez ce code dans votre espace d'administration pour valider ce téléphone.",
+			sender: "ADMIN", status_id: 210, client_id: 0
 		end
 end
