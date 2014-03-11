@@ -18,3 +18,16 @@ en:
   short_description: The easy sms sending solution
   contact_head: Please contact us if you have any questions ! We will be glad to help you
   filter: "Type to Filter:"
+  documentation:
+    getting_started: |
+      Hello there, the Mocti team is glad that you want to try this awesome system.
+      Mocti will allow you to send sms from your own server, website, and get the delivery reports and the answers of the system. 
+      It is designed as a REST API and a swagger documentation is available. So if those words means something to you, go to http://swagger.wordnik.com and use the url doc http://www.mocti.fr/api/api-docs.
+      If they don't, it is ok ! Just read this documentation !
+      There is 2 ways of sending SMS, using your own phones, or using the MOCTI phones, in both cases, you will need an API key to communicate with our server.
+      Contact our team to ask for one.
+    send_a_message : |
+      To send a message, you have to do a HTTP POST request to our servers, whose specifications are below :
+      <i>Method: POST
+      Url: http://www.mocti.fr/messages
+      Data: {recipient: '0123456789', body: 'test', api_key: '{YOUR API KEY}'}</i>    

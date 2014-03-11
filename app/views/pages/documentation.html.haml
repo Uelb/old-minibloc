@@ -1,3 +1,7 @@
+= content_for :javascript do 
+  =javascript_include_tag "shCore", "shBrushJScript", "shBrushRuby", "shBrushVb"
+  =stylesheet_link_tag "shCore", "shThemeDjango"
+
 = content_for :head do 
   %h2.pull-left
     %i.icon-book
@@ -25,20 +29,27 @@
               / Title. Link title is used for filteration.
               %a{:href => "#"} Getting started
               / Para
-              %p Fusce imperdiet, risus eget viverra faucibus, diam mi vestibulum libero, ut vestibulum tellus magna nec enim. Nunc dapibus varius interdum. Phasellus at lorem ut lectus fermentum convallis. Sed diam nisi, pulvinar vitae molestie hendrerit, venenatis eget mauris. Integer porta erat ac eros porta ultrices. Proin porttitor eros a ante molestie gravida commodo dui adipiscing.
+              =simple_format(t('documentation.getting_started'),{}, wrapper_tag: "div")
             / List #2 and so on....
             %li
               %a{:href => "#"} Send a message
-              %p Fusce imperdiet, risus eget viverra faucibus, diam mi vestibulum libero, ut vestibulum tellus magna nec enim. Nunc dapibus varius interdum. Phasellus at lorem ut lectus fermentum convallis. Sed diam nisi, pulvinar vitae molestie hendrerit, venenatis eget mauris. Integer porta erat ac eros porta ultrices. Proin porttitor eros a ante molestie gravida commodo dui adipiscing.
+              %div
+                =simple_format t('documentation.send_a_message')
+                %strong In Javascript / JQuery
+                =render "pages/documentation/js/send_a_message"
+                %strong In Ruby on Rails
+                = render "pages/documentation/ruby/send_a_message"
+                %strong In VB.NET
+                = render "pages/documentation/vb/send_a_message"
             %li
               %a{:href => "#"} Get the delivery reports of a message
-              %p Fusce imperdiet, risus eget viverra faucibus, diam mi vestibulum libero, ut vestibulum tellus magna nec enim. Nunc dapibus varius interdum. Phasellus at lorem ut lectus fermentum convallis. Sed diam nisi, pulvinar vitae molestie hendrerit, venenatis eget mauris. Integer porta erat ac eros porta ultrices. Proin porttitor eros a ante molestie gravida commodo dui adipiscing.
+              =simple_format(t('documentation.delivery_report'))
             %li
               %a{:href => "#"} Get the answers of a message
-              %p Fusce imperdiet, risus eget viverra faucibus, diam mi vestibulum libero, ut vestibulum tellus magna nec enim. Nunc dapibus varius interdum. Phasellus at lorem ut lectus fermentum convallis. Sed diam nisi, pulvinar vitae molestie hendrerit, venenatis eget mauris. Integer porta erat ac eros porta ultrices. Proin porttitor eros a ante molestie gravida commodo dui adipiscing.
+              =simple_format(t('documentation/answer'))
             %li
               %a{:href => "#"} Use your own phones
-              %p Fusce imperdiet, risus eget viverra faucibus, diam mi vestibulum libero, ut vestibulum tellus magna nec enim. Nunc dapibus varius interdum. Phasellus at lorem ut lectus fermentum convallis. Sed diam nisi, pulvinar vitae molestie hendrerit, venenatis eget mauris. Integer porta erat ac eros porta ultrices. Proin porttitor eros a ante molestie gravida commodo dui adipiscing.
+              =simple_format(t('documentation.phones'))
       / Widget footer
       .widget-foot
         %p It has never been that simple !
@@ -76,5 +87,7 @@
             %strong :
             35 Rue des abondances, 92100, Boulogne Billancourt, France
           / Button
-          %a.btn.btn-default{:href => "contact.html"} Contact Us
-          %a.btn.btn-default{:href => "faq.html"} Check out FAQ
+          %a.btn.btn-default{:href => "faq"} Check out FAQ
+
+:javascript
+  SyntaxHighlighter.all()

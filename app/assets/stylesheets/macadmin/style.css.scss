@@ -1471,7 +1471,7 @@ header .header-data .hdata em{
 
 /* Support page */
 
-#slist p{
+#slist li a+*{
 display: none;
 margin:5px 0px;
 padding:5px 10px;

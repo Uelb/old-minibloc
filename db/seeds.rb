@@ -7,7 +7,6 @@ Status.create([
 	{id: 203, description: "Null PDU"},
 	{id: 210, description: "En attente de récupération par un téléphone portable" },
 	{id: 211, description: "Récupéré par un téléphone portable - Envoi en attente"},
-	{id: 212, description: "En attente de récupération par un dédié"},
 	{id: 215, description: "Le message est trop long et n'a pas pu être envoyé"}
 	])
 Client.where(id: 0).first && Client.destroy(0)

@@ -230,7 +230,7 @@ $('.wclose').click(function(e){
 $(document).ready(function(){
   $("#slist a").click(function(e){
      e.preventDefault();
-     $(this).next('p').toggle(200);
+     $(this).next().toggle(200);
   });
 });
 

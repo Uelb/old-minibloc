@@ -1,0 +1,20 @@
+<pre class='brush: ruby'>
+  require "net/http"
+  require "uri"
+  URL = "http://www.mocti.fr/messages"
+  API_KEY = "YOUR_API_KEY"
+
+  def post url, options={}
+    uri = URI.parse(url)
+    http = Net::HTTP.new(uri.host, uri.port)
+    request = Net::HTTP::Post.new(uri.request_uri)
+    request.set_form_data(options)
+    response = http.request(request)
+  end
+
+  def send_sms recipient, body
+    post URL, {message: {recipient: recipient, body: body}, api_key: API_KEY}
+  end
+
+  send_sms "0123456789", "test"
+</pre>
