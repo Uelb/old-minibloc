@@ -1,0 +1,80 @@
+= content_for :head do 
+  %h2.pull-left
+    %i.icon-book
+    How to use our API ?
+.col-md-8
+  / Widget
+  .widget
+    / Widget title
+    .widget-head
+      .pull-left Support
+      .clearfix
+    .widget-content
+      / Widget content
+      .padd
+        .support-faq
+          %h5=t(:filter)
+          / Below line creates form
+          #form
+          %hr
+          .clearfix
+          / Lists
+          %ol#slist
+            / List #1
+            %li
+              / Title. Link title is used for filteration.
+              %a{:href => "#"} Getting started
+              / Para
+              %p Fusce imperdiet, risus eget viverra faucibus, diam mi vestibulum libero, ut vestibulum tellus magna nec enim. Nunc dapibus varius interdum. Phasellus at lorem ut lectus fermentum convallis. Sed diam nisi, pulvinar vitae molestie hendrerit, venenatis eget mauris. Integer porta erat ac eros porta ultrices. Proin porttitor eros a ante molestie gravida commodo dui adipiscing.
+            / List #2 and so on....
+            %li
+              %a{:href => "#"} Send a message
+              %p Fusce imperdiet, risus eget viverra faucibus, diam mi vestibulum libero, ut vestibulum tellus magna nec enim. Nunc dapibus varius interdum. Phasellus at lorem ut lectus fermentum convallis. Sed diam nisi, pulvinar vitae molestie hendrerit, venenatis eget mauris. Integer porta erat ac eros porta ultrices. Proin porttitor eros a ante molestie gravida commodo dui adipiscing.
+            %li
+              %a{:href => "#"} Get the delivery reports of a message
+              %p Fusce imperdiet, risus eget viverra faucibus, diam mi vestibulum libero, ut vestibulum tellus magna nec enim. Nunc dapibus varius interdum. Phasellus at lorem ut lectus fermentum convallis. Sed diam nisi, pulvinar vitae molestie hendrerit, venenatis eget mauris. Integer porta erat ac eros porta ultrices. Proin porttitor eros a ante molestie gravida commodo dui adipiscing.
+            %li
+              %a{:href => "#"} Get the answers of a message
+              %p Fusce imperdiet, risus eget viverra faucibus, diam mi vestibulum libero, ut vestibulum tellus magna nec enim. Nunc dapibus varius interdum. Phasellus at lorem ut lectus fermentum convallis. Sed diam nisi, pulvinar vitae molestie hendrerit, venenatis eget mauris. Integer porta erat ac eros porta ultrices. Proin porttitor eros a ante molestie gravida commodo dui adipiscing.
+            %li
+              %a{:href => "#"} Use your own phones
+              %p Fusce imperdiet, risus eget viverra faucibus, diam mi vestibulum libero, ut vestibulum tellus magna nec enim. Nunc dapibus varius interdum. Phasellus at lorem ut lectus fermentum convallis. Sed diam nisi, pulvinar vitae molestie hendrerit, venenatis eget mauris. Integer porta erat ac eros porta ultrices. Proin porttitor eros a ante molestie gravida commodo dui adipiscing.
+      / Widget footer
+      .widget-foot
+        %p It has never been that simple !
+
+
+.col-md-4
+  / Widget
+  .widget
+    / Widget title
+    .widget-head
+      .pull-left Contact
+      .clearfix
+    .widget-content
+      / Widget content
+      .padd
+        / Contact box
+        .support-contact
+          / Phone, email and address with font awesome icon
+          %p=t(:contact_head)
+          %p
+            %i.icon-phone
+            =t(:phone)
+            %strong :
+            = link_to "+33 (0) 6 49 85 50 69", "tel:+33649855069"
+          %hr/
+          %p
+            %i.icon-envelope-alt
+            =t(:email)
+            %strong :
+            = link_to "thomas@oxynum.fr", "mailto:thomas@oxynum.fr"
+          %hr/
+          %p
+            %i.icon-home
+            Address
+            %strong :
+            35 Rue des abondances, 92100, Boulogne Billancourt, France
+          / Button
+          %a.btn.btn-default{:href => "contact.html"} Contact Us
+          %a.btn.btn-default{:href => "faq.html"} Check out FAQ

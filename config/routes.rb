@@ -5,6 +5,7 @@ Mocti::Application.routes.draw do
   resources :clients, only: [:update, :edit, :show]
   get '/api/*path', to: 'api#get', defaults: { format: 'json' }
   match '/*path' => 'application#cors_preflight_check', :via => :options
+  get 'documentation', to: 'pages#documentation'
   resources :messages, only: [:create, :show, :update, :index, :new] do
   	collection do
   		post 'answers'

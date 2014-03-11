@@ -1,18 +1,20 @@
 en:
   clients:
-    no_api_key: "You do not have an api key yet. Please update your billing information first."
+    no_api_key: You do not have an api key yet. Please update your billing information first.
     no_event_base_url: "You are not using the event plugin yet. Please refer to this link :"
-    edit: "Edit my account"
-    update: "Update my account"
-    phones: "My phones list"
-    add_phone: "Add a phone"
-    all_messages: "Sent and received messages"
-    new_message: "Create a message"
+    edit: Edit my account
+    update: Update my account
+    phones: My phones list
+    add_phone: Add a phone
+    all_messages: Sent and received messages
+    new_message: Create a message
   phones:
-    activate: "Activate"
-    code: "Resend the activation code"
-    index: "Phones"
+    activate: Activate
+    code: Resend the activation code
+    index: Phones
   messages:
-    create: "Send"
-    new: "Create a new message"
-  short_description: "The easy sms sending solution"
+    create: Send
+    new: Create a new message
+  short_description: The easy sms sending solution
+  contact_head: Please contact us if you have any questions ! We will be glad to help you
+  filter: "Type to Filter:"

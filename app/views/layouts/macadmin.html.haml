@@ -10,7 +10,8 @@
     %meta{:content => "", :name => "keywords"}/
     %meta{:content => "", :name => "author"}/
     = stylesheet_link_tag 'macadmin'
-    = javascript_include_tag 'application', 'macadmin/bootstrap'
+    = javascript_include_tag 'application'
+    = yield :javascript
     = csrf_meta_tags
   %body
     = render "partials/navbar"

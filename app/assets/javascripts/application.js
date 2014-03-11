@@ -36,4 +36,3 @@
 //= require macadmin/filter
 //= require macadmin/custom
 //= require macadmin/charts
-//= require_tree ./

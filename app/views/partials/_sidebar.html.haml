@@ -11,13 +11,6 @@
       = link_to root_path, class: :open do
         %i.icon-home
         Dashboard
-      /
-        Sub menu markup
-        <ul>
-        <li><a href="#">Submenu #1</a></li>
-        <li><a href="#">Submenu #2</a></li>
-        <li><a href="#">Submenu #3</a></li>
-        </ul>
     %li.has_sub
       = link_to "#" do
         %i.icon-cloud-upload
@@ -44,4 +37,8 @@
       =link_to statuses_path do
         %i.icon-briefcase
         SMS Status
+    %li
+      =link_to documentation_path do 
+        %i.icon-book
+        Documentation
 / Sidebar ends

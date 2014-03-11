@@ -100,6 +100,9 @@ class MessagesController < ApplicationController
 		if params[:token] || params[:api_key]
 			render :json => @messages
 		end			
+		if params[:no_layout]
+			render layout: false
+		end
 	end
 
 	private
