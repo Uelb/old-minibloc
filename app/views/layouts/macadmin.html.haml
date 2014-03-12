@@ -14,6 +14,10 @@
     = yield :javascript
     = csrf_meta_tags
   %body
+    - if flash[:notice]
+      .notice=flash[:notice]
+    - if flash[:alert]
+      .alert=flash[:alert]
     = render "partials/navbar"
     = render "partials/header"
     .content

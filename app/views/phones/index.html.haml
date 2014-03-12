@@ -2,6 +2,9 @@
   %h2.pull-left
     %i.icon-mobile-phone
     My phone list
+= content_for :javascript do 
+  =javascript_include_tag "phones"
+
 - if @all_phones.empty?
   .no_phone Vous n'avez pas de téléphone !
 - else
@@ -23,7 +26,6 @@
               %th Token
               %th Last ping date
               %th Status
-              %th Control
           %tbody
             - @used_phones.each do |phone|
               %tr
@@ -31,20 +33,16 @@
                 %td=phone.token
                 %td=distance_of_time_in_words_to_now(phone.last_ping_date) + " ago"
                 %td
-                  %span.label.label-success Active
-                %td
-                  = button_to [:unuse, phone], class: ['btn', 'btn-xs', 'btn-danger'] do 
-                    %i.icon-remove
+                  .make-switch{"data-off" => "danger", "data-on" => "success"}
+                    %input{:checked => true, :type => "checkbox", name: phone.id}
             - @not_used_phones.each do |phone|
               %tr
                 %td=phone.number
                 %td=phone.token
                 %td=distance_of_time_in_words_to_now(phone.last_ping_date) + " ago"
                 %td
-                  %span.label.label-danger Inactive
-                %td
-                  = button_to [:use, phone], class: ['btn', 'btn-xs', 'btn-success'] do 
-                    %i.icon-ok
+                  .make-switch{"data-off" => "danger", "data-on" => "success"}
+                    %input{:checked => false, :type => "checkbox", name: phone.id}
         .widget-foot
           = link_to t("clients.add_phone"), new_phone_path, class: ["btn", "btn-success", "pull-right"]
           .clearfix

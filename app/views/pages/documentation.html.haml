@@ -47,9 +47,22 @@
               %a{:href => "#"} Get the delivery reports of a message
               %div
                 =simple_format(t('documentation.delivery_report'))
+                =render "pages/documentation/js/answer_2"
+                =simple_format t('documentation.example')
+                %strong In Javascript / JQuery
+                =render 'pages/documentation/js/get_a_message'
+                %strong In Ruby On Rails
+                = render "pages/documentation/ruby/get_a_message"
+                %hr
+                %br
+                =simple_format(t('documentation.delivery_report_2'))
+
             %li
               %a{:href => "#"} Get the answers of a message
-              =simple_format(t('documentation/answer'))
+              %div
+                =simple_format(t('documentation.answer'))
+                =render "pages/documentation/js/answer_3"
+                =simple_format(t('documentation.answer_2'))
             %li
               %a{:href => "#"} Use your own phones
               =simple_format(t('documentation.phones'))
@@ -93,4 +106,6 @@
           %a.btn.btn-default{:href => "faq"} Check out FAQ
 
 :javascript
-  SyntaxHighlighter.all()
+  SyntaxHighlighter.defaults['auto-links'] = false;
+  SyntaxHighlighter.defaults.toolbar = false;
+  SyntaxHighlighter.all();

@@ -8,8 +8,11 @@ Mocti::Application.routes.draw do
   get 'documentation', to: 'pages#documentation'
   resources :messages, only: [:create, :show, :update, :index, :new] do
   	collection do
-  		post 'answers'
+  		post 'answers', to: "messages#answers"
   	end
+    member do
+      get 'answers', to: "messages#get_answers"
+    end
   end
   resources :phones, only: [:create, :index, :new, :update] do 
     collection do 

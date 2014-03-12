@@ -38,25 +38,36 @@ class PhonesController < ApplicationController
 		@phone = Phone.where(phone_update_params).first
 		if @phone
 			@phone.client = current_client
+			@phone.client.used_phones << @phone
 			@phone.save!
+			notice = "A new phone has been activated"
+			redirect_to phones_path, notice: notice and return 
+		else
+			alert = "An error has occured, please try again"
+			redirect_to new_phone_path, alert: alert and return
 		end
-		redirect_to phones_path and return 
 	end
 
 	def resend_activation_code
 		@phone = Phone.where(number: phone_code_params).first
+		if @phone 
+			@phone.resend_activation_code
+			redirect_to new_phone_path, notice: "Your activation code has been sent again. Please check your SMS list." 
+		else
+			redirect_to new_phone_path, alert: "An error has occured, please try again."
+		end
 	end
 
 	def use
 		@phone = Phone.where(id: params[:id]).first
 		current_client.used_phones << @phone
-		redirect_to phones_path and return 
+		render nothing: true, status: 200
 	end
 
 	def unuse
 		@phone = Phone.where(id: params[:id]).first
 		current_client.used_phones.delete(@phone)
-		redirect_to phones_path and return 
+		render nothing: true, status: 200
 	end
 
 	private

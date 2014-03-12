@@ -13,6 +13,10 @@ class Phone < ActiveRecord::Base
 		save
 	end
 
+	def resend_activation_code
+		send_activation_code
+	end
+
 	protected
 		def generate_token
 			self.token = loop do

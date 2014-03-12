@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
-	before_filter :authenticate!, only: [:index, :show, :create]
+	before_filter :authenticate!, only: [:index, :show, :create, :get_answers]
 	before_filter :authenticate_client!, only: [:new, :create]
 	before_filter :authenticate_phone!, only: [:answers, :update]
 	layout 'macadmin'
@@ -72,7 +72,16 @@ class MessagesController < ApplicationController
 		@message.status_id = 0
 		@message.save
   	render :json => @message
-	end	
+	end
+
+	def get_answers
+		@message = Message.where(id: params[:id]).first
+		if @message
+			render json: @message.answers
+		else
+			render nothing: true, status: 404
+		end
+	end
 
 	def update
 		@message = Message.where(id: params[:id]).first
