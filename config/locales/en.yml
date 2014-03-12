@@ -30,4 +30,11 @@ en:
       To send a message, you have to do a HTTP POST request to our servers, whose specifications are below :
       <i>Method: POST
       Url: http://www.mocti.fr/messages
-      Data: {recipient: '0123456789', body: 'test', api_key: '{YOUR API KEY}'}</i>    
+      Data: {message: {recipient: '0123456789', body: 'test'}, api_key: '{YOUR API KEY}'}</i> 
+      The answer will look like that : 
+    example: |
+      Below are examples of server codes you can use in your own application :
+    delivery_report: |
+      Our API allows yout o get the status of a message at any moment, and our server can send it to your server automatically each time it changes.
+      <hr />
+      <strong>Get a message status</strong>

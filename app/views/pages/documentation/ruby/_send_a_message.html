@@ -1,6 +1,7 @@
 <pre class='brush: ruby'>
   require "net/http"
   require "uri"
+  require 'json'  
   URL = "http://www.mocti.fr/messages"
   API_KEY = "YOUR_API_KEY"
 
@@ -13,7 +14,10 @@
   end
 
   def send_sms recipient, body
-    post URL, {message: {recipient: recipient, body: body}, api_key: API_KEY}
+    response = post URL, {message: {recipient: recipient, body: body}, api_key: API_KEY}
+    message = JSON.parse response.body
+    message_id = message[:id]
+    message_status = message[:status_id]
   end
 
   send_sms "0123456789", "test"

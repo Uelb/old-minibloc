@@ -35,6 +35,8 @@
               %a{:href => "#"} Send a message
               %div
                 =simple_format t('documentation.send_a_message')
+                =render "pages/documentation/js/answer"
+                =simple_format t('documentation.example')
                 %strong In Javascript / JQuery
                 =render "pages/documentation/js/send_a_message"
                 %strong In Ruby on Rails
@@ -43,7 +45,8 @@
                 = render "pages/documentation/vb/send_a_message"
             %li
               %a{:href => "#"} Get the delivery reports of a message
-              =simple_format(t('documentation.delivery_report'))
+              %div
+                =simple_format(t('documentation.delivery_report'))
             %li
               %a{:href => "#"} Get the answers of a message
               =simple_format(t('documentation/answer'))
