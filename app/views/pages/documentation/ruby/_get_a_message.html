@@ -1,0 +1,22 @@
+<pre class='brush: ruby'>
+  require "net/http"
+  require "uri"
+  require 'json'  
+  URL = "http://www.mocti.fr/messages"
+  API_KEY = "YOUR_API_KEY"
+
+  def get url, params={}
+    uri = URI.parse(url)
+    uri.query = URI.encode_www_form( params )
+    response = Net::HTTP.get(uri)
+  end
+
+  def get_sms id
+    response = get URL + "/#{id}", {api_key: API_KEY}
+    message = JSON.parse response.body
+    message_id = message[:id]
+    message_status = message[:status_id]
+  end
+
+  get_sms 11
+</pre>

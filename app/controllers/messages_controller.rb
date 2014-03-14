@@ -37,6 +37,12 @@ class MessagesController < ApplicationController
 	# 	param :query, :token, :string, :optional, "The token of the phone doing the request" 
 	# end
 
+	# swagger_api :get_answers do 
+	# 	summary "Get all the answers associated to a message"
+	# 	param :path, :id, :integer, :required, "The id of the message" 
+	# 	param :query, :api_key, :string, :required, "Your api key"
+	# end
+
 	def new
 		@message = Message.new
 	end

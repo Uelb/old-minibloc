@@ -2,7 +2,7 @@
   %h2.pull-left
     %i.icon-cloud-upload
     All the messages I sent and their answers
-=content_for :javascript do 
+=content_for :body do 
   =javascript_include_tag "messages"
 - if @messages.empty?
   .no_message Pas de message

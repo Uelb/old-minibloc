@@ -26,4 +26,6 @@ Mocti::Application.routes.draw do
   end
   resources :statuses, only: [:show, :index]
   root 'messages#index'
+
+  resources :charges
 end

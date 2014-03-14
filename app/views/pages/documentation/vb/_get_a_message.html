@@ -1,0 +1,41 @@
+<pre class='brush: vb'>
+
+  Sub sendSms(ByVal tel as String, ByVal message as String)
+    Dim baseUrl As String = "http://www.mocti.fr/messages"
+    Dim request As WebRequest = WebRequest.Create(baseUrl)
+    Dim ApiKey as String = "YOUR_API_KEY"
+    request.Method = "POST"
+    Dim postdata As String = "message[recipient]=" + tel + "&message[body]=" + message + "&api_key=" + ApiKey
+    Dim byteArray As Byte() = Encoding.UTF8.GetBytes(postdata)
+    ' Set the ContentType property of the WebRequest.
+    request.ContentType = "application/x-www-form-urlencoded"
+    ' Set the ContentLength property of the WebRequest.
+    request.ContentLength = byteArray.Length
+
+    ' Get the request stream.
+    Dim dataStream As Stream = request.GetRequestStream()
+    ' Write the data to the request stream.
+    dataStream.Write(byteArray, 0, byteArray.Length)
+    ' Close the Stream object.
+    dataStream.Close()
+    ' Get the response.
+    Dim response As WebResponse = request.GetResponse()
+    ' Get the stream containing content returned by the server.
+    dataStream = response.GetResponseStream()
+    ' Open the stream using a StreamReader for easy access.
+    Dim reader As New StreamReader(dataStream)
+    ' Read the content.
+    Dim responseFromServer As String = reader.ReadToEnd()
+    Dim jss As New System.Web.Script.Serialization.JavaScriptSerializer()
+    Dim dict As Dictionary(Of String, String) = jss.Deserialize(Of Dictionary(Of String, String))(responseFromServer)
+    ' Clean up the streams.
+    reader.Close()
+    dataStream.Close()
+    response.Close()
+
+    Dim status as Integer = dict("status_id")
+    Dim message_id as Integer = dict("id")
+    'Be sure to save the message id in your database to be able to refer to it later
+  End Sub
+  
+</pre>

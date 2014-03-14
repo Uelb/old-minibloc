@@ -1,0 +1,19 @@
+<pre class='brush:js'>
+  var URL = "http://www.mocti.fr/messages";
+  var API_KEY = "YOUR_API_KEY";
+
+  function getSms(message_id){
+    $.get(URL + "/" + message_id,
+    
+      {api_key:  API_KEY},
+    
+      function(data){ 
+        // For example, let's get the status_id of the message.
+        console.log(data.id, data.status_id) 
+      }
+    )
+  };
+
+  getSms(11);
+  
+</pre>
