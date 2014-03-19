@@ -23,6 +23,9 @@ class PhonesController < ApplicationController
 	def index
 		if current_client
 			@all_phones = current_client.phones
+			if current_client.id != 0
+				@all_phones.reject!{|phone| phone.client_id == 0}
+			end
 			@used_phones = current_client.used_phones
 			@not_used_phones = @all_phones - @used_phones
 		else
