@@ -1,0 +1,1 @@
+(function(){$(function(){return $(".make-switch input").change(function(){var n,t,e;return n=$(this).prop("checked"),t=$(this).attr("name"),e=n?"phones/"+t+"/use":"phones/"+t+"/unuse",$.post(e)})})}).call(this);

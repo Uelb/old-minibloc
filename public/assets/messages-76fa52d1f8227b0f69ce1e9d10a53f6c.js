@@ -1,0 +1,1 @@
+(function(){var e;e=setInterval(function(){return console.log("mess"),$.get("/messages",{no_layout:!0},function(e){return $(".mainbar .col-md-12").replaceWith(e)})},5e3),document.addEventListener("page:before-change",function(){return clearInterval(e)})}).call(this);
