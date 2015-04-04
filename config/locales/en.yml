@@ -8,6 +8,7 @@ en:
     add_phone: Add a phone
     all_messages: Sent and received messages
     new_message: Create a message
+    messages: Messages
   phones:
     activate: Activate
     code: Resend the activation code
@@ -20,16 +21,16 @@ en:
   filter: "Type to Filter:"
   documentation:
     getting_started: |
-      Hello there, the Mocti team is glad that you want to try this awesome system.
-      Mocti will allow you to send sms from your own server, website, and get the delivery reports and the answers of the system. 
-      It is designed as a REST API and a swagger documentation is available. So if those words means something to you, go to http://swagger.wordnik.com and use the url doc http://www.mocti.fr/api/api-docs.
+      Hello there, the Minibloc team is glad that you want to try this awesome system.
+      Minibloc will allow you to send sms from your own server, website, and get the delivery reports and the answers of the system. 
+      It is designed as a REST API and a swagger documentation is available. So if those words means something to you, go to http://swagger.wordnik.com and use the url doc http://www.minibloc.fr/api/api-docs.
       If they don't, it is ok ! Just read this documentation !
-      There is 2 ways of sending SMS, using your own phones, or using the MOCTI phones, in both cases, you will need an API key to communicate with our server.
+      There is 2 ways of sending SMS, using your own phones, or using the MINIBLOC phones, in both cases, you will need an API key to communicate with our server.
       Contact our team to ask for one.
     send_a_message : |
       To send a message, you have to do a HTTP POST request to our servers, whose specifications are below :
       <i>Method: POST
-      Url: http://www.mocti.fr/messages
+      Url: http://www.minibloc.fr/messages
       Data: {message: {recipient: '0123456789', body: 'test'}, api_key: '{YOUR API KEY}'}</i> 
       The answer will look like that : 
     example: |
@@ -40,7 +41,7 @@ en:
       <strong>Get a message status</strong>
       In order to get a message status, you need to do an HTTP GET request to our servers, whose specifications are below :
       <i>Method: GET
-      Url: http://www.mocti.fr/messages/:id
+      Url: http://www.minibloc.fr/messages/:id
       Data: {api_key: '{YOUR API KEY}'}</i>
       The answer will look_like that :
     delivery_report_2: |
@@ -57,7 +58,7 @@ en:
       <strong>Get the answers of a message</strong>
       In order to get the answers of a message, you need to know its id and perform an HTTP GET request to our servers, whose specifications are below :
       <i>Method: GET
-      Url: http://www.mocti.fr/messages/:id/answers
+      Url: http://www.minibloc.fr/messages/:id/answers
       Data: {message: {id: 11}, api_key: '{YOUR_API_KEY}'}</i>
       The answer will look like that :
     answer_2: |
@@ -70,3 +71,5 @@ en:
       You can then manage this answer freely.
     phones: |
       TODO
+  phone: Phone
+  email: E-mail

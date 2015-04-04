@@ -4,45 +4,6 @@ class MessagesController < ApplicationController
 	before_filter :authenticate_phone!, only: [:answers, :update]
 	layout 'macadmin'
 
-	# swagger_controller :messages, "Messages management"
-
-	# swagger_api :create do 
-	# 	summary "Send a new message, do not forget to save the returned id to be able to retrieve the message later"
-	# 	param :form, 'message[recipient]', :string, :required, "The recipient number of the message (0612345678)"
-	# 	param :form, 'message[body]', :string, :required, "The body of the message"
-	# end
-
-	# swagger_api :show do 
-	# 	summary "Retrieve the information of a message"
-	# 	param :path, :id, :integer, :required, "The id of the message"
-	# end
-
-	# swagger_api :answers do 
-	# 	summary "Inform that a message has been answered"
-	# 	param :form, 'message[sender]', :string, :required, "The sender number of the message"
-	# 	param :form, 'message[recipient]', :string, :optional, "The receiver number of the message"
-	# 	param :form, 'message[body]', :string, :required, "The body of the message"
-	# 	param :form, :token, :string, :required, "The token of the phone doing the request" 
-	# end
-
-	# swagger_api :update do
-	# 	summary "Change the status code of a message"
-	# 	param :path, :id, :integer, :required, "the id of the message"
-	# 	param :form, 'message[status_id]', :integer, :required, "The new status code of the message"
-	# 	param :form, :token, :string, :required, "The token of the phone doing the request" 
-	# end
-
-	# swagger_api :index do
-	# 	summary "A phone can retrieve messages to send and a client can see the messages he has sent"
-	# 	param :query, :token, :string, :optional, "The token of the phone doing the request" 
-	# end
-
-	# swagger_api :get_answers do 
-	# 	summary "Get all the answers associated to a message"
-	# 	param :path, :id, :integer, :required, "The id of the message" 
-	# 	param :query, :api_key, :string, :required, "Your api key"
-	# end
-
 	def new
 		@message = Message.new
 	end

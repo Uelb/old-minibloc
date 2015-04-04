@@ -11,9 +11,7 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery.turbolinks
 //= require jquery_ujs
-//= require turbolinks
 //= require macadmin/bootstrap
 //= require macadmin/jquery-ui-1.9.2.custom.min
 //= require macadmin/fullcalendar.min

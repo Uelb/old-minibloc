@@ -1,10 +1,4 @@
 class PhonesController < ApplicationController
-	# swagger_controller :phones, "Add a new phone"
-
-	# swagger_api :create do 
-	# 	summary "Connect a phone to the system"
-	# 	param :form, 'phone[number]', :string, :required, "The phone number"
-	# end
 
 	before_filter :authenticate!, only: :index
 	before_filter :authenticate_client!, only: [:update, :use, :unuse, :activate]
@@ -24,7 +18,7 @@ class PhonesController < ApplicationController
 		if current_client
 			@all_phones = current_client.phones
 			if current_client.id != 0
-				@all_phones.reject!{|phone| phone.client_id == 0}
+				@all_phones = @all_phones.where.not(client_id: 0)
 			end
 			@used_phones = current_client.used_phones
 			@not_used_phones = @all_phones - @used_phones

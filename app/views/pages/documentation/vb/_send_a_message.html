@@ -1,7 +1,7 @@
 <pre class='brush: vb'>
 
   Sub sendSms(ByVal tel as String, ByVal message as String)
-    Dim baseUrl As String = "http://www.mocti.fr/messages"
+    Dim baseUrl As String = "http://www.minibloc.fr/messages"
     Dim request As WebRequest = WebRequest.Create(baseUrl)
     Dim ApiKey as String = "YOUR_API_KEY"
     request.Method = "POST"

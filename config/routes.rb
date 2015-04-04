@@ -1,4 +1,4 @@
-Mocti::Application.routes.draw do
+Minibloc::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :clients

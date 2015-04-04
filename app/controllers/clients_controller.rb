@@ -1,12 +1,6 @@
 class ClientsController < ApplicationController
 	before_filter :authenticate!, only: :update
 	before_filter :authenticate_client!, only: [:show, :edit]
-	# swagger_controller :clients, "Management of a client account"
-	# swagger_api :update do
-	# 	summary "Update the callback url of a client"
-	# 	param :path, :id, :integer, :required, "The id of the client"
-	# 	param :form, 'client[event_base_url]', :string, :required, "The new url"
-	# end
 
 	def show
 		@client = current_client

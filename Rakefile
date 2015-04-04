@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Mocti::Application.load_tasks
+Minibloc::Application.load_tasks
